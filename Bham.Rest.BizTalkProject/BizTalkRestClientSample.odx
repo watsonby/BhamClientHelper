@@ -2,11 +2,11 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="17c1d4ec-a347-4592-a29b-7062c248d06b" LowerBound="1.1" HigherBound="131.1">
+    <om:Element Type="Module" OID="17c1d4ec-a347-4592-a29b-7062c248d06b" LowerBound="1.1" HigherBound="209.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="Bham.Rest.BizTalkProject" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="ServiceDeclaration" OID="6c75631a-700b-480c-886c-a520ebeac9ce" ParentLink="Module_ServiceDeclaration" LowerBound="22.1" HigherBound="130.1">
+        <om:Element Type="ServiceDeclaration" OID="6c75631a-700b-480c-886c-a520ebeac9ce" ParentLink="Module_ServiceDeclaration" LowerBound="22.1" HigherBound="208.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
@@ -109,6 +109,30 @@
                 <om:Property Name="Name" Value="strUntilUtc" />
                 <om:Property Name="Signal" Value="True" />
             </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9f953e78-2a57-43ad-8ba6-b3bd432b6a1d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strGallagherCardholderId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="aeac71c7-38af-4f4c-aab5-701cd2cd8d80" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strAccessGroupId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1f679e95-bb3d-4f51-820a-c6750a6ff3cf" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="45.1" HigherBound="46.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strMembershipHref" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
             <om:Element Type="MessageDeclaration" OID="8deddcf7-ea09-4952-bd18-cbb9630fe490" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="29.1" HigherBound="30.1">
                 <om:Property Name="Type" Value="System.Xml.XmlDocument" />
                 <om:Property Name="ParamDirection" Value="In" />
@@ -125,7 +149,7 @@
             </om:Element>
             <om:Element Type="ServiceBody" OID="364c7d3f-b23c-4ff9-b0e9-d7810fa3a8b5" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
-                <om:Element Type="Receive" OID="38b39288-9fb0-4829-aae7-85003b632e06" ParentLink="ServiceBody_Statement" LowerBound="45.1" HigherBound="59.1">
+                <om:Element Type="Receive" OID="38b39288-9fb0-4829-aae7-85003b632e06" ParentLink="ServiceBody_Statement" LowerBound="48.1" HigherBound="65.1">
                     <om:Property Name="Activate" Value="True" />
                     <om:Property Name="PortName" Value="BhamClientRestSimpleTest" />
                     <om:Property Name="MessageName" Value="inputXml" />
@@ -135,41 +159,59 @@
                     <om:Property Name="Name" Value="Receive_1" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="Scope" OID="33d68f07-0be2-4fdf-8946-02b49b7b12b9" ParentLink="ServiceBody_Statement" LowerBound="59.1" HigherBound="128.1">
+                <om:Element Type="Scope" OID="33d68f07-0be2-4fdf-8946-02b49b7b12b9" ParentLink="ServiceBody_Statement" LowerBound="65.1" HigherBound="206.1">
                     <om:Property Name="InitializedTransactionType" Value="True" />
                     <om:Property Name="IsSynchronized" Value="False" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Scope_1" />
                     <om:Property Name="Signal" Value="True" />
-                    <om:Element Type="VariableAssignment" OID="ead8be3a-964b-41b8-9058-12c9edac78f6" ParentLink="ComplexStatement_Statement" LowerBound="64.1" HigherBound="77.1">
-                        <om:Property Name="Expression" Value="// Usually obtain some of these from SSO config!&#xA;strGallagherBaseUrl = &quot;https://its-d-cdx-01.adf.bham.ac.uk:8904/api&quot;;&#xD;&#xA;strApiKey = &quot;2133-6820-E746-11CC-52D2-3417-CF15-2482&quot;;&#xD;&#xA;strCertThumbprint = &quot;38523f7c40f4bf32ffc06669ef7882a35476a0a4&quot;;&#xD;&#xA;strPdfFieldId = &quot;630&quot;;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xD;&#xA;strCardholderId = &quot;IDCARD.12345&quot;;&#xD;&#xA;strAccessGroupName = &quot;6040-CHAMBERLAIN-B-11703&quot;;&#xD;&#xA;strFromDate = &quot;2026-04-01&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-01&quot;;&#xD;&#xA;strFromUtc = &quot;2026-04-01T00:00:00Z&quot;;&#xD;&#xA;strUntilUtc = &quot;2026-04-30T12:00:00Z&quot;;&#xA;" />
+                    <om:Element Type="VariableAssignment" OID="ead8be3a-964b-41b8-9058-12c9edac78f6" ParentLink="ComplexStatement_Statement" LowerBound="70.1" HigherBound="83.1">
+                        <om:Property Name="Expression" Value="// Usually obtain some of these from SSO config!&#xA;strGallagherBaseUrl = &quot;https://its-d-cdx-01.adf.bham.ac.uk:8904/api&quot;;&#xD;&#xA;strApiKey = &quot;2133-6820-E746-11CC-52D2-3417-CF15-2482&quot;;&#xD;&#xA;strCertThumbprint = &quot;38523f7c40f4bf32ffc06669ef7882a35476a0a4&quot;;&#xD;&#xA;strPdfFieldId = &quot;630&quot;; // Set string to invalid value to prove it works!&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xD;&#xA;strCardholderId = &quot;IDCARD.12345&quot;;&#xD;&#xA;strAccessGroupName = &quot;6040-CHAMBERLAIN-B-11703&quot;;&#xD;&#xA;strFromDate = &quot;2026-04-01&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-01&quot;;&#xD;&#xA;strFromUtc = &quot;2026-04-01T00:00:00Z&quot;;&#xD;&#xA;strUntilUtc = &quot;2026-04-30T12:00:00Z&quot;;&#xA;" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Name" Value="Expression_3" />
-                        <om:Property Name="Signal" Value="True" />
-                    </om:Element>
-                    <om:Element Type="VariableAssignment" OID="282bc45b-998e-468f-ac42-5ddb2eb424b5" ParentLink="ComplexStatement_Statement" LowerBound="77.1" HigherBound="93.1">
-                        <om:Property Name="Expression" Value="&#xA;strPdfFieldId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolvePersonalDataFieldId(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        &quot;ThirdPartyID&quot;,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xA;&#xA;System.Diagnostics.Debug.Write(&quot;Output is &quot; + strPdfFieldKey);" />
-                        <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Name" Value="Expression_1" />
+                        <om:Property Name="Name" Value="Init vars" />
                         <om:Property Name="Signal" Value="False" />
                     </om:Element>
-                    <om:Element Type="Construct" OID="f577ed52-f4c6-4483-9b23-b39c7536ec82" ParentLink="ComplexStatement_Statement" LowerBound="93.1" HigherBound="100.1">
+                    <om:Element Type="VariableAssignment" OID="282bc45b-998e-468f-ac42-5ddb2eb424b5" ParentLink="ComplexStatement_Statement" LowerBound="83.1" HigherBound="99.1">
+                        <om:Property Name="Expression" Value="// 1. GET PDF ID using &quot;ThirdPartyID&quot;&#xA;strPdfFieldId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolvePersonalDataFieldId(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        &quot;ThirdPartyID&quot;,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xA;&#xA;System.Diagnostics.Debug.Write(&quot;Output is &quot; + strPdfFieldKey);" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Name" Value="CreateExceptionMsg" />
+                        <om:Property Name="Name" Value="Get PDF ID" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="MessageRef" OID="80bd3074-f962-4593-a07c-780dd7b78846" ParentLink="Construct_MessageRef" LowerBound="94.31" HigherBound="94.40">
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="4897d0e8-a604-4370-a866-386c2ba1c07b" ParentLink="ComplexStatement_Statement" LowerBound="99.1" HigherBound="130.1">
+                        <om:Property Name="Expression" Value="// 2. GET /api/cardholders?pdf_629='IDCARD.12345'&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;// 3. extract some data from the JSON response, cardholder Id&#xD;&#xA;strGallagherCardholderId = Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);&#xD;&#xA;&#xD;&#xA;// 4. extract access group using access group &quot;6040-CHAMBERLAIN-B-11703&quot; (variable: strAccessGroupName)&#xD;&#xA;// returns JSON&#xD;&#xA;strAccessGroupId = Bham.BizTalk.Rest.GallagherApiFacade.SearchAccessGroupsByName(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;System.Diagnostics.Debug.Write(&quot;Output is &quot; + strResponse);" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="GET Cardholders" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Construct" OID="f577ed52-f4c6-4483-9b23-b39c7536ec82" ParentLink="ComplexStatement_Statement" LowerBound="130.1" HigherBound="137.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CreateResponse" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="80bd3074-f962-4593-a07c-780dd7b78846" ParentLink="Construct_MessageRef" LowerBound="131.31" HigherBound="131.40">
                             <om:Property Name="Ref" Value="outputXml" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessageAssignment" OID="34484026-08d8-44ab-969d-c464b517d017" ParentLink="ComplexStatement_Statement" LowerBound="96.1" HigherBound="99.1">
-                            <om:Property Name="Expression" Value="outputXml = new System.Xml.XmlDocument();&#xD;&#xA;outputXml.LoadXml(&quot;&lt;result&gt;&quot;+ strPdfFieldKey.ToString() + &quot;&lt;/result&gt;&quot;);" />
+                        <om:Element Type="MessageAssignment" OID="34484026-08d8-44ab-969d-c464b517d017" ParentLink="ComplexStatement_Statement" LowerBound="133.1" HigherBound="136.1">
+                            <om:Property Name="Expression" Value="outputXml = new System.Xml.XmlDocument();&#xD;&#xA;outputXml.LoadXml(&quot;&lt;result&gt;&lt;cardholder&gt;&quot; + strGallagherCardholderId + &quot;&lt;/cardholder&gt;&lt;accessgroup&gt;&quot; + strAccessGroupId + &quot;&lt;/accessgroup&gt;&lt;json&gt;&quot; + strResponse.ToString() + &quot;&lt;/json&gt;&lt;/result&gt;&quot;);" />
                             <om:Property Name="ReportToAnalyst" Value="False" />
                             <om:Property Name="Name" Value="AddExceptionMsg" />
-                            <om:Property Name="Signal" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Send" OID="2b771e2b-69cc-474d-949e-141b04033422" ParentLink="ComplexStatement_Statement" LowerBound="100.1" HigherBound="102.1">
+                    <om:Element Type="VariableAssignment" OID="9e69a904-76c4-4699-a45c-354dc586af89" ParentLink="ComplexStatement_Statement" LowerBound="137.1" HigherBound="156.1">
+                        <om:Property Name="Expression" Value="// 5.PATCH - Add an access group to a cardholder.&#xD;&#xA;&#xD;&#xA;strResponse = &quot;ToDo: Test PATCH Add&quot;;&#xD;&#xA;//strResponse = Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(&#xD;&#xA;//        strGallagherBaseUrl,&#xD;&#xA;//        &quot;Authorization&quot;,&#xD;&#xA;//        strApiKey,&#xD;&#xA;//        strGallagherCardholderId,&#xD;&#xA;//        strAccessGroupId,&#xD;&#xA;//        strFromDate,&#xD;&#xA;//        strUntilDate,&#xD;&#xA;//        strCertThumbprint,&#xD;&#xA;//        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;//        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;//        100);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;System.Diagnostics.Debug.Write(&quot;Cardholder added response is &quot; + strResponse);" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Add Call" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="c96d959b-433c-44d1-b1f5-fedf5628c6a7" ParentLink="ComplexStatement_Statement" LowerBound="156.1" HigherBound="178.1">
+                        <om:Property Name="Expression" Value="// How to Update or Remove!!&#xD;&#xA;&#xD;&#xA;strResponse = &quot;ToDo: Test finding an existing record.&quot;;&#xD;&#xA;&#xD;&#xA;// 6. Get href for existing access-group, needed before we can update or remove&#xD;&#xA;// = Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;//        strGallagherBaseUrl,&#xD;&#xA;//        &quot;Authorization&quot;,&#xD;&#xA;//        strApiKey,&#xD;&#xA;//        strAccessGroupId,&#xD;&#xA;//        strGallagherCardholderId,&#xD;&#xA;//        strCertThumbprint,&#xD;&#xA;//        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;//        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;//        100);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.Debug.Write(&quot;Cardholder found is &quot; + strResponse);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// ToDo&#xD;&#xA;System.Diagnostics.Debug.Write(&quot;Cardholder removed response is &quot; + strResponse);&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Remove" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Send" OID="2b771e2b-69cc-474d-949e-141b04033422" ParentLink="ComplexStatement_Statement" LowerBound="178.1" HigherBound="180.1">
                         <om:Property Name="PortName" Value="OutputPort" />
                         <om:Property Name="MessageName" Value="outputXml" />
                         <om:Property Name="OperationName" Value="Result" />
@@ -178,36 +220,36 @@
                         <om:Property Name="Name" Value="sndResult" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Catch" OID="8e5a5621-5e0c-42d6-b18d-4c4916b33d36" ParentLink="Scope_Catch" LowerBound="105.1" HigherBound="120.1">
+                    <om:Element Type="Catch" OID="8e5a5621-5e0c-42d6-b18d-4c4916b33d36" ParentLink="Scope_Catch" LowerBound="183.1" HigherBound="198.1">
                         <om:Property Name="ExceptionName" Value="ex" />
                         <om:Property Name="ExceptionType" Value="Bham.BizTalk.Rest.BizTalkRestClientException" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="BhamException" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="VariableAssignment" OID="833dd22d-2c60-4dc9-b301-b578922fd069" ParentLink="Catch_Statement" LowerBound="108.1" HigherBound="110.1">
+                        <om:Element Type="VariableAssignment" OID="833dd22d-2c60-4dc9-b301-b578922fd069" ParentLink="Catch_Statement" LowerBound="186.1" HigherBound="188.1">
                             <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(ex.Message);" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Expression_2" />
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
-                        <om:Element Type="Construct" OID="02e0a80f-6596-40ab-97b3-df7eda245667" ParentLink="Catch_Statement" LowerBound="110.1" HigherBound="117.1">
+                        <om:Element Type="Construct" OID="02e0a80f-6596-40ab-97b3-df7eda245667" ParentLink="Catch_Statement" LowerBound="188.1" HigherBound="195.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="CreateExceptionMsg" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="38137dd7-8405-47b5-aacb-a29bbffe1502" ParentLink="ComplexStatement_Statement" LowerBound="113.1" HigherBound="116.1">
+                            <om:Element Type="MessageAssignment" OID="38137dd7-8405-47b5-aacb-a29bbffe1502" ParentLink="ComplexStatement_Statement" LowerBound="191.1" HigherBound="194.1">
                                 <om:Property Name="Expression" Value="outputXml = new System.Xml.XmlDocument();&#xD;&#xA;outputXml.LoadXml(&quot;&lt;exception&gt;&quot;+ ex.Message.ToString() + &quot;&lt;/exception&gt;&quot;);" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="AddExceptionMsg" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="ab02982a-f677-45c0-adc5-d3f5e41ceb77" ParentLink="Construct_MessageRef" LowerBound="111.35" HigherBound="111.44">
+                            <om:Element Type="MessageRef" OID="ab02982a-f677-45c0-adc5-d3f5e41ceb77" ParentLink="Construct_MessageRef" LowerBound="189.35" HigherBound="189.44">
                                 <om:Property Name="Ref" Value="outputXml" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Send" OID="7918f1b3-dea4-48dd-b316-c68fdac40d46" ParentLink="Catch_Statement" LowerBound="117.1" HigherBound="119.1">
+                        <om:Element Type="Send" OID="7918f1b3-dea4-48dd-b316-c68fdac40d46" ParentLink="Catch_Statement" LowerBound="195.1" HigherBound="197.1">
                             <om:Property Name="PortName" Value="OutputPort" />
                             <om:Property Name="MessageName" Value="outputXml" />
                             <om:Property Name="OperationName" Value="Exception" />
@@ -217,13 +259,13 @@
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Catch" OID="8dd75c60-f7a1-4ab9-85f5-bc169b4cbd78" ParentLink="Scope_Catch" LowerBound="120.1" HigherBound="126.1">
+                    <om:Element Type="Catch" OID="8dd75c60-f7a1-4ab9-85f5-bc169b4cbd78" ParentLink="Scope_Catch" LowerBound="198.1" HigherBound="204.1">
                         <om:Property Name="ExceptionType" Value="General Exception" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="GGeneralEx" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="VariableAssignment" OID="a44cd659-306b-4325-84c8-9a493401395e" ParentLink="Catch_Statement" LowerBound="123.1" HigherBound="125.1">
+                        <om:Element Type="VariableAssignment" OID="a44cd659-306b-4325-84c8-9a493401395e" ParentLink="Catch_Statement" LowerBound="201.1" HigherBound="203.1">
                             <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(&quot;A general exception was thrown&quot;);" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Expression_4" />
@@ -360,6 +402,9 @@ module Bham.Rest.BizTalkProject
         System.String strUntilDate;
         System.String strFromUtc;
         System.String strUntilUtc;
+        System.String strGallagherCardholderId;
+        System.String strAccessGroupId;
+        System.String strMembershipHref;
         body ()
         {
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("38b39288-9fb0-4829-aae7-85003b632e06")]
@@ -376,6 +421,9 @@ module Bham.Rest.BizTalkProject
             strUntilDate = "";
             strFromUtc = "";
             strUntilUtc = "";
+            strGallagherCardholderId = "";
+            strAccessGroupId = "";
+            strMembershipHref = "";
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("33d68f07-0be2-4fdf-8946-02b49b7b12b9")]
             scope
             {
@@ -386,7 +434,7 @@ module Bham.Rest.BizTalkProject
                     strGallagherBaseUrl = "https://its-d-cdx-01.adf.bham.ac.uk:8904/api";
                     strApiKey = "2133-6820-E746-11CC-52D2-3417-CF15-2482";
                     strCertThumbprint = "38523f7c40f4bf32ffc06669ef7882a35476a0a4";
-                    strPdfFieldId = "630";
+                    strPdfFieldId = "630"; // Set string to invalid value to prove it works!
                     strPdfFieldKey = "pdf_" + strPdfFieldId;
                     strCardholderId = "IDCARD.12345";
                     strAccessGroupName = "6040-CHAMBERLAIN-B-11703";
@@ -395,7 +443,7 @@ module Bham.Rest.BizTalkProject
                     strFromUtc = "2026-04-01T00:00:00Z";
                     strUntilUtc = "2026-04-30T12:00:00Z";
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("282bc45b-998e-468f-ac42-5ddb2eb424b5")]
-                    
+                    // 1. GET PDF ID using "ThirdPartyID"
                     strPdfFieldId =
                         Bham.BizTalk.Rest.GallagherApiFacade.ResolvePersonalDataFieldId(
                             strGallagherBaseUrl,
@@ -410,13 +458,85 @@ module Bham.Rest.BizTalkProject
                     strPdfFieldKey = "pdf_" + strPdfFieldId;
                     
                     System.Diagnostics.Debug.Write("Output is " + strPdfFieldKey);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("4897d0e8-a604-4370-a866-386c2ba1c07b")]
+                    // 2. GET /api/cardholders?pdf_629='IDCARD.12345'
+                    strResponse =
+                        Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(
+                            strGallagherBaseUrl,
+                            "Authorization",
+                            strApiKey,
+                            strCardholderId,
+                            strPdfFieldKey,
+                            strCertThumbprint,
+                            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                            System.Security.Cryptography.X509Certificates.StoreName.My,
+                            100);
+                    
+                    // 3. extract some data from the JSON response, cardholder Id
+                    strGallagherCardholderId = Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+                    
+                    // 4. extract access group using access group "6040-CHAMBERLAIN-B-11703" (variable: strAccessGroupName)
+                    // returns JSON
+                    strAccessGroupId = Bham.BizTalk.Rest.GallagherApiFacade.SearchAccessGroupsByName(
+                            strGallagherBaseUrl,
+                            "Authorization",
+                            strApiKey,
+                            strAccessGroupName,
+                            strCertThumbprint,
+                            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                            System.Security.Cryptography.X509Certificates.StoreName.My,
+                            100);
+                    
+                    
+                    System.Diagnostics.Debug.Write("Output is " + strResponse);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("f577ed52-f4c6-4483-9b23-b39c7536ec82")]
                     construct outputXml
                     {
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("34484026-08d8-44ab-969d-c464b517d017")]
                         outputXml = new System.Xml.XmlDocument();
-                        outputXml.LoadXml("<result>"+ strPdfFieldKey.ToString() + "</result>");
+                        outputXml.LoadXml("<result><cardholder>" + strGallagherCardholderId + "</cardholder><accessgroup>" + strAccessGroupId + "</accessgroup><json>" + strResponse.ToString() + "</json></result>");
                     }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("9e69a904-76c4-4699-a45c-354dc586af89")]
+                    // 5.PATCH - Add an access group to a cardholder.
+                    
+                    strResponse = "ToDo: Test PATCH Add";
+                    //strResponse = Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(
+                    //        strGallagherBaseUrl,
+                    //        "Authorization",
+                    //        strApiKey,
+                    //        strGallagherCardholderId,
+                    //        strAccessGroupId,
+                    //        strFromDate,
+                    //        strUntilDate,
+                    //        strCertThumbprint,
+                    //        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                    //        System.Security.Cryptography.X509Certificates.StoreName.My,
+                    //        100);
+                    
+                    
+                    System.Diagnostics.Debug.Write("Cardholder added response is " + strResponse);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("c96d959b-433c-44d1-b1f5-fedf5628c6a7")]
+                    // How to Update or Remove!!
+                    
+                    strResponse = "ToDo: Test finding an existing record.";
+                    
+                    // 6. Get href for existing access-group, needed before we can update or remove
+                    // = Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(
+                    //        strGallagherBaseUrl,
+                    //        "Authorization",
+                    //        strApiKey,
+                    //        strAccessGroupId,
+                    //        strGallagherCardholderId,
+                    //        strCertThumbprint,
+                    //        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                    //        System.Security.Cryptography.X509Certificates.StoreName.My,
+                    //        100);
+                    
+                    System.Diagnostics.Debug.Write("Cardholder found is " + strResponse);
+                    
+                    
+                    // ToDo
+                    System.Diagnostics.Debug.Write("Cardholder removed response is " + strResponse);
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("2b771e2b-69cc-474d-949e-141b04033422")]
                     send (OutputPort.Result, outputXml);
                 }
