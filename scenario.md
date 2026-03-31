@@ -15,6 +15,7 @@ Define orchestration string variables:
 - `strPdfFieldId`
 - `strPdfFieldKey`
 - `strCardholderId`
+- `strAccessGroupName`
 - `strAccessGroupId`
 - `strFromDate`
 - `strUntilDate`
@@ -31,7 +32,7 @@ strCertThumbprint = "YOUR_CERT_THUMBPRINT";
 strPdfFieldId = "629";
 strPdfFieldKey = "pdf_" + strPdfFieldId;
 strCardholderId = "IDCARD.2953599";
-strAccessGroupId = "6090-MASON-114-02";
+strAccessGroupName = "6090-MASON-114-02";
 strFromDate = "2025-09-12T05:00:00Z";
 strUntilDate = "2026-05-20T10:00:00Z";
 ```
@@ -57,6 +58,21 @@ strResponse =
 ```csharp
 strGallagherCardholderId =
     Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+```
+
+### Expression Shape C.5 (Resolve Access Group ID by Name)
+
+```csharp
+strAccessGroupId =
+    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupIdByName(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strAccessGroupName,
+        strCertThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        100);
 ```
 
 ### Expression Shape D (Check if Membership Already Exists)
@@ -116,7 +132,7 @@ strCertThumbprint = "YOUR_CERT_THUMBPRINT";
 strPdfFieldId = "629";
 strPdfFieldKey = "pdf_" + strPdfFieldId;
 strCardholderId = "IDCARD.2953599";
-strAccessGroupId = "6090-MASON-114-02";
+strAccessGroupName = "6090-MASON-114-02";
 ```
 
 ### Expression Shape B (Find Cardholder by PDF Value)
@@ -140,6 +156,21 @@ strResponse =
 ```csharp
 strGallagherCardholderId =
     Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+```
+
+### Expression Shape C.5 (Resolve Access Group ID by Name)
+
+```csharp
+strAccessGroupId =
+    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupIdByName(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strAccessGroupName,
+        strCertThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        100);
 ```
 
 ### Expression Shape D (Resolve Membership Href)
@@ -185,6 +216,6 @@ strResponse =
 - Replace `YOUR_API_KEY` and `YOUR_CERT_THUMBPRINT` with actual values.
 - The PDF field ID `629` is used as an example - adjust based on your configuration.
 - Error handling should be added in production code.
-- The `ResolveAccessGroupMembershipHref` method returns an empty string if no membership exists.
+- The `ResolveAccessGroupMembershipHref` method returns an empty string if no membership exists or if the access group does not exist (handles 404 errors internally).
 - Date/time values should be in ISO 8601 format with timezone (Z for UTC).</content>
 <parameter name="filePath">f:\Projects\BhamClientHelper-main\scenario.md
