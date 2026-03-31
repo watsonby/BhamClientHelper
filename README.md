@@ -503,6 +503,24 @@ Available parser methods:
 - Exception includes HTTP method, URL, status code (if available), and response body (if available).
 - Optional logger hook: BizTalkRestClientSettings.Logger (Action<BizTalkRestLogEntry>).
 
+### NLog and GallagherLoggingHelper
+
+For production BizTalk orchestrations, use `GallagherLoggingHelper` to integrate NLog logging.
+
+- Wrapper methods are available for all common Gallagher API operations with automatic NLog integration.
+- NLog logger name: `Bham.BizTalk.Rest.Gallagher`
+- Log properties include timestamp, operation, URL, status code, and context.
+
+**Complete end-to-end tutorials** for both add and remove scenarios with NLog enabled:
+- See [scenariologging.md](scenariologging.md) for Scenario 1 (add cardholder to access group) and Scenario 2 (remove cardholder from access group).
+
+Example helper methods available:
+- `GetCardholdersByPdfValueWithNLog(...)`
+- `ResolveAccessGroupHrefByNameWithNLog(...)`
+- `ResolveAccessGroupMembershipHrefWithNLog(...)`
+- `RemoveCardholderFromAccessGroupWithNLog(...)`
+- `AddAccessGroupToCardholderWithNLog(...)`
+
 ## 9. Build and test
 
 Build solution:

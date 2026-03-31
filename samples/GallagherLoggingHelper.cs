@@ -186,6 +186,70 @@ public static class GallagherLoggingHelper
             CreateNLogLogger("ResolveGallagherCardholderId"));
     }
 
+    public static string GetCardholdersByPdfValueWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string cardholderId,
+        string pdfFieldKey,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.GetCardholdersByPdfValue(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            cardholderId,
+            pdfFieldKey,
+            certThumbprint,
+            StoreLocation.LocalMachine,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("GetCardholdersByPdfValue"));
+    }
+
+    public static string ResolveAccessGroupHrefByNameWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string accessGroupName,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.ResolveAccessGroupHrefByName(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            accessGroupName,
+            certThumbprint,
+            StoreLocation.LocalMachine,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("ResolveAccessGroupHrefByName"));
+    }
+
+    public static string ResolveAccessGroupMembershipHrefWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string accessGroupHref,
+        string cardholderId,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.ResolveAccessGroupMembershipHref(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            accessGroupHref,
+            cardholderId,
+            certThumbprint,
+            StoreLocation.LocalMachine,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("ResolveAccessGroupMembershipHref"));
+    }
+
     public static string AddAccessGroupToCardholderWithNLog(
         string baseUrl,
         string apiKeyHeaderName,
@@ -210,6 +274,28 @@ public static class GallagherLoggingHelper
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("AddAccessGroupToCardholder"));
+    }
+
+    public static string RemoveCardholderFromAccessGroupWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string cardholderId,
+        string membershipHref,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.RemoveCardholderFromAccessGroup(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            cardholderId,
+            membershipHref,
+            certThumbprint,
+            StoreLocation.LocalMachine,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("RemoveCardholderFromAccessGroup"));
     }
 
     private static Action<BizTalkRestLogEntry> CreateLogger(string context)

@@ -209,7 +209,16 @@ namespace Bham.BizTalk.Rest
         {
             try
             {
-                return GallagherApiResponseParser.GetAccessGroupMembershipHrefForCardholder(GetAccessGroupCardholders(accessGroupId), cardholderId);
+                string membershipHref;
+                if (GallagherApiResponseParser.TryGetAccessGroupMembershipHrefForCardholder(
+                    GetAccessGroupCardholders(accessGroupId),
+                    cardholderId,
+                    out membershipHref))
+                {
+                    return membershipHref;
+                }
+
+                return string.Empty;
             }
             catch (BizTalkRestClientException ex) when (ex.StatusCode == 404)
             {
