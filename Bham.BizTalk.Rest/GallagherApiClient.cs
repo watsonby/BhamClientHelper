@@ -110,7 +110,7 @@ namespace Bham.BizTalk.Rest
         public string GetAccessGroupById(string accessGroupId)
         {
             if (string.IsNullOrWhiteSpace(accessGroupId)) throw new ArgumentNullException(nameof(accessGroupId));
-            return _client.GetJson(CombineUrl("access_groups/" + EncodePathSegment(accessGroupId)));
+            return _client.GetJson(BuildAccessGroupResourceUrl(accessGroupId));
         }
 
         /// <summary>
@@ -132,7 +132,9 @@ namespace Bham.BizTalk.Rest
         public string GetAccessGroupCardholders(string accessGroupId)
         {
             if (string.IsNullOrWhiteSpace(accessGroupId)) throw new ArgumentNullException(nameof(accessGroupId));
-            return _client.GetJson(CombineUrl("access_groups/" + EncodePathSegment(accessGroupId) + "/cardholders"));
+
+            var accessGroupUrl = BuildAccessGroupResourceUrl(accessGroupId);
+            return _client.GetJson(accessGroupUrl.TrimEnd('/') + "/cardholders");
         }
 
         /// <summary>
@@ -222,7 +224,7 @@ namespace Bham.BizTalk.Rest
         public string AddAccessGroupToCardholder(string cardholderId, string accessGroupId, string fromDate, string untilDate)
         {
             var url = CombineUrl("cardholders/" + EncodePathSegment(cardholderId));
-            var body = BuildAddAccessGroupPatchBody(CombineUrl("access_groups/" + EncodePathSegment(accessGroupId)), fromDate, untilDate);
+            var body = BuildAddAccessGroupPatchBody(BuildAccessGroupResourceUrl(accessGroupId), fromDate, untilDate);
             return _client.PatchJson(url, body);
         }
 
@@ -340,6 +342,21 @@ namespace Bham.BizTalk.Rest
         {
             if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
             return Uri.EscapeDataString(value.Trim());
+        }
+
+        private string BuildAccessGroupResourceUrl(string accessGroupIdOrHref)
+        {
+            if (string.IsNullOrWhiteSpace(accessGroupIdOrHref)) throw new ArgumentNullException(nameof(accessGroupIdOrHref));
+
+            var normalized = accessGroupIdOrHref.Trim();
+            Uri parsed;
+            if (Uri.TryCreate(normalized, UriKind.Absolute, out parsed) &&
+                (parsed.Scheme == Uri.UriSchemeHttp || parsed.Scheme == Uri.UriSchemeHttps))
+            {
+                return normalized;
+            }
+
+            return CombineUrl("access_groups/" + EncodePathSegment(normalized));
         }
 
         private static void ValidateAbsoluteHttpUrl(string url, string parameterName)

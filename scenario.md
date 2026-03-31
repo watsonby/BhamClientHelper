@@ -16,7 +16,7 @@ Define orchestration string variables:
 - `strPdfFieldKey`
 - `strCardholderId`
 - `strAccessGroupName`
-- `strAccessGroupId`
+- `strAccessGroupHref`
 - `strFromDate`
 - `strUntilDate`
 - `strResponse`
@@ -63,7 +63,7 @@ strGallagherCardholderId =
 ### Expression Shape C.5 (Resolve Access Group href by Name)
 
 ```csharp
-strAccessGroupId =
+strAccessGroupHref =
     Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(
         strGallagherBaseUrl,
         "Authorization",
@@ -85,7 +85,7 @@ strMembershipHref =
         strGallagherBaseUrl,
         "Authorization",
         strApiKey,
-        strAccessGroupId,
+        strAccessGroupHref,
         strGallagherCardholderId,
         strCertThumbprint,
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
@@ -108,7 +108,7 @@ strResponse =
         "Authorization",
         strApiKey,
         strGallagherCardholderId,
-        strAccessGroupId,
+        strAccessGroupHref,
         strFromDate,
         strUntilDate,
         strCertThumbprint,
@@ -160,10 +160,10 @@ strGallagherCardholderId =
     Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
 ```
 
-### Expression Shape C.5 (Resolve Access Group ID by Name)
+### Expression Shape C.5 (Resolve Access Group href by Name)
 
 ```csharp
-strAccessGroupId =
+strAccessGroupHref =
     Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(
         strGallagherBaseUrl,
         "Authorization",
@@ -185,7 +185,7 @@ strMembershipHref =
         strGallagherBaseUrl,
         "Authorization",
         strApiKey,
-        strAccessGroupId,
+        strAccessGroupHref,
         strGallagherCardholderId,
         strCertThumbprint,
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
