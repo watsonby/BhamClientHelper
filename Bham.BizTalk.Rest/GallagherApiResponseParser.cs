@@ -88,6 +88,41 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Returns the href of the entity whose name matches the supplied value.
+        /// </summary>
+        public static string GetEntityHrefByName(string responseJson, string name)
+        {
+            string href;
+            if (!TryGetEntityHrefByName(responseJson, name, out href))
+            {
+                throw new InvalidOperationException("No Gallagher entity with the requested name was found in the response.");
+            }
+
+            return href;
+        }
+
+        /// <summary>
+        /// Tries to return the href of the entity whose name matches the supplied value.
+        /// </summary>
+        public static bool TryGetEntityHrefByName(string responseJson, string name, out string href)
+        {
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
+
+            var expectedName = name.Trim();
+            return TryGetFirstMatchingValue(responseJson, delegate(IDictionary<string, object> item)
+            {
+                string itemName;
+                string itemHref;
+                if (!TryGetString(item, "name", out itemName) || !TryGetString(item, "href", out itemHref))
+                {
+                    return null;
+                }
+
+                return string.Equals(itemName, expectedName, StringComparison.OrdinalIgnoreCase) ? itemHref : null;
+            }, out href);
+        }
+
+        /// <summary>
         /// Returns the membership href for the specified cardholder from an access-group membership response.
         /// </summary>
         public static string GetAccessGroupMembershipHrefForCardholder(string responseJson, string cardholderId)

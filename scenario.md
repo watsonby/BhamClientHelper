@@ -60,11 +60,11 @@ strGallagherCardholderId =
     Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
 ```
 
-### Expression Shape C.5 (Resolve Access Group ID by Name)
+### Expression Shape C.5 (Resolve Access Group href by Name)
 
 ```csharp
 strAccessGroupId =
-    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupIdByName(
+    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(
         strGallagherBaseUrl,
         "Authorization",
         strApiKey,
@@ -74,6 +74,8 @@ strAccessGroupId =
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
 ```
+
+**Note**: Uses `ResolveAccessGroupHrefByName` instead of `ResolveAccessGroupIdByName` to obtain the full href. This handles access groups with non-numeric IDs (e.g., `6040-CHAMBERLAIN-B-11703`) and is directly compatible with PATCH operations.
 
 ### Expression Shape D (Check if Membership Already Exists)
 
@@ -162,7 +164,7 @@ strGallagherCardholderId =
 
 ```csharp
 strAccessGroupId =
-    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupIdByName(
+    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(
         strGallagherBaseUrl,
         "Authorization",
         strApiKey,
@@ -172,6 +174,8 @@ strAccessGroupId =
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
 ```
+
+**Note**: Uses `ResolveAccessGroupHrefByName` to obtain the full href instead of the ID. This is required for the PATCH operation in the next step.
 
 ### Expression Shape D (Resolve Membership Href)
 
@@ -216,6 +220,7 @@ strResponse =
 - Replace `YOUR_API_KEY` and `YOUR_CERT_THUMBPRINT` with actual values.
 - The PDF field ID `629` is used as an example - adjust based on your configuration.
 - Error handling should be added in production code.
+- The `ResolveAccessGroupHrefByName` method returns the full Gallagher API href (e.g., `https://its-d-cdx-01.adf.bham.ac.uk:8904/api/access_groups/659`), which is required for PATCH operations. This returns the correct format regardless of whether the access group ID is numeric or alphanumeric.
 - The `ResolveAccessGroupMembershipHref` method returns an empty string if no membership exists or if the access group does not exist (handles 404 errors internally).
 - Date/time values should be in ISO 8601 format with timezone (Z for UTC).</content>
 <parameter name="filePath">f:\Projects\BhamClientHelper-main\scenario.md

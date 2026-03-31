@@ -185,6 +185,14 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Resolves a Gallagher access group name to its href (preferred for PATCH operations).
+        /// </summary>
+        public string ResolveAccessGroupHrefByName(string accessGroupName)
+        {
+            return GallagherApiResponseParser.GetEntityHrefByName(FindAccessGroupsByName(accessGroupName), accessGroupName);
+        }
+
+        /// <summary>
         /// Alias for searching Gallagher access groups by name.
         /// </summary>
         public string SearchAccessGroupsByName(string accessGroupName)

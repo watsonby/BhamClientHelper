@@ -195,7 +195,7 @@
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="ActionAddOrRemove" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="DecisionBranch" OID="8cd27d71-b2b7-494e-af50-f390d1214e02" ParentLink="ReallyComplexStatement_Branch" LowerBound="111.21" HigherBound="182.1">
+                        <om:Element Type="DecisionBranch" OID="8cd27d71-b2b7-494e-af50-f390d1214e02" ParentLink="ReallyComplexStatement_Branch" LowerBound="111.21" HigherBound="179.1">
                             <om:Property Name="Expression" Value="intStatusCode == 2" />
                             <om:Property Name="IsGhostBranch" Value="True" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
@@ -225,45 +225,39 @@
                                 <om:Property Name="Name" Value="Shape  D" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="Decision" OID="89ed6ede-03bf-4c83-a02d-60c5676bdfff" ParentLink="ComplexStatement_Statement" LowerBound="149.1" HigherBound="181.1">
+                            <om:Element Type="Decision" OID="89ed6ede-03bf-4c83-a02d-60c5676bdfff" ParentLink="ComplexStatement_Statement" LowerBound="149.1" HigherBound="178.1">
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="AlreadyExistsForAdd" />
                                 <om:Property Name="Signal" Value="True" />
-                                <om:Element Type="DecisionBranch" OID="19b69e13-9bc9-4053-a38d-6f472ab8a3d1" ParentLink="ReallyComplexStatement_Branch" LowerBound="150.25" HigherBound="153.1">
-                                    <om:Property Name="Expression" Value="strMembershipHref != &quot;&quot;" />
+                                <om:Element Type="DecisionBranch" OID="19b69e13-9bc9-4053-a38d-6f472ab8a3d1" ParentLink="ReallyComplexStatement_Branch" LowerBound="150.25" HigherBound="178.1">
+                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot;" />
                                     <om:Property Name="IsGhostBranch" Value="True" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="Exists" />
+                                    <om:Property Name="Name" Value="NOT Exists" />
                                     <om:Property Name="Signal" Value="True" />
-                                </om:Element>
-                                <om:Element Type="DecisionBranch" OID="79cf7181-942a-4dc0-abbf-b5469fe58627" ParentLink="ReallyComplexStatement_Branch">
-                                    <om:Property Name="IsGhostBranch" Value="True" />
-                                    <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="Else" />
-                                    <om:Property Name="Signal" Value="False" />
-                                    <om:Element Type="VariableAssignment" OID="e9063205-26b6-471e-8af2-70adc9315efa" ParentLink="ComplexStatement_Statement" LowerBound="155.1" HigherBound="171.1">
+                                    <om:Element Type="VariableAssignment" OID="e9063205-26b6-471e-8af2-70adc9315efa" ParentLink="ComplexStatement_Statement" LowerBound="152.1" HigherBound="168.1">
                                         <om:Property Name="Expression" Value="// Add Cardholder to Access Group - Only if Not Already Exists&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strAccessGroupId,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="Shape E" />
                                         <om:Property Name="Signal" Value="False" />
                                     </om:Element>
-                                    <om:Element Type="Construct" OID="f577ed52-f4c6-4483-9b23-b39c7536ec82" ParentLink="ComplexStatement_Statement" LowerBound="171.1" HigherBound="178.1">
+                                    <om:Element Type="Construct" OID="f577ed52-f4c6-4483-9b23-b39c7536ec82" ParentLink="ComplexStatement_Statement" LowerBound="168.1" HigherBound="175.1">
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="CreateResponse" />
                                         <om:Property Name="Signal" Value="True" />
-                                        <om:Element Type="MessageRef" OID="80bd3074-f962-4593-a07c-780dd7b78846" ParentLink="Construct_MessageRef" LowerBound="172.39" HigherBound="172.48">
+                                        <om:Element Type="MessageRef" OID="80bd3074-f962-4593-a07c-780dd7b78846" ParentLink="Construct_MessageRef" LowerBound="169.39" HigherBound="169.48">
                                             <om:Property Name="Ref" Value="outputXml" />
                                             <om:Property Name="ReportToAnalyst" Value="True" />
                                             <om:Property Name="Signal" Value="False" />
                                         </om:Element>
-                                        <om:Element Type="MessageAssignment" OID="34484026-08d8-44ab-969d-c464b517d017" ParentLink="ComplexStatement_Statement" LowerBound="174.1" HigherBound="177.1">
+                                        <om:Element Type="MessageAssignment" OID="34484026-08d8-44ab-969d-c464b517d017" ParentLink="ComplexStatement_Statement" LowerBound="171.1" HigherBound="174.1">
                                             <om:Property Name="Expression" Value="outputXml = new System.Xml.XmlDocument();&#xD;&#xA;outputXml.LoadXml(&quot;&lt;result&gt;&lt;cardholder&gt;&quot; + strGallagherCardholderId + &quot;&lt;/cardholder&gt;&lt;accessgroup&gt;&quot; + strAccessGroupId + &quot;&lt;/accessgroup&gt;&lt;json&gt;&quot; + strResponse.ToString() + &quot;&lt;/json&gt;&lt;/result&gt;&quot;);" />
                                             <om:Property Name="ReportToAnalyst" Value="False" />
                                             <om:Property Name="Name" Value="AddResponseMsg" />
                                             <om:Property Name="Signal" Value="True" />
                                         </om:Element>
                                     </om:Element>
-                                    <om:Element Type="Send" OID="2b771e2b-69cc-474d-949e-141b04033422" ParentLink="ComplexStatement_Statement" LowerBound="178.1" HigherBound="180.1">
+                                    <om:Element Type="Send" OID="2b771e2b-69cc-474d-949e-141b04033422" ParentLink="ComplexStatement_Statement" LowerBound="175.1" HigherBound="177.1">
                                         <om:Property Name="PortName" Value="OutputPort" />
                                         <om:Property Name="MessageName" Value="outputXml" />
                                         <om:Property Name="OperationName" Value="Result" />
@@ -273,47 +267,59 @@
                                         <om:Property Name="Signal" Value="True" />
                                     </om:Element>
                                 </om:Element>
+                                <om:Element Type="DecisionBranch" OID="79cf7181-942a-4dc0-abbf-b5469fe58627" ParentLink="ReallyComplexStatement_Branch">
+                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Else" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="DecisionBranch" OID="296d77de-58ec-485f-9735-98d8fdb94b3a" ParentLink="ReallyComplexStatement_Branch" LowerBound="182.26" HigherBound="247.1">
+                        <om:Element Type="DecisionBranch" OID="296d77de-58ec-485f-9735-98d8fdb94b3a" ParentLink="ReallyComplexStatement_Branch" LowerBound="179.26" HigherBound="247.1">
                             <om:Property Name="Expression" Value="intStatusCode == 70" />
                             <om:Property Name="IsGhostBranch" Value="True" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Remove" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="VariableAssignment" OID="8ed6bd0a-fdfa-491b-9437-e6e7ce5176e1" ParentLink="ComplexStatement_Statement" LowerBound="184.1" HigherBound="189.1">
+                            <om:Element Type="VariableAssignment" OID="8ed6bd0a-fdfa-491b-9437-e6e7ce5176e1" ParentLink="ComplexStatement_Statement" LowerBound="181.1" HigherBound="186.1">
                                 <om:Property Name="Expression" Value="strCardholderId = &quot;IDCARD.2953599&quot;;&#xD;&#xA;strAccessGroupId = &quot;6090-MASON-114-02&quot;;&#xD;&#xA;strFromDate = &quot;2025-09-12T05:00:00Z&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-20T10:00:00Z&quot;;" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape A" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="VariableAssignment" OID="48ccceb6-3114-47db-8784-b1ac193d8930" ParentLink="ComplexStatement_Statement" LowerBound="189.1" HigherBound="202.1">
+                            <om:Element Type="VariableAssignment" OID="48ccceb6-3114-47db-8784-b1ac193d8930" ParentLink="ComplexStatement_Statement" LowerBound="186.1" HigherBound="199.1">
                                 <om:Property Name="Expression" Value="// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape B" />
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
-                            <om:Element Type="VariableAssignment" OID="1a05c5a8-a246-4045-8409-57fb9f14ebf4" ParentLink="ComplexStatement_Statement" LowerBound="202.1" HigherBound="206.1">
+                            <om:Element Type="VariableAssignment" OID="1a05c5a8-a246-4045-8409-57fb9f14ebf4" ParentLink="ComplexStatement_Statement" LowerBound="199.1" HigherBound="203.1">
                                 <om:Property Name="Expression" Value="// Extract Gallagher Cardholder ID&#xD;&#xA;strGallagherCardholderId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape C" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="VariableAssignment" OID="0f885750-3dc9-44bc-a503-48586a769461" ParentLink="ComplexStatement_Statement" LowerBound="206.1" HigherBound="220.1">
+                            <om:Element Type="VariableAssignment" OID="0f885750-3dc9-44bc-a503-48586a769461" ParentLink="ComplexStatement_Statement" LowerBound="203.1" HigherBound="217.1">
                                 <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupId,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape  D" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="Decision" OID="5d4d6d1d-b8e6-41ec-af37-90c401ab6ba6" ParentLink="ComplexStatement_Statement" LowerBound="220.1" HigherBound="246.1">
+                            <om:Element Type="Decision" OID="5d4d6d1d-b8e6-41ec-af37-90c401ab6ba6" ParentLink="ComplexStatement_Statement" LowerBound="217.1" HigherBound="246.1">
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="AlreadyExistsRemove" />
                                 <om:Property Name="Signal" Value="True" />
-                                <om:Element Type="DecisionBranch" OID="6e4fad2c-f5c1-4d8a-892e-9d8a4c0c8c40" ParentLink="ReallyComplexStatement_Branch" LowerBound="221.25" HigherBound="246.1">
-                                    <om:Property Name="Expression" Value="strMembershipHref != &quot;&quot;" />
+                                <om:Element Type="DecisionBranch" OID="6e4fad2c-f5c1-4d8a-892e-9d8a4c0c8c40" ParentLink="ReallyComplexStatement_Branch" LowerBound="218.25" HigherBound="221.1">
+                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot;" />
                                     <om:Property Name="IsGhostBranch" Value="True" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="Exists" />
+                                    <om:Property Name="Name" Value="NOT Exists" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="DecisionBranch" OID="3f8814eb-18d2-4c98-a0c8-3b276152c9a5" ParentLink="ReallyComplexStatement_Branch">
+                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Else" />
                                     <om:Property Name="Signal" Value="True" />
                                     <om:Element Type="VariableAssignment" OID="0787b918-6328-4bf3-add7-4346c31d7318" ParentLink="ComplexStatement_Statement" LowerBound="223.1" HigherBound="236.1">
                                         <om:Property Name="Expression" Value="// Remove Cardholder from Access group&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.RemoveCardholderFromAccessGroup(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strMembershipHref,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
@@ -346,12 +352,6 @@
                                         <om:Property Name="Name" Value="sndResult" />
                                         <om:Property Name="Signal" Value="True" />
                                     </om:Element>
-                                </om:Element>
-                                <om:Element Type="DecisionBranch" OID="3f8814eb-18d2-4c98-a0c8-3b276152c9a5" ParentLink="ReallyComplexStatement_Branch">
-                                    <om:Property Name="IsGhostBranch" Value="True" />
-                                    <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="Else" />
-                                    <om:Property Name="Signal" Value="False" />
                                 </om:Element>
                             </om:Element>
                         </om:Element>
@@ -657,10 +657,7 @@ module Bham.Rest.BizTalkProject
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("89ed6ede-03bf-4c83-a02d-60c5676bdfff")]
-                        if (strMembershipHref != "")
-                        {
-                        }
-                        else 
+                        if (strMembershipHref == "")
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("e9063205-26b6-471e-8af2-70adc9315efa")]
                             // Add Cardholder to Access Group - Only if Not Already Exists
@@ -728,7 +725,10 @@ module Bham.Rest.BizTalkProject
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("5d4d6d1d-b8e6-41ec-af37-90c401ab6ba6")]
-                        if (strMembershipHref != "")
+                        if (strMembershipHref == "")
+                        {
+                        }
+                        else 
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("0787b918-6328-4bf3-add7-4346c31d7318")]
                             // Remove Cardholder from Access group

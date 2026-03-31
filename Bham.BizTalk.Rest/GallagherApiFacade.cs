@@ -719,6 +719,49 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Resolves an access group name to its Gallagher href using an explicit certificate and timeout configuration.
+        /// </summary>
+        public static string ResolveAccessGroupHrefByName(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string accessGroupName,
+            string certThumbprint,
+            StoreLocation storeLocation,
+            StoreName storeName,
+            int timeoutSeconds)
+        {
+            return ResolveAccessGroupHrefByName(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                accessGroupName,
+                certThumbprint,
+                storeLocation,
+                storeName,
+                timeoutSeconds,
+                null);
+        }
+
+        /// <summary>
+        /// Resolves an access group name to its Gallagher href, with optional certificate and logger support.
+        /// </summary>
+        public static string ResolveAccessGroupHrefByName(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string accessGroupName,
+            string certThumbprint = null,
+            StoreLocation storeLocation = StoreLocation.LocalMachine,
+            StoreName storeName = StoreName.My,
+            int timeoutSeconds = 100,
+            Action<BizTalkRestLogEntry> logger = null)
+        {
+            return CreateClient(baseUrl, apiKeyHeaderName, apiKeyHeaderValue, certThumbprint, storeLocation, storeName, timeoutSeconds, logger)
+                .ResolveAccessGroupHrefByName(accessGroupName);
+        }
+
+        /// <summary>
         /// Alias for searching access groups by name using an explicit certificate and timeout configuration.
         /// </summary>
         public static string SearchAccessGroupsByName(
