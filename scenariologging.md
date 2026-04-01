@@ -112,6 +112,26 @@ public static string RemoveCardholderFromAccessGroupWithNLog(
         timeoutSeconds,
         CreateNLogLogger("RemoveCardholderFromAccessGroup"));
 }
+
+public static string GetPersonalDataFieldsByNameWithNLog(
+    string baseUrl,
+    string apiKeyHeaderName,
+    string apiKeyHeaderValue,
+    string fieldName,
+    string certThumbprint = null,
+    int timeoutSeconds = 100)
+{
+    return GallagherApiFacade.GetPersonalDataFieldsByName(
+        baseUrl,
+        apiKeyHeaderName,
+        apiKeyHeaderValue,
+        fieldName,
+        certThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        timeoutSeconds,
+        CreateNLogLogger("GetPersonalDataFieldsByName"));
+}
 ```
 
 ## Scenario 1: Add Cardholder to Access Group with Date Range (with NLog)
@@ -128,6 +148,23 @@ strCardholderId = "IDCARD.2953599";
 strAccessGroupName = "6090-MASON-114-02";
 strFromDate = "2025-09-12T05:00:00Z";
 strUntilDate = "2026-05-20T10:00:00Z";
+```
+
+### Expression Shape A.5 (Resolve PDF Field ID by Name with NLog)
+
+Use this shape to look up the PDF field ID dynamically from Gallagher instead of hardcoding it in Shape A.
+
+```csharp
+strResponse =
+    GallagherLoggingHelper.GetPersonalDataFieldsByNameWithNLog(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        "ThirdPartyID",
+        strCertThumbprint,
+        100);
+strPdfFieldId = Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+strPdfFieldKey = "pdf_" + strPdfFieldId;
 ```
 
 ### Expression Shape B (Find Cardholder by PDF Value with NLog)
@@ -212,6 +249,23 @@ strPdfFieldId = "629";
 strPdfFieldKey = "pdf_" + strPdfFieldId;
 strCardholderId = "IDCARD.2953599";
 strAccessGroupName = "6090-MASON-114-02";
+```
+
+### Expression Shape A.5 (Resolve PDF Field ID by Name with NLog)
+
+Use this shape to look up the PDF field ID dynamically from Gallagher instead of hardcoding it in Shape A.
+
+```csharp
+strResponse =
+    GallagherLoggingHelper.GetPersonalDataFieldsByNameWithNLog(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        "ThirdPartyID",
+        strCertThumbprint,
+        100);
+strPdfFieldId = Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+strPdfFieldKey = "pdf_" + strPdfFieldId;
 ```
 
 ### Expression Shape B (Find Cardholder by PDF Value with NLog)
