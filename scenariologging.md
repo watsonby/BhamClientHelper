@@ -5,6 +5,7 @@ This document provides BizTalk Expression-shape examples for Scenario 1 (add mem
 ## Prerequisites
 
 - Add `NLog.config` to the BizTalk host process folder (for example from `samples/NLog.config.sample`).
+- **Deployment note:** BizTalk hosts typically run from `C:\Program Files (x86)\Microsoft BizTalk Server\`. NLog resolves `NLog.config` relative to the executing assembly, so the file must be manually copied to that BizTalk host directory on the target server after deployment, or to whichever folder the BizTalk host process loads the helper assembly from.
 - Ensure your helper assembly references NLog and includes `GallagherLoggingHelper`.
 - Use the following orchestration string variables:
   - `strGallagherBaseUrl`
