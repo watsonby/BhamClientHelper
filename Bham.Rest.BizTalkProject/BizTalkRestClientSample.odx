@@ -210,16 +210,16 @@
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="81f61fbb-e50b-4fb4-97c5-d2a3fe7bc803" ParentLink="ComplexStatement_Statement" LowerBound="108.1" HigherBound="114.1">
-                                <om:Property Name="Expression" Value="// add variables for the events&#xD;&#xA;strCardholderId = &quot;IDCARD.2953599&quot;;&#xD;&#xA;strAccessGroupName = &quot;6090-MASON-114-02&quot;;&#xD;&#xA;strFromDate = &quot;2025-09-12T05:00:00Z&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-20T10:00:00Z&quot;;" />
+                                <om:Property Name="Expression" Value="// add variables for the events&#xD;&#xA;strCardholderId = &quot;IDCARD.2953599&quot;;&#xD;&#xA;strAccessGroupName = &quot;6090-MASON-114-02&quot;;&#xD;&#xA;strFromDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(&quot;17/07/25&quot;, &quot;12:00&quot;);&#xD;&#xA;strUntilDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(&quot;26/05/26&quot;, &quot;10:00&quot;);;" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape A" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="6b140efb-65d1-47f6-9bdb-5640120c35a8" ParentLink="ComplexStatement_Statement" LowerBound="114.1" HigherBound="127.1">
-                                <om:Property Name="Expression" Value="// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape B" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="5f145eeb-eee9-4a53-b75f-d4544c2a3d4b" ParentLink="ComplexStatement_Statement" LowerBound="127.1" HigherBound="131.1">
                                 <om:Property Name="Expression" Value="// Extract Gallagher Cardholder ID&#xD;&#xA;strGallagherCardholderId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);" />
@@ -228,16 +228,16 @@
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="82cb40ab-f8ec-4a25-9384-5d8a2cddb9a7" ParentLink="ComplexStatement_Statement" LowerBound="131.1" HigherBound="144.1">
-                                <om:Property Name="Expression" Value="// C.5 (Resolve Access Group href by Name)&#xD;&#xA;&#xD;&#xA;strAccessGroupHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// C.5 (Resolve Access Group href by Name)&#xD;&#xA;&#xD;&#xA;strAccessGroupHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="C.5" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="f9b805c8-ca4b-4016-abff-e8022dc8f148" ParentLink="ComplexStatement_Statement" LowerBound="144.1" HigherBound="158.1">
-                                <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape  D" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="Decision" OID="89ed6ede-03bf-4c83-a02d-60c5676bdfff" ParentLink="ComplexStatement_Statement" LowerBound="158.1" HigherBound="187.1">
                                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -250,10 +250,10 @@
                                     <om:Property Name="Name" Value="NOT Exists" />
                                     <om:Property Name="Signal" Value="True" />
                                     <om:Element Type="VariableAssignment" OID="e9063205-26b6-471e-8af2-70adc9315efa" ParentLink="ComplexStatement_Statement" LowerBound="161.1" HigherBound="177.1">
-                                        <om:Property Name="Expression" Value="// Add Cardholder to Access Group - Only if Not Already Exists&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                        <om:Property Name="Expression" Value="// Add Cardholder to Access Group - Only if Not Already Exists&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="Shape E" />
-                                        <om:Property Name="Signal" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
                                     </om:Element>
                                     <om:Element Type="Construct" OID="f577ed52-f4c6-4483-9b23-b39c7536ec82" ParentLink="ComplexStatement_Statement" LowerBound="177.1" HigherBound="184.1">
                                         <om:Property Name="ReportToAnalyst" Value="True" />
@@ -296,10 +296,10 @@
                             <om:Property Name="Name" Value="Del (10,70)" />
                             <om:Property Name="Signal" Value="True" />
                             <om:Element Type="VariableAssignment" OID="ee580591-d963-4858-bfa3-9f833a412150" ParentLink="ComplexStatement_Statement" LowerBound="190.1" HigherBound="210.1">
-                                <om:Property Name="Expression" Value="// 1. GET PDF ID using &quot;ThirdPartyID&quot;&#xA;strPdfFieldId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolvePersonalDataFieldId(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        &quot;ThirdPartyID&quot;,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Bham.BizTalk.Rest.GallagherLoggingHelper.CreateNLogLogger(&quot;GetCardholdersByPdfValue&quot;)&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xA;&#xA;System.Diagnostics.Debug.Write(&quot;PDF_ID is &quot; + strPdfFieldId);&#xA;System.Diagnostics.Debug.Write(&quot;PDF_ID Key is &quot; + strPdfFieldKey);" />
+                                <om:Property Name="Expression" Value="// 1. GET PDF ID using &quot;ThirdPartyID&quot;&#xA;strPdfFieldId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolvePersonalDataFieldId(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        &quot;ThirdPartyID&quot;,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Bham.BizTalk.Rest.GallagherLoggingHelper.CreateNLogLogger(&quot;GetCardholdersByPdfValue&quot;)&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xA;&#xA;System.Diagnostics.Debug.Write(&quot;PDF_ID is &quot; + strPdfFieldId);&#xA;System.Diagnostics.Debug.Write(&quot;PDF_ID Key is &quot; + strPdfFieldKey);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Get PDF ID" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="8ed6bd0a-fdfa-491b-9437-e6e7ce5176e1" ParentLink="ComplexStatement_Statement" LowerBound="210.1" HigherBound="216.1">
                                 <om:Property Name="Expression" Value="// add variables for the events&#xD;&#xA;strCardholderId = &quot;IDCARD.2953599&quot;;&#xD;&#xA;strAccessGroupName = &quot;6090-MASON-114-02&quot;;&#xD;&#xA;strFromDate = &quot;2025-09-12T05:00:00Z&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-20T10:00:00Z&quot;;" />
@@ -308,10 +308,10 @@
                                 <om:Property Name="Signal" Value="True" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="48ccceb6-3114-47db-8784-b1ac193d8930" ParentLink="ComplexStatement_Statement" LowerBound="216.1" HigherBound="229.1">
-                                <om:Property Name="Expression" Value="// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholdersByPdfValue(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape B" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="1a05c5a8-a246-4045-8409-57fb9f14ebf4" ParentLink="ComplexStatement_Statement" LowerBound="229.1" HigherBound="233.1">
                                 <om:Property Name="Expression" Value="// Extract Gallagher Cardholder ID&#xD;&#xA;strGallagherCardholderId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);" />
@@ -320,16 +320,16 @@
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="2acf6b1b-2558-4a81-b5d8-2129becb8a0b" ParentLink="ComplexStatement_Statement" LowerBound="233.1" HigherBound="246.1">
-                                <om:Property Name="Expression" Value="// C.5 (Resolve Access Group href by Name)&#xD;&#xA;&#xD;&#xA;strAccessGroupHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// C.5 (Resolve Access Group href by Name)&#xD;&#xA;&#xD;&#xA;strAccessGroupHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupHrefByName(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="C.5" />
-                                <om:Property Name="Signal" Value="False" />
+                                <om:Property Name="Signal" Value="True" />
                             </om:Element>
                             <om:Element Type="VariableAssignment" OID="0f885750-3dc9-44bc-a503-48586a769461" ParentLink="ComplexStatement_Statement" LowerBound="246.1" HigherBound="260.1">
-                                <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.ResolveAccessGroupMembershipHref(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Shape  D" />
-                                <om:Property Name="Signal" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
                             </om:Element>
                             <om:Element Type="Decision" OID="5d4d6d1d-b8e6-41ec-af37-90c401ab6ba6" ParentLink="ComplexStatement_Statement" LowerBound="260.1" HigherBound="290.1">
                                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -348,10 +348,10 @@
                                     <om:Property Name="Name" Value="Else" />
                                     <om:Property Name="Signal" Value="True" />
                                     <om:Element Type="VariableAssignment" OID="0787b918-6328-4bf3-add7-4346c31d7318" ParentLink="ComplexStatement_Statement" LowerBound="266.1" HigherBound="280.1">
-                                        <om:Property Name="Expression" Value="// Remove Cardholder from Access group&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.RemoveCardholderFromAccessGroup(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strMembershipHref,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
+                                        <om:Property Name="Expression" Value="// Remove Cardholder from Access group&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiFacade.RemoveCardholderFromAccessGroup(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strMembershipHref,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;        System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;        100);" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="Shape E" />
-                                        <om:Property Name="Signal" Value="False" />
+                                        <om:Property Name="Signal" Value="True" />
                                     </om:Element>
                                     <om:Element Type="Construct" OID="1abb985a-08e3-476e-b2a8-f0b168c1b041" ParentLink="ComplexStatement_Statement" LowerBound="280.1" HigherBound="287.1">
                                         <om:Property Name="ReportToAnalyst" Value="True" />
@@ -646,8 +646,8 @@ module Bham.Rest.BizTalkProject
                         // add variables for the events
                         strCardholderId = "IDCARD.2953599";
                         strAccessGroupName = "6090-MASON-114-02";
-                        strFromDate = "2025-09-12T05:00:00Z";
-                        strUntilDate = "2026-05-20T10:00:00Z";
+                        strFromDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc("17/07/25", "12:00");
+                        strUntilDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc("26/05/26", "10:00");;
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("6b140efb-65d1-47f6-9bdb-5640120c35a8")]
                         // Find Cardholder by PDF Value
                         strResponse =
@@ -658,7 +658,7 @@ module Bham.Rest.BizTalkProject
                                 strCardholderId,
                                 strPdfFieldKey,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("5f145eeb-eee9-4a53-b75f-d4544c2a3d4b")]
@@ -675,7 +675,7 @@ module Bham.Rest.BizTalkProject
                                 strApiKey,
                                 strAccessGroupName,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("f9b805c8-ca4b-4016-abff-e8022dc8f148")]
@@ -689,7 +689,7 @@ module Bham.Rest.BizTalkProject
                                 strAccessGroupHref,
                                 strGallagherCardholderId,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("89ed6ede-03bf-4c83-a02d-60c5676bdfff")]
@@ -708,7 +708,7 @@ module Bham.Rest.BizTalkProject
                                     strFromDate,
                                     strUntilDate,
                                     strCertThumbprint,
-                                    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                     System.Security.Cryptography.X509Certificates.StoreName.My,
                                     100);
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("f577ed52-f4c6-4483-9b23-b39c7536ec82")]
@@ -733,7 +733,7 @@ module Bham.Rest.BizTalkProject
                                 strApiKey,
                                 "ThirdPartyID",
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         
@@ -760,7 +760,7 @@ module Bham.Rest.BizTalkProject
                                 strCardholderId,
                                 strPdfFieldKey,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("1a05c5a8-a246-4045-8409-57fb9f14ebf4")]
@@ -777,7 +777,7 @@ module Bham.Rest.BizTalkProject
                                 strApiKey,
                                 strAccessGroupName,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("0f885750-3dc9-44bc-a503-48586a769461")]
@@ -791,7 +791,7 @@ module Bham.Rest.BizTalkProject
                                 strAccessGroupHref,
                                 strGallagherCardholderId,
                                 strCertThumbprint,
-                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                 System.Security.Cryptography.X509Certificates.StoreName.My,
                                 100);
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("5d4d6d1d-b8e6-41ec-af37-90c401ab6ba6")]
@@ -811,7 +811,7 @@ module Bham.Rest.BizTalkProject
                                     strGallagherCardholderId,
                                     strMembershipHref,
                                     strCertThumbprint,
-                                    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
                                     System.Security.Cryptography.X509Certificates.StoreName.My,
                                     100);
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("1abb985a-08e3-476e-b2a8-f0b168c1b041")]
