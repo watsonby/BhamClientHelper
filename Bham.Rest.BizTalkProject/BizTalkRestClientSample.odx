@@ -388,10 +388,10 @@
                             <om:Property Name="Name" Value="5?" />
                             <om:Property Name="Signal" Value="False" />
                             <om:Element Type="VariableAssignment" OID="46774501-1e8e-4b3b-b13b-235cf9aa31e6" ParentLink="ComplexStatement_Statement" LowerBound="293.1" HigherBound="295.1">
-                                <om:Property Name="Expression" Value="strResponse = Bham.BizTalk.Rest.GallagherApiFacade.GetCardholders(&#xD;&#xA;    strGallagherBaseUrl,&#xD;&#xA;    &quot;Authorization&quot;,&#xD;&#xA;    strApiKey,&#xD;&#xA;    strCertThumbprint,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;    100,&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.MyOrchestrationLogger&#xD;&#xA;);" />
+                                <om:Property Name="Expression" Value="strResponse = Bham.BizTalk.Rest.GallagherApiFacade.GetCardholders(&#xD;&#xA;    strGallagherBaseUrl,&#xD;&#xA;    &quot;Authorization&quot;,&#xD;&#xA;    strApiKey,&#xD;&#xA;    strCertThumbprint,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;    100,&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.MyOrchestrationLogger&#xD;&#xA;);" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Expression_1" />
-                                <om:Property Name="Signal" Value="False" />
+                                <om:Property Name="Signal" Value="True" />
                             </om:Element>
                         </om:Element>
                         <om:Element Type="DecisionBranch" OID="1eeaba34-a5bd-468a-998b-955715306489" ParentLink="ReallyComplexStatement_Branch">

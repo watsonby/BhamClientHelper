@@ -39,10 +39,6 @@
     <AssemblyOriginatorKeyFile>UoB.Esb.Bts.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bham.BizTalk.Rest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=19907e4ef9b504bb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Bham.BizTalk.Rest\v4.0_1.0.0.0__19907e4ef9b504bb\Bham.BizTalk.Rest.dll</HintPath>
-    </Reference>
     <Reference Include="NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.6.1.1\lib\net46\NLog.dll</HintPath>
       <Private>True</Private>

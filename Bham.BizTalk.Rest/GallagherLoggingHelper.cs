@@ -8,8 +8,10 @@ using NLog;
 // Logging helper for Gallagher API operations with NLog support.
 // This class provides logging-enabled wrappers around GallagherApiFacade methods.
 
-public static class GallagherLoggingHelper
+namespace Bham.BizTalk.Rest
 {
+    public static class GallagherLoggingHelper
+    {
 
         /// <summary>
         /// Example logger for use as a logCallback from BizTalk orchestrations.
@@ -495,5 +497,6 @@ public static class GallagherLoggingHelper
             default:
                 return NLog.LogLevel.Info;
         }
+    }
     }
 }
