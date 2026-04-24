@@ -7,8 +7,47 @@ using NLog;
 
 // Logging helper for Gallagher API operations with NLog support.
 // This class provides logging-enabled wrappers around GallagherApiFacade methods.
+
 public static class GallagherLoggingHelper
 {
+
+        /// <summary>
+        /// Example logger for use as a logCallback from BizTalk orchestrations.
+        /// Writes log entry messages to Trace output.
+        /// </summary>
+        public static void MyOrchestrationLogger(BizTalkRestLogEntry entry)
+        {
+            if (entry != null)
+            {
+                System.Diagnostics.Trace.WriteLine(entry.Message, "Bham.BizTalk.Rest.Orchestration");
+                if (entry.Exception != null)
+                {
+                    System.Diagnostics.Trace.WriteLine(entry.Exception.ToString(), "Bham.BizTalk.Rest.Orchestration");
+                }
+            }
+        }
+    /// <summary>
+    /// Example: Call GallagherApiFacade with a custom logCallback (Action<BizTalkRestLogEntry>).
+    /// Use this from an orchestration by referencing this method in an Expression shape.
+    /// </summary>
+    public static string GetCardholdersWithCustomLogger(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        Action<BizTalkRestLogEntry> logCallback,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.GetCardholders(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            certThumbprint,
+            StoreLocation.LocalMachine,
+            StoreName.My,
+            timeoutSeconds,
+            logCallback);
+    }
     private const string EventSourceName = "Bham.BizTalk.Rest";
     private const string EventLogName = "Application";
     private const string NLogLoggerName = "Bham.BizTalk.Rest.Gallagher";

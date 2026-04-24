@@ -2,11 +2,11 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="17c1d4ec-a347-4592-a29b-7062c248d06b" LowerBound="1.1" HigherBound="323.1">
+    <om:Element Type="Module" OID="17c1d4ec-a347-4592-a29b-7062c248d06b" LowerBound="1.1" HigherBound="325.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="Bham.Rest.BizTalkProject" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="ServiceDeclaration" OID="6c75631a-700b-480c-886c-a520ebeac9ce" ParentLink="Module_ServiceDeclaration" LowerBound="22.1" HigherBound="322.1">
+        <om:Element Type="ServiceDeclaration" OID="6c75631a-700b-480c-886c-a520ebeac9ce" ParentLink="Module_ServiceDeclaration" LowerBound="22.1" HigherBound="324.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
@@ -175,7 +175,7 @@
                     <om:Property Name="Name" Value="Receive_1" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="Scope" OID="33d68f07-0be2-4fdf-8946-02b49b7b12b9" ParentLink="ServiceBody_Statement" LowerBound="68.1" HigherBound="320.1">
+                <om:Element Type="Scope" OID="33d68f07-0be2-4fdf-8946-02b49b7b12b9" ParentLink="ServiceBody_Statement" LowerBound="68.1" HigherBound="322.1">
                     <om:Property Name="InitializedTransactionType" Value="True" />
                     <om:Property Name="IsSynchronized" Value="False" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
@@ -193,7 +193,7 @@
                         <om:Property Name="Name" Value="Add or Remove" />
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
-                    <om:Element Type="Decision" OID="e8cb7580-adcb-4100-8a00-d1e636f501fe" ParentLink="ComplexStatement_Statement" LowerBound="85.1" HigherBound="294.1">
+                    <om:Element Type="Decision" OID="e8cb7580-adcb-4100-8a00-d1e636f501fe" ParentLink="ComplexStatement_Statement" LowerBound="85.1" HigherBound="296.1">
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="ActionAddOrRemove" />
                         <om:Property Name="Signal" Value="True" />
@@ -381,12 +381,18 @@
                                 </om:Element>
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="DecisionBranch" OID="c7795f2f-e8bf-4d90-972c-7bfa9502a92b" ParentLink="ReallyComplexStatement_Branch" LowerBound="291.26" HigherBound="294.1">
+                        <om:Element Type="DecisionBranch" OID="c7795f2f-e8bf-4d90-972c-7bfa9502a92b" ParentLink="ReallyComplexStatement_Branch" LowerBound="291.26" HigherBound="296.1">
                             <om:Property Name="Expression" Value="intStatusCode == 5" />
                             <om:Property Name="IsGhostBranch" Value="True" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="5?" />
                             <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="VariableAssignment" OID="46774501-1e8e-4b3b-b13b-235cf9aa31e6" ParentLink="ComplexStatement_Statement" LowerBound="293.1" HigherBound="295.1">
+                                <om:Property Name="Expression" Value="strResponse = Bham.BizTalk.Rest.GallagherApiFacade.GetCardholders(&#xD;&#xA;    strGallagherBaseUrl,&#xD;&#xA;    &quot;Authorization&quot;,&#xD;&#xA;    strApiKey,&#xD;&#xA;    strCertThumbprint,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;    100,&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.MyOrchestrationLogger&#xD;&#xA;);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Expression_1" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
                         </om:Element>
                         <om:Element Type="DecisionBranch" OID="1eeaba34-a5bd-468a-998b-955715306489" ParentLink="ReallyComplexStatement_Branch">
                             <om:Property Name="IsGhostBranch" Value="True" />
@@ -395,36 +401,36 @@
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Catch" OID="8e5a5621-5e0c-42d6-b18d-4c4916b33d36" ParentLink="Scope_Catch" LowerBound="297.1" HigherBound="312.1">
+                    <om:Element Type="Catch" OID="8e5a5621-5e0c-42d6-b18d-4c4916b33d36" ParentLink="Scope_Catch" LowerBound="299.1" HigherBound="314.1">
                         <om:Property Name="ExceptionName" Value="ex" />
                         <om:Property Name="ExceptionType" Value="Bham.BizTalk.Rest.BizTalkRestClientException" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="BhamException" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="VariableAssignment" OID="833dd22d-2c60-4dc9-b301-b578922fd069" ParentLink="Catch_Statement" LowerBound="300.1" HigherBound="302.1">
+                        <om:Element Type="VariableAssignment" OID="833dd22d-2c60-4dc9-b301-b578922fd069" ParentLink="Catch_Statement" LowerBound="302.1" HigherBound="304.1">
                             <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(ex.Message);" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Expression_2" />
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
-                        <om:Element Type="Construct" OID="02e0a80f-6596-40ab-97b3-df7eda245667" ParentLink="Catch_Statement" LowerBound="302.1" HigherBound="309.1">
+                        <om:Element Type="Construct" OID="02e0a80f-6596-40ab-97b3-df7eda245667" ParentLink="Catch_Statement" LowerBound="304.1" HigherBound="311.1">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="CreateExceptionMsg" />
                             <om:Property Name="Signal" Value="True" />
-                            <om:Element Type="MessageAssignment" OID="38137dd7-8405-47b5-aacb-a29bbffe1502" ParentLink="ComplexStatement_Statement" LowerBound="305.1" HigherBound="308.1">
+                            <om:Element Type="MessageAssignment" OID="38137dd7-8405-47b5-aacb-a29bbffe1502" ParentLink="ComplexStatement_Statement" LowerBound="307.1" HigherBound="310.1">
                                 <om:Property Name="Expression" Value="outputXml = new System.Xml.XmlDocument();&#xD;&#xA;outputXml.LoadXml(&quot;&lt;exception&gt;&quot;+ ex.Message.ToString() + &quot;&lt;/exception&gt;&quot;);" />
                                 <om:Property Name="ReportToAnalyst" Value="False" />
                                 <om:Property Name="Name" Value="AddExceptionMsg" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
-                            <om:Element Type="MessageRef" OID="ab02982a-f677-45c0-adc5-d3f5e41ceb77" ParentLink="Construct_MessageRef" LowerBound="303.35" HigherBound="303.44">
+                            <om:Element Type="MessageRef" OID="ab02982a-f677-45c0-adc5-d3f5e41ceb77" ParentLink="Construct_MessageRef" LowerBound="305.35" HigherBound="305.44">
                                 <om:Property Name="Ref" Value="outputXml" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Signal" Value="False" />
                             </om:Element>
                         </om:Element>
-                        <om:Element Type="Send" OID="7918f1b3-dea4-48dd-b316-c68fdac40d46" ParentLink="Catch_Statement" LowerBound="309.1" HigherBound="311.1">
+                        <om:Element Type="Send" OID="7918f1b3-dea4-48dd-b316-c68fdac40d46" ParentLink="Catch_Statement" LowerBound="311.1" HigherBound="313.1">
                             <om:Property Name="PortName" Value="OutputPort" />
                             <om:Property Name="MessageName" Value="outputXml" />
                             <om:Property Name="OperationName" Value="Exception" />
@@ -434,13 +440,13 @@
                             <om:Property Name="Signal" Value="True" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="Catch" OID="8dd75c60-f7a1-4ab9-85f5-bc169b4cbd78" ParentLink="Scope_Catch" LowerBound="312.1" HigherBound="318.1">
+                    <om:Element Type="Catch" OID="8dd75c60-f7a1-4ab9-85f5-bc169b4cbd78" ParentLink="Scope_Catch" LowerBound="314.1" HigherBound="320.1">
                         <om:Property Name="ExceptionType" Value="General Exception" />
                         <om:Property Name="IsFaultMessage" Value="False" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="GGeneralEx" />
                         <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="VariableAssignment" OID="a44cd659-306b-4325-84c8-9a493401395e" ParentLink="Catch_Statement" LowerBound="315.1" HigherBound="317.1">
+                        <om:Element Type="VariableAssignment" OID="a44cd659-306b-4325-84c8-9a493401395e" ParentLink="Catch_Statement" LowerBound="317.1" HigherBound="319.1">
                             <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(&quot;A general exception was thrown&quot;);" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Expression_4" />
@@ -827,6 +833,8 @@ module Bham.Rest.BizTalkProject
                     }
                     else if (intStatusCode == 5)
                     {
+
+#error "The expression that you have entered is not valid."
                     }
                 }
                 exceptions
