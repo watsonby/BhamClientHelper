@@ -7,12 +7,33 @@ using NLog;
 
 // Logging helper for Gallagher API operations with NLog support.
 // This class provides logging-enabled wrappers around GallagherApiFacade methods.
-
 namespace Bham.BizTalk.Rest
 {
     public static class GallagherLoggingHelper
     {
 
+        /// <summary>
+        /// Resolves a personal data field name to its Gallagher id, with NLog logging support.
+        /// </summary>
+        public static string ResolvePersonalDataFieldIdWithNLog(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string fieldName,
+            string certThumbprint = null,
+            int timeoutSeconds = 100)
+        {
+            return GallagherApiFacade.ResolvePersonalDataFieldId(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                fieldName,
+                certThumbprint,
+                StoreLocation.CurrentUser,
+                StoreName.My,
+                timeoutSeconds,
+                CreateNLogLogger("ResolvePersonalDataFieldId"));
+        }
         /// <summary>
         /// Example logger for use as a logCallback from BizTalk orchestrations.
         /// Writes log entry messages to Trace output.
@@ -66,7 +87,7 @@ namespace Bham.BizTalk.Rest
             apiKeyHeaderName,
             apiKeyHeaderValue,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateLogger("GetCardholders"));
@@ -88,7 +109,7 @@ namespace Bham.BizTalk.Rest
             externalCardholderId,
             pdfFieldKey,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateLogger("ResolveGallagherCardholderId"));
@@ -114,7 +135,7 @@ namespace Bham.BizTalk.Rest
             fromDate,
             untilDate,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateLogger("AddAccessGroupToCardholder"));
@@ -132,7 +153,7 @@ namespace Bham.BizTalk.Rest
             apiKeyHeaderName,
             apiKeyHeaderValue,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateEventLogLogger("GetCardholders"));
@@ -154,7 +175,7 @@ namespace Bham.BizTalk.Rest
             externalCardholderId,
             pdfFieldKey,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateEventLogLogger("ResolveGallagherCardholderId"));
@@ -180,7 +201,7 @@ namespace Bham.BizTalk.Rest
             fromDate,
             untilDate,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateEventLogLogger("AddAccessGroupToCardholder"));
@@ -198,7 +219,7 @@ namespace Bham.BizTalk.Rest
             apiKeyHeaderName,
             apiKeyHeaderValue,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("GetCardholders"));
@@ -220,7 +241,7 @@ namespace Bham.BizTalk.Rest
             externalCardholderId,
             pdfFieldKey,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("ResolveGallagherCardholderId"));
@@ -242,7 +263,7 @@ namespace Bham.BizTalk.Rest
             cardholderId,
             pdfFieldKey,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("GetCardholdersByPdfValue"));
@@ -262,7 +283,7 @@ namespace Bham.BizTalk.Rest
             apiKeyHeaderValue,
             accessGroupName,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("ResolveAccessGroupHrefByName"));
@@ -284,7 +305,7 @@ namespace Bham.BizTalk.Rest
             accessGroupHref,
             cardholderId,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("ResolveAccessGroupMembershipHref"));
@@ -310,7 +331,7 @@ namespace Bham.BizTalk.Rest
             fromDate,
             untilDate,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("AddAccessGroupToCardholder"));
@@ -332,7 +353,7 @@ namespace Bham.BizTalk.Rest
             cardholderId,
             membershipHref,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("RemoveCardholderFromAccessGroup"));
@@ -352,7 +373,7 @@ namespace Bham.BizTalk.Rest
             apiKeyHeaderValue,
             fieldName,
             certThumbprint,
-            StoreLocation.LocalMachine,
+            StoreLocation.CurrentUser,
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("GetPersonalDataFieldsByName"));
