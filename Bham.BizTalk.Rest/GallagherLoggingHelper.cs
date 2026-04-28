@@ -9,8 +9,26 @@ using NLog;
 // This class provides logging-enabled wrappers around GallagherApiFacade methods.
 namespace Bham.BizTalk.Rest
 {
-    public static class GallagherLoggingHelper
+    public static class GallagherLoggingHelper 
+
     {
+        /// <summary>
+        /// Checks if a cardholder has a specific access group by name using GallagherApiResponseParser.
+        /// </summary>
+        public static bool CardholderHasAccessGroupByName(string cardholderAccessGroupsJson, string accessGroupName)
+        {
+            string id;
+            return GallagherApiResponseParser.TryGetEntityIdByName(cardholderAccessGroupsJson, accessGroupName, out id);
+        }
+
+        /// <summary>
+        /// Checks if a cardholder has a specific access group by name and date range using GallagherApiResponseParser.
+        /// </summary>
+        public static bool CardholderHasAccessGroupByNameAndDates(string cardholderAccessGroupsJson, string accessGroupName, string fromDate, string untilDate)
+        {
+            string href;
+            return GallagherApiResponseParser.TryGetAccessGroupMembershipHrefByNameAndDates(cardholderAccessGroupsJson, accessGroupName, fromDate, untilDate, out href);
+        }
 
         /// <summary>
         /// Resolves a personal data field name to its Gallagher id, with NLog logging support.
