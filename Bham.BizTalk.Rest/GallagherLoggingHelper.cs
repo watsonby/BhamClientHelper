@@ -12,6 +12,45 @@ namespace Bham.BizTalk.Rest
     public static class GallagherLoggingHelper 
 
     {
+        public static string ResolveAccessGroupIdByNameWithNLog(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string accessGroupName,
+            string certThumbprint = null,
+            int timeoutSeconds = 100)
+        {
+            return GallagherApiFacade.ResolveAccessGroupIdByName(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                accessGroupName,
+                certThumbprint,
+                StoreLocation.CurrentUser,
+                StoreName.My,
+                timeoutSeconds,
+                CreateNLogLogger("ResolveAccessGroupIdByName"));
+        }
+
+        public static string GetAccessGroupByIdWithNLog(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string accessGroupId,
+            string certThumbprint = null,
+            int timeoutSeconds = 100)
+        {
+            return GallagherApiFacade.GetAccessGroupById(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                accessGroupId,
+                certThumbprint,
+                StoreLocation.CurrentUser,
+                StoreName.My,
+                timeoutSeconds,
+                CreateNLogLogger("GetAccessGroupById"));
+        }
         /// <summary>
         /// Checks if a cardholder has a specific access group by name using GallagherApiResponseParser.
         /// </summary>
