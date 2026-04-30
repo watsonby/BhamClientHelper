@@ -23,9 +23,6 @@ This document provides BizTalk Expression-shape examples for Scenario 1 (add mem
   - `strCardholderId`
   - `strAccessGroupName`
   - `strAccessGroupHref`
-  - `strFromDate`
-  - `strUntilDate`
-  - `strResponse`
   - `strGallagherCardholderId`
   - `strMembershipHref`
 
@@ -74,11 +71,7 @@ public static string ResolveAccessGroupHrefByNameWithNLog(
         System.Security.Cryptography.X509Certificates.StoreName.My,
         timeoutSeconds,
         CreateNLogLogger("ResolveAccessGroupHrefByName"));
-}
-
-public static string ResolveAccessGroupMembershipHrefWithNLog(
     string baseUrl,
-    string apiKeyHeaderName,
     string apiKeyHeaderValue,
     string accessGroupHref,
     string cardholderId,
