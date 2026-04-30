@@ -12,6 +12,15 @@ namespace Bham.BizTalk.Rest
     public static class GallagherLoggingHelper 
 
     {
+        /// <summary>
+        /// Logs an orchestration transcript or any string to NLog (Info level).
+        /// Call this from BizTalk Expression Shapes.
+        /// </summary>
+        public static void LogTranscript(string transcript)
+        {
+            var logger = NLog.LogManager.GetLogger(NLogLoggerName);
+            logger.Info("Orchestration Transcript: {0}", transcript);
+        }
         public static string ResolveAccessGroupIdByNameWithNLog(
             string baseUrl,
             string apiKeyHeaderName,
