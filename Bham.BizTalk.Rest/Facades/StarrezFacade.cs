@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Linq;
 using NLog;
 using Bham.BizTalk.Rest.Starrez;
 
@@ -66,7 +67,8 @@ namespace Bham.BizTalk.Rest.Facades
             {
                 var doc = XDocument.Parse(entryXml);
                 var bookingIdElement = doc.Descendants("BookingID").FirstOrDefault();
-                if (bookingIdElement != null && int.TryParse(bookingIdElement.Value, out int bookingId))
+                int bookingId;
+                if (bookingIdElement != null && int.TryParse(bookingIdElement.Value, out bookingId))
                 {
                     Logger.Info($"Parsed BookingID: {bookingId}");
                     return bookingId;
@@ -90,7 +92,8 @@ namespace Bham.BizTalk.Rest.Facades
             {
                 var doc = XDocument.Parse(bookingXml);
                 var roomSpaceIdElement = doc.Descendants("RoomSpaceID").FirstOrDefault();
-                if (roomSpaceIdElement != null && int.TryParse(roomSpaceIdElement.Value, out int roomSpaceId))
+                int roomSpaceId;
+                if (roomSpaceIdElement != null && int.TryParse(roomSpaceIdElement.Value, out roomSpaceId))
                 {
                     Logger.Info($"Parsed RoomSpaceID: {roomSpaceId}");
                     return roomSpaceId;
