@@ -6,24 +6,24 @@ using NLog;
 namespace Bham.BizTalk.Rest
 {
     public static class StarrezHelper
-            /// <summary>
-            /// Extracts RoomSpaceID from Starrez Booking XML using StarrezFacade logic.
-            /// </summary>
-            public static int ExtractRoomSpaceId(string bookingXml)
-            {
-                var facade = new Bham.BizTalk.Rest.Facades.StarrezFacade(new System.Net.Http.HttpClient());
-                return facade.ExtractRoomSpaceId(bookingXml);
-            }
-
-            /// <summary>
-            /// Extracts BookingID from Starrez Entry XML using StarrezFacade logic.
-            /// </summary>
-            public static int ExtractBookingId(string entryXml)
-            {
-                var facade = new Bham.BizTalk.Rest.Facades.StarrezFacade(new System.Net.Http.HttpClient());
-                return facade.ExtractBookingId(entryXml);
-            }
     {
+        /// <summary>
+        /// Extracts RoomSpaceID from Starrez Booking XML using StarrezFacade logic.
+        /// </summary>
+        public static int ExtractRoomSpaceId(string bookingXml)
+        {
+            var facade = new Bham.BizTalk.Rest.Facades.StarrezFacade(new System.Net.Http.HttpClient());
+            return facade.ExtractRoomSpaceId(bookingXml);
+        }
+
+        /// <summary>
+        /// Extracts BookingID from Starrez Entry XML using StarrezFacade logic.
+        /// </summary>
+        public static int ExtractBookingId(string entryXml)
+        {
+            var facade = new Bham.BizTalk.Rest.Facades.StarrezFacade(new System.Net.Http.HttpClient());
+            return facade.ExtractBookingId(entryXml);
+        }
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
