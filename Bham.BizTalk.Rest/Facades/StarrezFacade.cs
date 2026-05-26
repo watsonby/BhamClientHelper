@@ -60,7 +60,7 @@ namespace Bham.BizTalk.Rest.Facades
             return roomSpaceDetailResponse;
         }
 
-        private int ExtractBookingId(string entryXml)
+        public int ExtractBookingId(string entryXml)
         {
             if (string.IsNullOrWhiteSpace(entryXml)) return 0;
             try
@@ -85,7 +85,7 @@ namespace Bham.BizTalk.Rest.Facades
             return 0;
         }
 
-        private int ExtractRoomSpaceId(string bookingXml)
+        public int ExtractRoomSpaceId(string bookingXml)
         {
             if (string.IsNullOrWhiteSpace(bookingXml)) return 0;
             try
