@@ -1,6 +1,8 @@
 using System;
 using System.Net;
 using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 using NLog;
 
 namespace Bham.BizTalk.Rest
@@ -23,6 +25,37 @@ namespace Bham.BizTalk.Rest
         {
             var facade = new Bham.BizTalk.Rest.Facades.StarrezFacade(new System.Net.Http.HttpClient());
             return facade.ExtractBookingId(entryXml);
+        }
+
+        /// <summary>
+        /// Extracts EntryID text value from Starrez Entry XML.
+        /// </summary>
+        public static string ExtractEntryId(string entryXml)
+        {
+            if (string.IsNullOrWhiteSpace(entryXml))
+            {
+                return string.Empty;
+            }
+
+            try
+            {
+                var doc = XDocument.Parse(entryXml);
+                var entryIdElement = doc.Descendants("EntryID").FirstOrDefault();
+                if (entryIdElement != null)
+                {
+                    var entryId = (entryIdElement.Value ?? string.Empty).Trim();
+                    logger.Info($"Parsed EntryID: {entryId}");
+                    return entryId;
+                }
+
+                logger.Warn("EntryID element not found in Entry XML.");
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Error parsing EntryID from Entry XML.");
+            }
+
+            return string.Empty;
         }
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 

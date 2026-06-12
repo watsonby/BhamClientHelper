@@ -36,6 +36,9 @@ namespace Bham.BizTalk.Rest.Tests
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias), SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias);
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided), SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided);
             Run(nameof(SmokeTestWorkflowOptionTests.LoadFromJsonFile_ReadsGallagherCardholderIdSample), SmokeTestWorkflowOptionTests.LoadFromJsonFile_ReadsGallagherCardholderIdSample);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEntryId_WhenElementExists), StarrezHelperTests.ExtractEntryId_ReturnsEntryId_WhenElementExists);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenElementMissing), StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenElementMissing);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenXmlInvalid), StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenXmlInvalid);
         }
 
         private static void Run(string name, Action test)
