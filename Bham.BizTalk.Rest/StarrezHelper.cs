@@ -57,6 +57,7 @@ namespace Bham.BizTalk.Rest
 
             return string.Empty;
         }
+        
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
