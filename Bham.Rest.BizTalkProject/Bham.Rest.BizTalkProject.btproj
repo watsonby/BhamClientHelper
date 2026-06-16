@@ -10,7 +10,7 @@
     <GenericProcessing>true</GenericProcessing>
     <RootNamespace>Bham.Rest.BizTalkProject</RootNamespace>
     <AssemblyName>Bham.Rest.BizTalkProject</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <BpelCompliance>True</BpelCompliance>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

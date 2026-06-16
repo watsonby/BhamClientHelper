@@ -12,7 +12,7 @@ BizTalk 2016 helper library for outbound REST GET and PATCH calls, with Gallaghe
 - JSON parsing helpers for common Gallagher response extraction.
 
 Target framework:
-- .NET Framework 4.6.1 (net461)
+- .NET Framework 4.6 (net46)
 
 Main output:
 - Bham.BizTalk.Rest.dll
