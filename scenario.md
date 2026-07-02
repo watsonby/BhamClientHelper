@@ -73,6 +73,9 @@ strAccessGroupHref =
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
+
+    // If the access group is not found, this now returns "" (empty string)
+    // instead of throwing, so you can branch in a Decision shape.
 ```
 
 **Note**: Uses `ResolveAccessGroupHrefByName` instead of `ResolveAccessGroupIdByName` to obtain the full href. This handles access groups with non-numeric IDs (e.g., `6040-CHAMBERLAIN-B-11703`) and is directly compatible with PATCH operations.
@@ -127,6 +130,12 @@ strAccessGroupResponse =
 - **Rule**: `strMembershipHref != ""` (membership exists)
   - **True**: Skip adding (already exists)
   - **False**: Proceed to add membership
+
+### Decision Shape (Check Access Group Found)
+
+- **Rule**: `strAccessGroupHref != ""` (access group found)
+    - **True**: Proceed
+    - **False**: Route to not-found handling path
 
 ### Expression Shape E (Add Cardholder to Access Group - Only if Not Exists)
 

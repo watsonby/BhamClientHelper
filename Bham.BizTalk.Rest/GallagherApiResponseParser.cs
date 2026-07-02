@@ -60,7 +60,7 @@ namespace Bham.BizTalk.Rest
             string id;
             if (!TryGetEntityIdByName(responseJson, name, out id))
             {
-                throw new InvalidOperationException("No Gallagher entity with the requested name was found in the response.");
+                throw new InvalidOperationException("No Gallagher entity with the requested name was found in the response. Requested name: '" + (name ?? string.Empty) + "'.");
             }
 
             return id;
@@ -73,17 +73,17 @@ namespace Bham.BizTalk.Rest
         {
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
 
-            var expectedName = name.Trim();
+            var expectedName = NormalizeComparableName(name);
             return TryGetFirstMatchingValue(responseJson, delegate(IDictionary<string, object> item)
             {
                 string itemName;
                 string itemId;
-                if (!TryGetString(item, "name", out itemName) || !TryGetString(item, "id", out itemId))
+                if (!TryGetEntityName(item, out itemName) || !TryGetString(item, "id", out itemId))
                 {
                     return null;
                 }
 
-                return string.Equals(itemName, expectedName, StringComparison.OrdinalIgnoreCase) ? itemId : null;
+                return NamesMatch(itemName, expectedName) ? itemId : null;
             }, out id);
         }
 
@@ -95,7 +95,7 @@ namespace Bham.BizTalk.Rest
             string href;
             if (!TryGetEntityHrefByName(responseJson, name, out href))
             {
-                throw new InvalidOperationException("No Gallagher entity with the requested name was found in the response.");
+                throw new InvalidOperationException("No Gallagher entity with the requested name was found in the response. Requested name: '" + (name ?? string.Empty) + "'.");
             }
 
             return href;
@@ -108,17 +108,17 @@ namespace Bham.BizTalk.Rest
         {
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
 
-            var expectedName = name.Trim();
+            var expectedName = NormalizeComparableName(name);
             return TryGetFirstMatchingValue(responseJson, delegate(IDictionary<string, object> item)
             {
                 string itemName;
                 string itemHref;
-                if (!TryGetString(item, "name", out itemName) || !TryGetString(item, "href", out itemHref))
+                if (!TryGetEntityName(item, out itemName) || !TryGetEntityHref(item, out itemHref))
                 {
                     return null;
                 }
 
-                return string.Equals(itemName, expectedName, StringComparison.OrdinalIgnoreCase) ? itemHref : null;
+                return NamesMatch(itemName, expectedName) ? itemHref : null;
             }, out href);
         }
 
@@ -340,6 +340,116 @@ namespace Bham.BizTalk.Rest
             }
 
             return false;
+        }
+
+        private static bool TryGetEntityName(IDictionary<string, object> item, out string name)
+        {
+            name = null;
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (TryGetString(item, "name", out name))
+            {
+                return true;
+            }
+
+            object rawName;
+            IDictionary<string, object> nestedName;
+            if (item.TryGetValue("name", out rawName) &&
+                (nestedName = rawName as IDictionary<string, object>) != null)
+            {
+                if (TryGetString(nestedName, "value", out name) ||
+                    TryGetString(nestedName, "text", out name) ||
+                    TryGetString(nestedName, "displayValue", out name))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool TryGetEntityHref(IDictionary<string, object> item, out string href)
+        {
+            href = null;
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (TryGetString(item, "href", out href))
+            {
+                return true;
+            }
+
+            object nested;
+            IDictionary<string, object> nestedDictionary;
+            if (item.TryGetValue("self", out nested) &&
+                (nestedDictionary = nested as IDictionary<string, object>) != null &&
+                TryGetString(nestedDictionary, "href", out href))
+            {
+                return true;
+            }
+
+            if (item.TryGetValue("link", out nested) &&
+                (nestedDictionary = nested as IDictionary<string, object>) != null &&
+                TryGetString(nestedDictionary, "href", out href))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool NamesMatch(string actual, string expected)
+        {
+            if (string.IsNullOrWhiteSpace(actual) || string.IsNullOrWhiteSpace(expected))
+            {
+                return false;
+            }
+
+            return string.Equals(
+                NormalizeComparableName(actual),
+                NormalizeComparableName(expected),
+                StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static string NormalizeComparableName(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return string.Empty;
+            }
+
+            var trimmed = value.Trim();
+            if (trimmed.Length >= 2 && trimmed[0] == '"' && trimmed[trimmed.Length - 1] == '"')
+            {
+                trimmed = trimmed.Substring(1, trimmed.Length - 2).Trim();
+            }
+
+            var builder = new StringBuilder(trimmed.Length);
+            var previousWasWhitespace = false;
+            for (var i = 0; i < trimmed.Length; i++)
+            {
+                var ch = trimmed[i];
+                if (char.IsWhiteSpace(ch))
+                {
+                    if (!previousWasWhitespace)
+                    {
+                        builder.Append(' ');
+                        previousWasWhitespace = true;
+                    }
+
+                    continue;
+                }
+
+                builder.Append(ch);
+                previousWasWhitespace = false;
+            }
+
+            return builder.ToString();
         }
 
         private static bool DatesMatch(string actual, string expected)

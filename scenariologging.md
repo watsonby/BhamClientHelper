@@ -199,6 +199,9 @@ strAccessGroupHref =
         strAccessGroupName,
         strCertThumbprint,
         100);
+
+// If the access group is not found, this now returns "" (empty string)
+// instead of throwing, so you can branch in a Decision shape.
 ```
 
 ### Expression Shape D (Check if Membership Already Exists with NLog)
@@ -249,7 +252,8 @@ strAccessGroupResponse =
 // - Membership does not already exist
 
 bool canProceedWithAdd =
-    !string.IsNullOrEmpty(strAccessGroupId)
+    !string.IsNullOrEmpty(strAccessGroupHref)
+    && !string.IsNullOrEmpty(strAccessGroupId)
     && strAccessGroupResponse != null
     && strAccessGroupResponse != ""
     && !strAccessGroupResponse.Contains("Invalid access group ID")

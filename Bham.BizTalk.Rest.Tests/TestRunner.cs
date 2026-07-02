@@ -29,6 +29,9 @@ namespace Bham.BizTalk.Rest.Tests
             Run(nameof(GallagherApiClientTests.BuildUpdateAccessGroupPatchBody_MatchesGallagherShape), GallagherApiClientTests.BuildUpdateAccessGroupPatchBody_MatchesGallagherShape);
             Run(nameof(GallagherApiResponseParserTests.GetFirstEntityId_FindsFirstNestedId), GallagherApiResponseParserTests.GetFirstEntityId_FindsFirstNestedId);
             Run(nameof(GallagherApiResponseParserTests.GetEntityIdByName_FindsMatchingName), GallagherApiResponseParserTests.GetEntityIdByName_FindsMatchingName);
+            Run(nameof(GallagherApiResponseParserTests.GetEntityHrefByName_MatchesTrimmedQuotedName), GallagherApiResponseParserTests.GetEntityHrefByName_MatchesTrimmedQuotedName);
+            Run(nameof(GallagherApiResponseParserTests.GetEntityHrefByName_ReadsNestedNameAndHref), GallagherApiResponseParserTests.GetEntityHrefByName_ReadsNestedNameAndHref);
+            Run(nameof(GallagherApiResponseParserTests.TryGetEntityHrefByName_ReturnsFalseWhenNameMissing), GallagherApiResponseParserTests.TryGetEntityHrefByName_ReturnsFalseWhenNameMissing);
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref);
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord);
             Run(nameof(GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter), GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter);

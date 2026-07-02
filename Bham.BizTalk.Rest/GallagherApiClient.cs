@@ -191,7 +191,10 @@ namespace Bham.BizTalk.Rest
         /// </summary>
         public string ResolveAccessGroupHrefByName(string accessGroupName)
         {
-            return GallagherApiResponseParser.GetEntityHrefByName(FindAccessGroupsByName(accessGroupName), accessGroupName);
+            string href;
+            return GallagherApiResponseParser.TryGetEntityHrefByName(FindAccessGroupsByName(accessGroupName), accessGroupName, out href)
+                ? href
+                : string.Empty;
         }
 
         /// <summary>
