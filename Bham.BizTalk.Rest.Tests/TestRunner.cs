@@ -35,6 +35,8 @@ namespace Bham.BizTalk.Rest.Tests
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref);
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord);
             Run(nameof(GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter), GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter);
+            Run(nameof(GallagherApiResponseParserTests.GetCardholderAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord), GallagherApiResponseParserTests.GetCardholderAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord);
+            Run(nameof(GallagherApiResponseParserTests.TryGetCardholderAccessGroupMembershipHrefByNameAndDates_ReturnsFalseWhenDatesDiffer), GallagherApiResponseParserTests.TryGetCardholderAccessGroupMembershipHrefByNameAndDates_ReturnsFalseWhenDatesDiffer);
             Run(nameof(SmokeTestWorkflowOptionTests.Validate_BuildsPdfFieldKeyFromPdfFieldId), SmokeTestWorkflowOptionTests.Validate_BuildsPdfFieldKeyFromPdfFieldId);
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias), SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias);
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided), SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided);

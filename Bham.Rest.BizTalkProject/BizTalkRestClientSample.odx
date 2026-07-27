@@ -258,7 +258,7 @@
                         <om:Property Name="Signal" Value="True" />
                     </om:Element>
                     <om:Element Type="VariableAssignment" OID="f9b805c8-ca4b-4016-abff-e8022dc8f148" ParentLink="ComplexStatement_Statement" LowerBound="145.1" HigherBound="159.1">
-                        <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupMembershipHrefWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;// Check what's in strMembershipHref" />
+                        <om:Property Name="Expression" Value="// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupMembershipHrefWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;accessGroupsJson = Bham.BizTalk.Rest.GallagherApiFacade.GetCardholderAccessGroups(&#xD;&#xA;    strGallagherBaseUrl,&#xD;&#xA;    &quot;Authorization&quot;,&#xD;&#xA;    strApiKey,&#xD;&#xA;    strGallagherCardholderId,&#xD;&#xA;    strCertThumbprint,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,&#xD;&#xA;    System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;    100);&#xD;&#xA;&#xD;&#xA;// True means the membership already has the requested date range.&#xD;&#xA;bHasGroup = (System.Boolean)Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(accessGroupsJson, strAccessGroupName, strFromDate, strUntilDate);&#xD;&#xA;&#xD;&#xA;// Check what's in strMembershipHref" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Shape  D" />
                         <om:Property Name="Signal" Value="False" />
@@ -284,13 +284,13 @@
                                 <om:Property Name="Name" Value="CheckIfExists-Add" />
                                 <om:Property Name="Signal" Value="True" />
                                 <om:Element Type="DecisionBranch" OID="19b69e13-9bc9-4053-a38d-6f472ab8a3d1" ParentLink="ReallyComplexStatement_Branch" LowerBound="201.25" HigherBound="249.1">
-                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot;" />
+                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot; || bHasGroup != true" />
                                     <om:Property Name="IsGhostBranch" Value="True" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="NOT Exists" />
                                     <om:Property Name="Signal" Value="True" />
                                     <om:Element Type="VariableAssignment" OID="e9063205-26b6-471e-8af2-70adc9315efa" ParentLink="ComplexStatement_Statement" LowerBound="203.1" HigherBound="219.1">
-                                        <om:Property Name="Expression" Value="// Add Cardholder to Access Group - Only if Not Already Exists&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                                        <om:Property Name="Expression" Value="// Add Cardholder to Access Group when missing, otherwise update the existing membership dates.&#xD;&#xA;&#xD;&#xA;if (strMembershipHref == &quot;&quot;)&#xD;&#xA;{&#xD;&#xA;    strResponse =&#xD;&#xA;        Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(&#xD;&#xA;            strGallagherBaseUrl,&#xD;&#xA;            &quot;Authorization&quot;,&#xD;&#xA;            strApiKey,&#xD;&#xA;            strGallagherCardholderId,&#xD;&#xA;            strAccessGroupHref,&#xD;&#xA;            strFromDate,&#xD;&#xA;            strUntilDate,&#xD;&#xA;            strCertThumbprint,&#xD;&#xA;            100);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    strResponse =&#xD;&#xA;        Bham.BizTalk.Rest.GallagherLoggingHelper.UpdateCardholderAccessGroupWithNLog(&#xD;&#xA;            strGallagherBaseUrl,&#xD;&#xA;            &quot;Authorization&quot;,&#xD;&#xA;            strApiKey,&#xD;&#xA;            strGallagherCardholderId,&#xD;&#xA;            strMembershipHref,&#xD;&#xA;            strFromDate,&#xD;&#xA;            strUntilDate,&#xD;&#xA;            strCertThumbprint,&#xD;&#xA;            100);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;" />
                                         <om:Property Name="ReportToAnalyst" Value="True" />
                                         <om:Property Name="Name" Value="Shape E" />
                                         <om:Property Name="Signal" Value="True" />
@@ -787,22 +787,39 @@ module Bham.Rest.BizTalkProject
                     if (intStatusCode == 2)
                     {
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("89ed6ede-03bf-4c83-a02d-60c5676bdfff")]
-                        if (strMembershipHref == "")
+                        if (strMembershipHref == "" || bHasGroup != true)
                         {
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("e9063205-26b6-471e-8af2-70adc9315efa")]
-                            // Add Cardholder to Access Group - Only if Not Already Exists
+                            // Add Cardholder to Access Group when missing, otherwise update the existing membership dates.
                             
-                            strResponse =
-                                Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
-                                    strGallagherBaseUrl,
-                                    "Authorization",
-                                    strApiKey,
-                                    strGallagherCardholderId,
-                                    strAccessGroupHref,
-                                    strFromDate,
-                                    strUntilDate,
-                                    strCertThumbprint,
-                                    100);
+                            if (strMembershipHref == "")
+                            {
+                                strResponse =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        strGallagherCardholderId,
+                                        strAccessGroupHref,
+                                        strFromDate,
+                                        strUntilDate,
+                                        strCertThumbprint,
+                                        100);
+                            }
+                            else
+                            {
+                                strResponse =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.UpdateCardholderAccessGroupWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        strGallagherCardholderId,
+                                        strMembershipHref,
+                                        strFromDate,
+                                        strUntilDate,
+                                        strCertThumbprint,
+                                        100);
+                            }
                             
                             
                             [Microsoft.XLANGs.BaseTypes.DesignerPosition("a9b230a0-52ec-42f0-8a4e-fa61ed53c253")]
@@ -875,25 +892,54 @@ module Bham.Rest.BizTalkProject
                             }
                         }
                     }
-                    else if (intStatusCode == 5)
+                    if (intStatusCode == 2)
                     {
+                        accessGroupsJson = Bham.BizTalk.Rest.GallagherApiFacade.GetCardholderAccessGroups(
+                            strGallagherBaseUrl,
+                            "Authorization",
+                            strApiKey,
+                            strGallagherCardholderId,
+                            strCertThumbprint,
+                            System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+                            System.Security.Cryptography.X509Certificates.StoreName.My,
+                            100);
+
+                        bHasGroup = (System.Boolean)Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(accessGroupsJson, strAccessGroupName, strFromDate, strUntilDate);
+
                     }
-                    else 
+                        if (strMembershipHref == "" || bHasGroup != true)
                     {
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("718ac3a1-d048-49e0-868a-6ec864b90bb1")]
-                        strResponse = "";
-                        //strEntryResponse = Bham.BizTalk.Rest.StarrezHelper.GetEntryByIdWithNLog(
-                        //strBookingResponse = Bham.BizTalk.Rest.StarrezHelper.GetBookingByIdWithNLog(
-                        //strRoomSpaceResponse = Bham.BizTalk.Rest.StarrezHelper.GetRoomSpaceDetailByIdWithNLog(
-                    }
-                }
-                exceptions
-                {
-                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("8e5a5621-5e0c-42d6-b18d-4c4916b33d36")]
-                    catch (Bham.BizTalk.Rest.BizTalkRestClientException ex)
-                    {
-                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("833dd22d-2c60-4dc9-b301-b578922fd069")]
-                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                            // Add Cardholder to Access Group when missing, otherwise update the existing membership dates.
+                            
+                            if (strMembershipHref == "")
+                            {
+                                strResponse =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        strGallagherCardholderId,
+                                        strAccessGroupHref,
+                                        strFromDate,
+                                        strUntilDate,
+                                        strCertThumbprint,
+                                        100);
+                            }
+                            else
+                            {
+                                strResponse =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.UpdateCardholderAccessGroupWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        strGallagherCardholderId,
+                                        strMembershipHref,
+                                        strFromDate,
+                                        strUntilDate,
+                                        strCertThumbprint,
+                                        100);
+                            }
                         [Microsoft.XLANGs.BaseTypes.DesignerPosition("02e0a80f-6596-40ab-97b3-df7eda245667")]
                         construct outputXml
                         {

@@ -4,7 +4,7 @@ This document provides code samples for common Gallagher API operations using th
 
 ## Scenario 1: Add Cardholder to Access Group with Date Range
 
-**Objective**: Given a cardholder (student ID: `IDCARD.2953599`) and an access group (`6090-MASON-114-02`), add the cardholder to the access group with from date/time `2025-09-12T05:00:00Z` and until date/time `2026-05-20T10:00:00Z`, but only if not already existing.
+**Objective**: Given a cardholder (student ID: `IDCARD.2953599`) and an access group (`6090-MASON-114-02`), add the cardholder to the access group with from date/time `2025-09-12T05:00:00Z` and until date/time `2026-05-20T10:00:00Z`, but if the membership already exists with different dates, update it instead of skipping.
 
 ### Prerequisites
 
@@ -95,6 +95,24 @@ strMembershipHref =
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
+
+accessGroupsJson =
+    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholderAccessGroups(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strGallagherCardholderId,
+        strCertThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        100);
+
+bHasGroup =
+    Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(
+        accessGroupsJson,
+        strAccessGroupName,
+        strFromDate,
+        strUntilDate);
 ```
 
 ### Expression Shape D.5 (Check Access Group Exists)
@@ -125,11 +143,11 @@ strAccessGroupResponse =
         100);
 ```
 
-### Decision Shape (Check if Membership Exists)
+### Decision Shape (Check if Add or Update Is Required)
 
-- **Rule**: `strMembershipHref != ""` (membership exists)
-  - **True**: Skip adding (already exists)
-  - **False**: Proceed to add membership
+- **Rule**: `strMembershipHref == "" || bHasGroup != true`
+- **True**: Proceed to Shape E
+- **False**: Skip because the existing membership already has the requested dates
 
 ### Decision Shape (Check Access Group Found)
 
@@ -137,22 +155,41 @@ strAccessGroupResponse =
     - **True**: Proceed
     - **False**: Route to not-found handling path
 
-### Expression Shape E (Add Cardholder to Access Group - Only if Not Exists)
+### Expression Shape E (Add or Update Cardholder Access Group)
 
 ```csharp
-strResponse =
-    Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(
-        strGallagherBaseUrl,
-        "Authorization",
-        strApiKey,
-        strGallagherCardholderId,
-        strAccessGroupHref,
-        strFromDate,
-        strUntilDate,
-        strCertThumbprint,
-        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
-        System.Security.Cryptography.X509Certificates.StoreName.My,
-        100);
+if (strMembershipHref == "")
+{
+    strResponse =
+        Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strAccessGroupHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+            System.Security.Cryptography.X509Certificates.StoreName.My,
+            100);
+}
+else
+{
+    strResponse =
+        Bham.BizTalk.Rest.GallagherApiFacade.UpdateCardholderAccessGroup(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strMembershipHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+            System.Security.Cryptography.X509Certificates.StoreName.My,
+            100);
+}
 ```
 
 ## Scenario 2: Remove Cardholder from Access Group

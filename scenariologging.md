@@ -134,7 +134,7 @@ public static string GetPersonalDataFieldsByNameWithNLog(
 }
 ```
 
-## Scenario 1: Add Cardholder to Access Group with Date Range (with NLog)
+## Scenario 1: Add or Update Cardholder Access Group Dates (with NLog)
 
 ### Expression Shape A (Initialize Variables)
 
@@ -217,6 +217,24 @@ strMembershipHref =
         strGallagherCardholderId,
         strCertThumbprint,
         100);
+
+accessGroupsJson =
+    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholderAccessGroups(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strGallagherCardholderId,
+        strCertThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        100);
+
+bHasGroup =
+    GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(
+        accessGroupsJson,
+        strAccessGroupName,
+        strFromDate,
+        strUntilDate);
 ```
 
 ### Expression Shape D.5 (Check Access Group Exists with NLog)
@@ -243,13 +261,13 @@ strAccessGroupResponse =
         100);
 ```
 
-### Decision Shape (Can Proceed with Add)
+### Decision Shape (Can Proceed with Add or Update)
 
 ```csharp
 // Only proceed if:
 // - Access group ID is not empty
 // - Access group exists (response is valid)
-// - Membership does not already exist
+// - Membership is missing or the existing membership dates differ
 
 bool canProceedWithAdd =
     !string.IsNullOrEmpty(strAccessGroupHref)
@@ -257,29 +275,46 @@ bool canProceedWithAdd =
     && strAccessGroupResponse != null
     && strAccessGroupResponse != ""
     && !strAccessGroupResponse.Contains("Invalid access group ID")
-    && strMembershipHref == "";
+    && (strMembershipHref == "" || bHasGroup != true);
 ```
 
-### Decision Shape (Check if Membership Exists)
+### Decision Shape (Check if Add or Update Is Required)
 
-- Rule: `strMembershipHref != ""`
-- True: Skip adding (already exists)
-- False: Proceed to add membership
+- Rule: `strMembershipHref == "" || bHasGroup != true`
+- True: Proceed to Shape E
+- False: Skip because the existing membership already has the requested dates
 
-### Expression Shape E (Add Cardholder to Access Group with NLog)
+### Expression Shape E (Add or Update Cardholder Access Group with NLog)
 
 ```csharp
-strResponse =
-    GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
-        strGallagherBaseUrl,
-        "Authorization",
-        strApiKey,
-        strGallagherCardholderId,
-        strAccessGroupHref,
-        strFromDate,
-        strUntilDate,
-        strCertThumbprint,
-        100);
+if (strMembershipHref == "")
+{
+    strResponse =
+        GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strAccessGroupHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            100);
+}
+else
+{
+    strResponse =
+        GallagherLoggingHelper.UpdateCardholderAccessGroupWithNLog(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strMembershipHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            100);
+}
 ```
 
 ## Scenario 2: Remove Cardholder from Access Group (with NLog)

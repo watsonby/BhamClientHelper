@@ -187,6 +187,20 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Returns the membership href from a cardholder access-groups response matching an access-group name and optional date range.
+        /// </summary>
+        public static string GetCardholderAccessGroupMembershipHrefByNameAndDates(string responseJson, string accessGroupName, string fromDate = null, string untilDate = null)
+        {
+            string href;
+            if (!TryGetCardholderAccessGroupMembershipHrefByNameAndDates(responseJson, accessGroupName, fromDate, untilDate, out href))
+            {
+                throw new InvalidOperationException("No Gallagher cardholder access-group membership href was found for the requested access-group name/date criteria.");
+            }
+
+            return href;
+        }
+
+        /// <summary>
         /// Tries to return the membership href matching a cardholder name and optional date range.
         /// </summary>
         public static bool TryGetAccessGroupMembershipHrefByNameAndDates(string responseJson, string cardholderName, string fromDate, string untilDate, out string href)
@@ -227,6 +241,14 @@ namespace Bham.BizTalk.Rest
 
                 return itemHref;
             }, out href);
+        }
+
+        /// <summary>
+        /// Tries to return the membership href from a cardholder access-groups response matching an access-group name and optional date range.
+        /// </summary>
+        public static bool TryGetCardholderAccessGroupMembershipHrefByNameAndDates(string responseJson, string accessGroupName, string fromDate, string untilDate, out string href)
+        {
+            return TryGetAccessGroupMembershipHrefByNameAndDates(responseJson, accessGroupName, fromDate, untilDate, out href);
         }
 
         private static bool TryGetFirstMatchingValue(string responseJson, Func<IDictionary<string, object>, string> selector, out string value)

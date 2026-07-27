@@ -95,6 +95,38 @@ namespace Bham.BizTalk.Rest.Tests
             AssertEqual("https://host/api/cardholders/777/access_groups/xyz", result);
         }
 
+        public static void GetCardholderAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord()
+        {
+            var responseJson = "{\"results\":["
+                + "{\"href\":\"https://host/api/cardholders/653/access_groups/old\",\"name\":\"6090-MASON-114-02\",\"from\":\"2026-04-01T00:00:00Z\",\"until\":\"2026-05-01T00:00:00Z\"},"
+                + "{\"href\":\"https://host/api/cardholders/653/access_groups/new\",\"name\":\"6090-MASON-114-02\",\"from\":\"2026-06-01T00:00:00Z\",\"until\":\"2026-09-21T12:00:00Z\"}"
+                + "]}";
+
+            var result = GallagherApiResponseParser.GetCardholderAccessGroupMembershipHrefByNameAndDates(
+                responseJson,
+                "6090-MASON-114-02",
+                "2026-06-01T00:00:00Z",
+                "2026-09-21T12:00:00Z");
+
+            AssertEqual("https://host/api/cardholders/653/access_groups/new", result);
+        }
+
+        public static void TryGetCardholderAccessGroupMembershipHrefByNameAndDates_ReturnsFalseWhenDatesDiffer()
+        {
+            var responseJson = "{\"results\":[{\"href\":\"https://host/api/cardholders/653/access_groups/abc123\",\"name\":\"6090-MASON-114-02\",\"from\":\"2026-04-01T00:00:00Z\",\"until\":\"2026-05-01T00:00:00Z\"}]}";
+
+            string result;
+            var found = GallagherApiResponseParser.TryGetCardholderAccessGroupMembershipHrefByNameAndDates(
+                responseJson,
+                "6090-MASON-114-02",
+                "2026-04-01T00:00:00Z",
+                "2026-09-21T12:00:00Z",
+                out result);
+
+            AssertEqual("False", found.ToString());
+            AssertEqual(null, result);
+        }
+
         private static void AssertEqual(string expected, string actual)
         {
             if (!string.Equals(expected, actual, StringComparison.Ordinal))
