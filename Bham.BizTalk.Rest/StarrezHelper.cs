@@ -28,6 +28,16 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Resolves the Gallagher check-in status flag ('Y'/'N') from a StarRez Entry_Status code (5 or 2).
+        /// </summary>
+        public static string ResolveCheckInStatusFlag(string starrezStatus)
+        {
+            if (starrezStatus == "5") return "Y";
+            if (starrezStatus == "2") return "N";
+            throw new ArgumentException("Unsupported StarRez status code: " + starrezStatus, nameof(starrezStatus));
+        }
+
+        /// <summary>
         /// Extracts EntryID text value from Starrez Entry XML.
         /// </summary>
         public static string ExtractEntryId(string entryXml)

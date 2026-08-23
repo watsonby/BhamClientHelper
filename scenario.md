@@ -192,6 +192,46 @@ else
 }
 ```
 
+## Scenario 1.5: Update StarRez Personal Data Fields After Add
+
+**Objective**: After Shape E adds the cardholder to the access group, re-resolve the Gallagher cardholder id (same lookup as Shape B) and PATCH the StarRez personal data fields: the access group name string and a `Y`/`N` check-in status flag derived from the StarRez `Entry_Status` code (`5` -> `Y`, `2` -> `N`).
+
+### Expression Shape F.a (Re-resolve Cardholder ID by PDF Value)
+
+```csharp
+strResponse =
+    Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholdersByPdfValueWithNLog(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strCardholderId,
+        strPdfFieldKey,
+        strCertThumbprint,
+        100);
+
+strGallagherCardholderId =
+    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+```
+
+### Expression Shape F.b (Resolve Check-In Status Flag and PATCH Personal Data)
+
+```csharp
+strCheckInStatusFlag = Bham.BizTalk.Rest.StarrezHelper.ResolveCheckInStatusFlag(entryStatus);
+
+strResponse =
+    Bham.BizTalk.Rest.GallagherLoggingHelper.UpdateCardholderPersonalDataWithNLog(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strGallagherCardholderId,
+        strAccessGroupName,
+        strCheckInStatusFlag,
+        strCertThumbprint,
+        100);
+```
+
+**Note**: `ResolveCheckInStatusFlag` only accepts StarRez status `"5"` (-> `"Y"`) or `"2"` (-> `"N"`); any other value throws, so it should run inside the same `bAdd` branch where `entryStatus` is already known to be `"2"` or `"5"`.
+
 ## Scenario 2: Remove Cardholder from Access Group
 
 **Objective**: Find the cardholder/access group record for student ID `IDCARD.2953599` and access group `6090-MASON-114-02`, then remove it.

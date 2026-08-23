@@ -1,0 +1,1785 @@
+#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="6fceccf0-5d3a-4977-ab34-20facdc97e45" LowerBound="1.1" HigherBound="634.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="Int.Starrez.Gallagher.Orchestrations" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="79775ef0-ff70-4c72-976c-fddd179dd504" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_MessageBoxError" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="OperationDeclaration" OID="53242596-e766-40f3-8c8a-9e09c0087deb" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="MessageBox_Operation" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="aa4b6bf6-8f1f-49b1-8883-6533408a102a" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_Trigger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="b6b15242-0cdb-4543-b01d-50707b0e2f5d" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="StarrezGallagher_Port_Type" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="b781ffbf-061f-4832-883d-b087f4c4115d" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetReport" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="0bd448e5-9744-4162-904b-99f6700fe755" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="73983491-3a2d-4994-b2d2-cc0d33af40b2" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="15.37" HigherBound="15.86">
+                    <om:Property Name="Ref" Value="Int.Starrez.Gallagher.Schemas.BookingExportReport" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="af2cee4e-73f1-45cd-8ba4-10863b0d10d3" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="SendStarrexReport_Port_Type" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6ffdecb3-8c98-4bc9-b6d8-08d721129568" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Send_To_FIle" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="18129d4e-8d0e-4755-a0e7-13ecf832a0ea" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.57">
+                    <om:Property Name="Ref" Value="Int.Starrez.Gallagher.Schemas.SingleResponse" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="930b9279-b4fb-4bc0-ba26-ae34dc1b295a" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="SendError_Port_Type" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="3fc54e9f-618d-45ca-a7ef-4ed16a8fa1b8" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="67feb9be-6a79-4480-b8ee-ae8c05a8a862" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="54eef8f1-9b79-4846-b5e9-f803d8c564c6" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="633.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="StarrezToGallagher" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="VariableDeclaration" OID="f66aa6ef-0f40-4ea8-9778-e67afff356cf" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="49.1" HigherBound="50.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strAccessGroupResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="f56d1cb5-c72a-474f-9ec2-8199b6344834" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="50.1" HigherBound="51.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bHasMembershipHref" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="3cbb113f-b3aa-43d0-a954-c3c3e0579f40" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="51.1" HigherBound="52.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bHasGroup" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b7927006-192a-4612-a78e-f0125c4129a6" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="52.1" HigherBound="53.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bHasAccessGroupId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1cc64ab9-82a6-43b5-88f3-a87d1ee1d3bd" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="53.1" HigherBound="54.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strUntilUtc" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="6e11fffc-ed07-46ff-896b-494df47a5b4b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="54.1" HigherBound="55.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strUntilDate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="5b179bd3-1d3d-481f-930b-5365d3c86e3e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="55.1" HigherBound="56.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="972ed683-5033-4207-82d4-86ec441968bf" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="56.1" HigherBound="57.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strPdfFieldKey" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="670e05e6-513d-4416-b4ce-e842ae4c4d61" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="57.1" HigherBound="58.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strPdfFieldId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1703312b-7067-443a-8433-2acb3a0269c2" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="58.1" HigherBound="59.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strMembershipHref" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0b3d2f19-db95-4106-ac92-d6a9cd1e000b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strGallagherCardholderId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="f05755f3-10d4-4f0b-8ead-3fb0093a7913" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="60.1" HigherBound="61.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strGallagherBaseUrl" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="debc0c8f-b47c-44ab-ba57-5b04245a692e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="61.1" HigherBound="62.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strFromUtc" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="43b49ac8-d03b-417b-a0c2-411724b0f34c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="62.1" HigherBound="63.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strFromDate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="fad7ed9e-43af-4ed0-b672-a01a1a26f515" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="63.1" HigherBound="64.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strCertThumbprint" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="08d3336d-9085-4409-afe1-02f2e50cfc40" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="64.1" HigherBound="65.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strCardholderId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="f29591d0-115f-4c13-a212-eaa66d50d588" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="65.1" HigherBound="66.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strApiKey" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a7b30ccd-d72c-408e-b789-1e531ebc44d1" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="66.1" HigherBound="67.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strAccessGroupName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="4ee1854e-98dc-497b-ae96-10c6311764c7" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="67.1" HigherBound="68.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="responseCount" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="ebecc31e-957e-4450-8982-b4e4ed22ac4d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="68.1" HigherBound="69.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="counter" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="96bda237-c3f3-4032-b3eb-9d31c104a8f2" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="69.1" HigherBound="70.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="counterString" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="680b2e43-b345-4296-842e-7f4ba1ce992a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="70.1" HigherBound="71.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="studentID" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="6efdc65a-fc1a-446f-8bb2-9547187a932a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="71.1" HigherBound="72.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="checkInDate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="bda86160-3175-4078-a760-8df9851b8118" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="72.1" HigherBound="73.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="checkOutDate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0e7772ce-9e75-4137-8edb-7b1600681d5c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="73.1" HigherBound="74.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="cardaxAccessGroup" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="cb3917bf-09f0-404b-9ab0-7663f5c8614a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="74.1" HigherBound="75.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="entryStatus" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="3814f6a2-0b0c-4521-ba74-3de1041155e5" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="75.1" HigherBound="76.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="eta" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="db43ce6e-ec8b-4a72-8a22-d13dfb86e60d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="76.1" HigherBound="77.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="etd" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="da744cf4-f133-4cde-a469-f2005ee21d59" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="77.1" HigherBound="78.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="dateModified" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="6f93c90b-517d-41eb-bd7f-84ab67137837" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="78.1" HigherBound="79.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="orchestrationName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="36099453-4a75-4682-a194-0ad331e7ff09" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="79.1" HigherBound="80.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="System.Exception" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="varSysExc" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="3cabad55-841c-4ba8-9b16-d1277067b35b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="80.1" HigherBound="81.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="fromDateTime" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="70c944a9-e943-4d40-a851-818ff48ba681" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="81.1" HigherBound="82.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="untilDateTime" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a464c4a1-0202-44a0-9356-192a4b2cd42f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="82.1" HigherBound="83.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="intStatusCode" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="4c494fec-79bf-4169-adc8-30795243dcb7" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="83.1" HigherBound="84.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strAccessGroupHref" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="e6aabe4c-f449-40d0-8fb3-6377d4b9951e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="84.1" HigherBound="85.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="strAccessGroupId" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0371b936-8d02-475f-818d-5190fb0a5ca1" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="85.1" HigherBound="86.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.DateTime" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="dateTimeCheckIn" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a7625d77-74d0-4cd7-bda5-98e08fe4dd1f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="86.1" HigherBound="87.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.DateTime" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="dateTimeCheckOut" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0539c61a-119c-4951-8e27-29d953853a5a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="87.1" HigherBound="88.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bAdd" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="fa6b3d9e-15b9-4b1e-bcdb-bb91e9048510" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="88.1" HigherBound="89.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bRemove" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8cef4968-7ae5-4dc8-86ec-d9f534495bee" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="89.1" HigherBound="90.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="dateUS" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a4b6cc68-504d-4558-88ef-c46de6fe8932" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="90.1" HigherBound="91.1">
+                <om:Property Name="InitialValue" Value="false" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bCardholderExists" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d01f4097-ad68-4fd9-9ec5-4ba8a2b633f9" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="91.1" HigherBound="92.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="executionTranscript" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7713a365-d149-4f14-99b2-0a1a1f6eacb1" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="92.1" HigherBound="93.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.DateTime" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="localDate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="38f17bfe-924f-4a14-9b18-958fd9978fb1" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="93.1" HigherBound="94.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bHasAccessGroupHref" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="c9cefbb7-d688-4cdc-a1cf-876cb3d3596f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="94.1" HigherBound="95.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="False" />
+                <om:Property Name="Name" Value="bHasExactDates" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="bd988b18-7f57-48a2-91ef-651c187e737a" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TriggerMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="c509edc9-7f03-47e4-8452-bbf6ea608ec6" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="StarrezReport" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="e9e80835-9c05-42a7-b49b-3150e70982da" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="45.1" HigherBound="46.1">
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Schemas.BookingExportReport" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="StarrezResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="498b9e6f-7365-4e45-acec-73f919a4504b" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="46.1" HigherBound="47.1">
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Schemas.SingleResponse" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SingleResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="60c200e0-c7a5-496f-9c9c-aa114e72b4ad" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="47.1" HigherBound="48.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="StarrezEntryRequest" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="43cf0d02-8797-4cb8-85b4-7d0b1a056d0f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="48.1" HigherBound="49.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ErrorMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="f5c6ede3-ca90-4d21-9149-5bfd2e9082e3" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Scope" OID="b94bb367-55b1-4205-8c96-bec98ca4b5e2" ParentLink="ServiceBody_Statement" LowerBound="97.1" HigherBound="631.1">
+                    <om:Property Name="InitializedTransactionType" Value="True" />
+                    <om:Property Name="IsSynchronized" Value="False" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Report_Scope" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Receive" OID="22c792f1-d52a-475e-aa5c-d218f1365649" ParentLink="ComplexStatement_Statement" LowerBound="102.1" HigherBound="144.1">
+                        <om:Property Name="Activate" Value="True" />
+                        <om:Property Name="PortName" Value="MessageBox_Receive_Port" />
+                        <om:Property Name="MessageName" Value="TriggerMessage" />
+                        <om:Property Name="OperationName" Value="MessageBox_Operation" />
+                        <om:Property Name="OperationMessageName" Value="Receive_Trigger" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Receive_Trigger_Message" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="DNFPredicate" OID="d668e7f9-3e5d-4d1e-9176-d6b03a53782d" ParentLink="Receive_DNFPredicate">
+                            <om:Property Name="LHS" Value="BTS.ReceivePortName" />
+                            <om:Property Name="RHS" Value="&quot;Uob.Esb.Starrez.Gallagher&quot;" />
+                            <om:Property Name="Grouping" Value="AND" />
+                            <om:Property Name="Operator" Value="Equals" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="ce190ebf-8121-4303-9ffc-33d00eadfc93" ParentLink="ComplexStatement_Statement" LowerBound="144.1" HigherBound="154.1">
+                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;============================================================================================================== \n&quot;);&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Int.Starrez.Gallagher orchestration, retrieving SSO values \n&quot;);&#xD;&#xA;&#xD;&#xA;strGallagherBaseUrl = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue(&quot;GallagherBaseUrl&quot;));&#xD;&#xA;strApiKey = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue(&quot;ApiKey&quot;));&#xD;&#xA;strCertThumbprint = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue(&quot;CertThumbprint&quot;));&#xD;&#xA;strPdfFieldId = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue(&quot;PdfFieldId&quot;));&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Retreived SSO values \n&quot;);" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Get SSO Values" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="Send" OID="ab0f2dda-8639-4b54-b56f-2b560eba3c7d" ParentLink="ComplexStatement_Statement" LowerBound="154.1" HigherBound="156.1">
+                        <om:Property Name="PortName" Value="Get_Starrez_Report_Port" />
+                        <om:Property Name="MessageName" Value="TriggerMessage" />
+                        <om:Property Name="OperationName" Value="GetReport" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Send_Report_Request" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Receive" OID="193b3abe-7bd2-4edb-8b33-83fded99a51b" ParentLink="ComplexStatement_Statement" LowerBound="156.1" HigherBound="158.1">
+                        <om:Property Name="Activate" Value="False" />
+                        <om:Property Name="PortName" Value="Get_Starrez_Report_Port" />
+                        <om:Property Name="MessageName" Value="StarrezResponse" />
+                        <om:Property Name="OperationName" Value="GetReport" />
+                        <om:Property Name="OperationMessageName" Value="Response" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Receive_Report_Response" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="daff6faa-5682-4da8-a343-f900ac0a6a80" ParentLink="ComplexStatement_Statement" LowerBound="158.1" HigherBound="167.1">
+                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Initializing main loop. \n&quot;);&#xD;&#xA;&#xD;&#xA;responseCount = xpath(StarrezResponse, &quot;count(/*[local-name()='feed' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='entry' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='content' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom'])&quot;);&#xD;&#xA;counter = 1;&#xD;&#xA;counterString = &quot;1&quot;;&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Retrieved {0} records. \n&quot;, responseCount));&#xD;&#xA;&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="RetryLoop" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="While" OID="fa5f8ae5-4330-4dc5-aec8-9534cf31a76b" ParentLink="ComplexStatement_Statement" LowerBound="167.1" HigherBound="570.1">
+                        <om:Property Name="Expression" Value="counter &lt;= responseCount" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="RetryLoop" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="Scope" OID="51c7c591-feca-4f80-a130-40a52d77ef70" ParentLink="ComplexStatement_Statement" LowerBound="170.1" HigherBound="565.1">
+                            <om:Property Name="InitializedTransactionType" Value="True" />
+                            <om:Property Name="IsSynchronized" Value="False" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Loop Scope" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="Construct" OID="6d8c70aa-b963-4410-a422-bad2fc963444" ParentLink="ComplexStatement_Statement" LowerBound="175.1" HigherBound="196.1">
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ConstructSingle" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="MessageAssignment" OID="62d4dd2c-c5b0-41ca-8e2b-9013bf3952a6" ParentLink="ComplexStatement_Statement" LowerBound="178.1" HigherBound="195.1">
+                                    <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;------------------------------------------------------------------------------------------------------------------------------------- \n&quot;);&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Extracting next record. \n&quot;);&#xD;&#xA;&#xD;&#xA;SingleResponse = xpath(StarrezResponse, &quot;/*[local-name()='feed' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='entry' and namespace-uri()='http://www.w3.org/2005/Atom'][&quot; + counterString + &quot;]/*[local-name()='content' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']&quot;);&#xD;&#xA;&#xD;&#xA;studentID = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='StudentID' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;checkInDate = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Check_In_Date_Actual' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;checkOutDate = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Check_Out_Date_Actual' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;cardaxAccessGroup = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Cardax_Access_Group' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;entryStatus = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Entry_Status' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;eta = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='ETA' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;etd = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='ETD' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;dateModified = xpath(SingleResponse, &quot;string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Date_Modified' and namespace-uri()='http://www.w3.org/2005/Atom']/text())&quot;);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Extracted record. \n&quot;);&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Student ID: {0}, Check-In-Date: {1}, Check-Out-Date: {2}, Access-Group: {3}, Status: {4} \n&quot;, studentID, checkInDate, checkOutDate, cardaxAccessGroup, entryStatus));&#xD;&#xA;" />
+                                    <om:Property Name="ReportToAnalyst" Value="False" />
+                                    <om:Property Name="Name" Value="MessageAssignment_1" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="MessageRef" OID="d03ea106-6aa0-4b80-9095-0dd24111408d" ParentLink="Construct_MessageRef" LowerBound="176.43" HigherBound="176.57">
+                                    <om:Property Name="Ref" Value="SingleResponse" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="209d39cc-e919-4a1f-8f9c-b535a69beaa0" ParentLink="ComplexStatement_Statement" LowerBound="196.1" HigherBound="206.1">
+                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Initializing variables. \n&quot;);&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xD;&#xA;strCardholderId = &quot;IDCARD.&quot; + studentID;&#xD;&#xA;strAccessGroupName = cardaxAccessGroup;&#xD;&#xA;strFromDate = &quot;2025-09-12T05:00:00Z&quot;;&#xD;&#xA;strUntilDate = &quot;2026-05-20T10:00:00Z&quot;;&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Variables Initialized. \n&quot;);&#xD;&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Init vars" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="cccaef3f-3e59-43f7-b75a-4d368a02cb89" ParentLink="ComplexStatement_Statement" LowerBound="206.1" HigherBound="220.1">
+                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Resolving Add/Remove status. \n&quot;);&#xD;&#xA;&#xD;&#xA;bAdd = false;&#xD;&#xA;bRemove = false;&#xD;&#xA;&#xD;&#xA;if ((entryStatus == &quot;2&quot;) || (entryStatus == &quot;5&quot;)){&#xD;&#xA;    bAdd = true;&#xD;&#xA;};&#xD;&#xA;if (entryStatus == &quot;70&quot;){&#xD;&#xA;    bRemove = true;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Add: {0}, Remove: {1} \n&quot;, bAdd.ToString(), bRemove.ToString()));&#xD;&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Add or Remove" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="8d0b3fef-b8dd-453a-a69d-11295de6f102" ParentLink="ComplexStatement_Statement" LowerBound="220.1" HigherBound="240.1">
+                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;1. GET PDF ID using 'ThirdPartyID' \n&quot;);&#xA;&#xA;// 1. GET PDF ID using &quot;ThirdPartyID&quot;&#xA;strPdfFieldId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolvePersonalDataFieldIdWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        &quot;ThirdPartyID&quot;,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xA; &#xA; &#xA;// Bham.BizTalk.Rest.GallagherLoggingHelper.CreateNLogLogger(&quot;GetCardholdersByPdfValue&quot;)&#xA; &#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xA; &#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;PDF_ID is &quot; + strPdfFieldId);&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;PDF_ID Key is &quot; + strPdfFieldKey);&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Get PDF ID" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="a4760c09-f563-42b3-9980-27d3366763d0" ParentLink="ComplexStatement_Statement" LowerBound="240.1" HigherBound="258.1">
+                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape A \n&quot;);&#xD;&#xA;&#xD;&#xA;// add variables for the events&#xD;&#xA;bCardholderExists = true;&#xD;&#xA;&#xD;&#xA;//checkInDate Convert to date below&#xD;&#xA;strFromDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(checkInDate, eta);&#xA;strUntilDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(checkOutDate, etd);&#xD;&#xA;&#xD;&#xA;strPdfFieldKey = &quot;pdf_&quot; + strPdfFieldId;&#xD;&#xA;strCardholderId = &quot;IDCARD.&quot; + studentID;&#xD;&#xA;strAccessGroupName = cardaxAccessGroup;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;From-Date: {0}, Until-Date {1}, CardholderID: {2}, Access-Group-Name: {3} \n&quot;, strFromDate, strUntilDate, strCardholderId, strAccessGroupName));&#xD;&#xA;executionTranscript = &quot;Shape A executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(executionTranscript);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Shape A" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="be5f0dcf-ad3d-450b-876e-9e02e6e7eef6" ParentLink="ComplexStatement_Statement" LowerBound="258.1" HigherBound="283.1">
+                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape B \n&quot;);&#xD;&#xA;&#xD;&#xA;// Find Cardholder by PDF Value&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholdersByPdfValueWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strCardholderId,&#xD;&#xA;        strPdfFieldKey,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;//Check for cardholder NOT existing&#xD;&#xA;bCardholderExists =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiResponseParser.TryGetFirstEntityId(strResponse, out strGallagherCardholderId);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;strResponse: {0} \n&quot;, strResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape B executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Shape B" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="Decision" OID="3937e395-b4b2-42e8-b049-69ab1b79db13" ParentLink="ComplexStatement_Statement" LowerBound="283.1" HigherBound="547.1">
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Cardholder Exists" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="DecisionBranch" OID="a2e2e655-d10d-4a8a-9e71-48f347ff61cf" ParentLink="ReallyComplexStatement_Branch" LowerBound="284.33" HigherBound="539.1">
+                                    <om:Property Name="Expression" Value="bCardholderExists == true" />
+                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
+                                    <om:Element Type="VariableAssignment" OID="0eb58625-545a-4dc1-b01a-afac38d2b40e" ParentLink="ComplexStatement_Statement" LowerBound="286.1" HigherBound="295.1">
+                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape C \n&quot;);&#xD;&#xA;&#xD;&#xA;// Extract Gallagher Cardholder ID&#xD;&#xA;strGallagherCardholderId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Cardholder ID: {0} \n&quot;, strGallagherCardholderId));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape C executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Shape C" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="VariableAssignment" OID="79852a2e-baa6-4fe8-aa82-04a60a1234e6" ParentLink="ComplexStatement_Statement" LowerBound="295.1" HigherBound="319.1">
+                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape C.5 \n&quot;);&#xD;&#xA;&#xD;&#xA;// C.5 (Resolve Access Group href by Name)&#xD;&#xA;&#xD;&#xA;strAccessGroupHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupHrefByNameWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;//Check for Access Group Href NOT existing&#xD;&#xA;if (strAccessGroupHref.Length == 0){&#xD;&#xA;    bHasAccessGroupHref = false;&#xD;&#xA;}   &#xD;&#xA;else {&#xD;&#xA;    bHasAccessGroupHref = true;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Access Group Href: {0} \n&quot;, strAccessGroupHref));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape C.5 executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Shape C.5" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="Decision" OID="d7647bb7-1bd8-4013-81be-a389c69dec8c" ParentLink="ComplexStatement_Statement" LowerBound="319.1" HigherBound="538.1">
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="AccessGroupHrefExists" />
+                                        <om:Property Name="Signal" Value="True" />
+                                        <om:Element Type="DecisionBranch" OID="b34260ae-a329-443d-a739-b3dc90854739" ParentLink="ReallyComplexStatement_Branch" LowerBound="320.37" HigherBound="530.1">
+                                            <om:Property Name="Expression" Value="bHasAccessGroupHref == true" />
+                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="True" />
+                                            <om:Property Name="Signal" Value="False" />
+                                            <om:Element Type="VariableAssignment" OID="80ecd5e8-0baa-441f-91b2-9afe3121af1b" ParentLink="ComplexStatement_Statement" LowerBound="322.1" HigherBound="339.1">
+                                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape D \n&quot;);&#xD;&#xA;&#xD;&#xA;// Check if Membership already exists&#xD;&#xA;&#xD;&#xA;strMembershipHref =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupMembershipHrefWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;accessGroupsJson =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholderAccessGroupsSafeWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;if (accessGroupsJson == &quot;{}&quot;)&#xD;&#xA;{&#xD;&#xA;    bCardholderExists = false;&#xD;&#xA;    strMembershipHref = &quot;&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Membership Href: {0} \n&quot;, strMembershipHref));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape D executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Shape  D" />
+                                                <om:Property Name="Signal" Value="True" />
+                                            </om:Element>
+                                            <om:Element Type="VariableAssignment" OID="7281ebee-7078-4324-8896-f0d173da6319" ParentLink="ComplexStatement_Statement" LowerBound="339.1" HigherBound="381.1">
+                                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape D.5 \n&quot;);&#xD;&#xA;&#xD;&#xA;// Resolve the access group ID from the name with logging&#xD;&#xA;strAccessGroupId =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupIdByNameWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;bHasAccessGroupId = true;&#xD;&#xA;if (strAccessGroupId.Length == 0)&#xD;&#xA;{&#xD;&#xA;    // raise error   (log or handle error)&#xD;&#xA;    bHasAccessGroupId = false;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;strAccessGroupResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.GetAccessGroupByIdWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strAccessGroupId,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;// maybe use this, strAccessGroupResponse.Contains(&quot;\&quot;id\&quot;&quot;)&#xD;&#xA;if (strAccessGroupResponse.Contains(&quot;\&quot;id\&quot;&quot;)){&#xD;&#xA;    bHasAccessGroupId = true;&#xD;&#xA;}&#xD;&#xA;// Check what response we get from the access group check.&#xD;&#xA;if (strAccessGroupResponse.Contains(&quot;Invalid access group ID&quot;))&#xD;&#xA;{&#xD;&#xA;    bHasAccessGroupId = false;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Access Group ID: {0}, Access Group Response: {1} \n&quot;, strAccessGroupId, strAccessGroupResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape D.5 executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Shape D.5" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                            <om:Element Type="Decision" OID="4c6db25f-6cc6-4ce1-9e8b-9b05b5844e7a" ParentLink="ComplexStatement_Statement" LowerBound="381.1" HigherBound="529.1">
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="ActionAddOrRemove" />
+                                                <om:Property Name="Signal" Value="True" />
+                                                <om:Element Type="DecisionBranch" OID="9f22d27c-1256-4eae-a6fa-d4633dd43ff2" ParentLink="ReallyComplexStatement_Branch" LowerBound="382.41" HigherBound="475.1">
+                                                    <om:Property Name="Expression" Value="(bAdd == true) &amp;&amp; (bHasAccessGroupId == true) &amp;&amp; (bCardholderExists == true)" />
+                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Add" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                    <om:Element Type="VariableAssignment" OID="10e2bcfe-7865-403c-a21e-d37972420aee" ParentLink="ComplexStatement_Statement" LowerBound="384.1" HigherBound="386.1">
+                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Adding record. Entry Status: {0} \n&quot;, entryStatus));" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Logging" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                    <om:Element Type="VariableAssignment" OID="22ed5c2d-4820-486e-b042-e3a66b3f612f" ParentLink="ComplexStatement_Statement" LowerBound="386.1" HigherBound="398.1">
+                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape D.7 \n&quot;);&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Check if same group already exists with the exact requested from/until \n&quot;);&#xD;&#xA;// Check if same group already exists with the exact requested from/until&#xD;&#xA;bHasExactDates =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(&#xD;&#xA;        accessGroupsJson,&#xD;&#xA;        strAccessGroupName,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;From Date: {0}, Until Date: {1}, Dates Differ {2} \n&quot;, strFromDate, strUntilDate, bHasExactDates.ToString()));&#xD;&#xA;" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="D.7" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                    <om:Element Type="Decision" OID="0cdd233b-455f-488c-b7aa-8f6417986ca1" ParentLink="ComplexStatement_Statement" LowerBound="398.1" HigherBound="474.1">
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Cardholder Exists" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                        <om:Element Type="DecisionBranch" OID="73ce48f7-641f-4440-b669-aee5168137dc" ParentLink="ReallyComplexStatement_Branch" LowerBound="399.45" HigherBound="466.1">
+                                                            <om:Property Name="Expression" Value="bCardholderExists" />
+                                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="True" />
+                                                            <om:Property Name="Signal" Value="True" />
+                                                            <om:Element Type="Decision" OID="02a946d8-ec2a-42b9-af29-daf91cf4e244" ParentLink="ComplexStatement_Statement" LowerBound="401.1" HigherBound="465.1">
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="CheckIfExists-Add" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                                <om:Element Type="DecisionBranch" OID="57f59129-5d78-4c46-9a89-2c0123e03125" ParentLink="ReallyComplexStatement_Branch" LowerBound="402.49" HigherBound="424.1">
+                                                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot;" />
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="New Add" />
+                                                                    <om:Property Name="Signal" Value="True" />
+                                                                    <om:Element Type="VariableAssignment" OID="0eef8286-e691-4944-8b9d-0f51f04cfba8" ParentLink="ComplexStatement_Statement" LowerBound="404.1" HigherBound="423.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape E (Add) \n&quot;);&#xD;&#xA;&#xD;&#xA;// Add Cardholder to Access Group - Only if Not Already Exists&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strAccessGroupHref,&#xD;&#xA;        strFromDate,&#xD;&#xA;        strUntilDate,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;strResponse: {0} \n&quot;, strResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape E executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Shape E.a" />
+                                                                        <om:Property Name="Signal" Value="True" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                                <om:Element Type="DecisionBranch" OID="d2c628cd-a5e6-4bc8-99a9-4ee23f663bce" ParentLink="ReallyComplexStatement_Branch" LowerBound="424.54" HigherBound="432.1">
+                                                                    <om:Property Name="Expression" Value="(bHasExactDates == true)" />
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="Dates same" />
+                                                                    <om:Property Name="Signal" Value="True" />
+                                                                    <om:Element Type="VariableAssignment" OID="db15ac5b-c66d-4bdf-a486-be6e3d614339" ParentLink="ComplexStatement_Statement" LowerBound="426.1" HigherBound="429.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Record already exists, same dates. Membership Href: {0} \n&quot;, strMembershipHref));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Logging" />
+                                                                        <om:Property Name="Signal" Value="False" />
+                                                                    </om:Element>
+                                                                    <om:Element Type="Send" OID="ff0342b1-f985-4e51-a4cf-2f0d777601e8" ParentLink="ComplexStatement_Statement" LowerBound="429.1" HigherBound="431.1">
+                                                                        <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                                        <om:Property Name="MessageName" Value="SingleResponse" />
+                                                                        <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                                        <om:Property Name="OperationMessageName" Value="Request" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="SendSingle" />
+                                                                        <om:Property Name="Signal" Value="True" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                                <om:Element Type="DecisionBranch" OID="5c164d91-dead-460f-a235-b43f10f0b49c" ParentLink="ReallyComplexStatement_Branch" LowerBound="432.54" HigherBound="457.1">
+                                                                    <om:Property Name="Expression" Value="(strMembershipHref != &quot;&quot;) &amp;&amp; (bHasExactDates == false)" />
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="Update" />
+                                                                    <om:Property Name="Signal" Value="True" />
+                                                                    <om:Element Type="VariableAssignment" OID="7f6cc859-937a-43b4-ba12-00312bf62cfe" ParentLink="ComplexStatement_Statement" LowerBound="434.1" HigherBound="456.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape E (Add) \n&quot;);&#xD;&#xA;&#xD;&#xA;// Update Cardholder to Access Group - Dates have changed&#xD;&#xA;&#xD;&#xA;// Membership exists but dates differ -&gt; Update&#xD;&#xA;    strResponse =&#xD;&#xA;        Bham.BizTalk.Rest.GallagherApiFacade.UpdateCardholderAccessGroup(&#xD;&#xA;            strGallagherBaseUrl,&#xD;&#xA;            &quot;Authorization&quot;,&#xD;&#xA;            strApiKey,&#xD;&#xA;            strGallagherCardholderId,&#xD;&#xA;            strMembershipHref,&#xD;&#xA;            strFromDate,&#xD;&#xA;            strUntilDate,&#xD;&#xA;            strCertThumbprint,&#xD;&#xA;            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,&#xD;&#xA;            System.Security.Cryptography.X509Certificates.StoreName.My,&#xD;&#xA;            100);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;strResponse: {0} \n&quot;, strResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape E executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Shape E.b" />
+                                                                        <om:Property Name="Signal" Value="False" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                                <om:Element Type="DecisionBranch" OID="a93b65ee-6d8f-4ccb-9857-fa1dbeea4760" ParentLink="ReallyComplexStatement_Branch">
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="Else" />
+                                                                    <om:Property Name="Signal" Value="False" />
+                                                                    <om:Element Type="VariableAssignment" OID="2b6059df-2a03-475c-a7cf-0060b0c9e321" ParentLink="ComplexStatement_Statement" LowerBound="459.1" HigherBound="462.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Else clause in Add. Membership Href: {0} \n&quot;, strMembershipHref));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Logging" />
+                                                                        <om:Property Name="Signal" Value="False" />
+                                                                    </om:Element>
+                                                                    <om:Element Type="Send" OID="5ce6c59d-a2c2-4855-bd9b-eadd54409cdd" ParentLink="ComplexStatement_Statement" LowerBound="462.1" HigherBound="464.1">
+                                                                        <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                                        <om:Property Name="MessageName" Value="SingleResponse" />
+                                                                        <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                                        <om:Property Name="OperationMessageName" Value="Request" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="SendSingle" />
+                                                                        <om:Property Name="Signal" Value="True" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                            </om:Element>
+                                                        </om:Element>
+                                                        <om:Element Type="DecisionBranch" OID="c14b24e5-ae2e-499c-9236-2f9904a727e3" ParentLink="ReallyComplexStatement_Branch">
+                                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="Else" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                            <om:Element Type="VariableAssignment" OID="3fd831cf-6910-436b-bea6-e637111c4141" ParentLink="ComplexStatement_Statement" LowerBound="468.1" HigherBound="471.1">
+                                                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Cardholder does not exist. Cardholder ID: {0} \n&quot;, strCardholderId));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="Logging" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                            </om:Element>
+                                                            <om:Element Type="Send" OID="d3fe69f0-e575-4e1b-a6f9-77a5f077f8e7" ParentLink="ComplexStatement_Statement" LowerBound="471.1" HigherBound="473.1">
+                                                                <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                                <om:Property Name="MessageName" Value="SingleResponse" />
+                                                                <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                                <om:Property Name="OperationMessageName" Value="Request" />
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="SendSingle" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                            </om:Element>
+                                                        </om:Element>
+                                                    </om:Element>
+                                                </om:Element>
+                                                <om:Element Type="DecisionBranch" OID="13907d29-0e03-44b9-a560-a7c35c645520" ParentLink="ReallyComplexStatement_Branch" LowerBound="475.46" HigherBound="521.1">
+                                                    <om:Property Name="Expression" Value="bRemove == true" />
+                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Remove" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                    <om:Element Type="VariableAssignment" OID="c6048e2a-7d7b-465f-b6ac-5b93cf9744dc" ParentLink="ComplexStatement_Statement" LowerBound="477.1" HigherBound="479.1">
+                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Removing record. Entry Status: {0} \n&quot;, entryStatus));" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Logging" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                    </om:Element>
+                                                    <om:Element Type="Decision" OID="f035c5d3-7507-41bb-8859-ffdc231653ce" ParentLink="ComplexStatement_Statement" LowerBound="479.1" HigherBound="520.1">
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Cardholder Exists" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                        <om:Element Type="DecisionBranch" OID="9774152c-9f22-42ff-847c-a5aff769dfc9" ParentLink="ReallyComplexStatement_Branch" LowerBound="480.45" HigherBound="512.1">
+                                                            <om:Property Name="Expression" Value="bCardholderExists" />
+                                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="True" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                            <om:Element Type="Decision" OID="4f37ef77-a076-452b-86e8-7b6a77050639" ParentLink="ComplexStatement_Statement" LowerBound="482.1" HigherBound="511.1">
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="CheckExists-Remove" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                                <om:Element Type="DecisionBranch" OID="88f16266-1fe7-4287-8f9b-cca0309a19d5" ParentLink="ReallyComplexStatement_Branch" LowerBound="483.49" HigherBound="491.1">
+                                                                    <om:Property Name="Expression" Value="strMembershipHref == &quot;&quot;" />
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="NOT Exists" />
+                                                                    <om:Property Name="Signal" Value="True" />
+                                                                    <om:Element Type="VariableAssignment" OID="95a50847-16fb-446d-aee5-40a53daafd63" ParentLink="ComplexStatement_Statement" LowerBound="485.1" HigherBound="488.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Record doesn't exist. Membership Href: {0} \n&quot;, strMembershipHref));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Logging" />
+                                                                        <om:Property Name="Signal" Value="False" />
+                                                                    </om:Element>
+                                                                    <om:Element Type="Send" OID="81444a25-2d10-485d-9939-5b404121e20e" ParentLink="ComplexStatement_Statement" LowerBound="488.1" HigherBound="490.1">
+                                                                        <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                                        <om:Property Name="MessageName" Value="SingleResponse" />
+                                                                        <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                                        <om:Property Name="OperationMessageName" Value="Request" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="SendSingle" />
+                                                                        <om:Property Name="Signal" Value="True" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                                <om:Element Type="DecisionBranch" OID="e4261409-ae13-414f-826a-18a997a9c0ad" ParentLink="ReallyComplexStatement_Branch">
+                                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                    <om:Property Name="Name" Value="Else" />
+                                                                    <om:Property Name="Signal" Value="True" />
+                                                                    <om:Element Type="VariableAssignment" OID="26c836b7-3bbb-4f11-ba74-f98fc7867e85" ParentLink="ComplexStatement_Statement" LowerBound="493.1" HigherBound="510.1">
+                                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Starting Shape E (Remove) \n&quot;);&#xD;&#xA;&#xD;&#xA;// Remove Cardholder from Access group&#xD;&#xA;&#xD;&#xA;strResponse =&#xD;&#xA;    Bham.BizTalk.Rest.GallagherLoggingHelper.RemoveCardholderFromAccessGroupWithNLog(&#xD;&#xA;        strGallagherBaseUrl,&#xD;&#xA;        &quot;Authorization&quot;,&#xD;&#xA;        strApiKey,&#xD;&#xA;        strGallagherCardholderId,&#xD;&#xA;        strMembershipHref,&#xD;&#xA;        strCertThumbprint,&#xD;&#xA;        100);&#xD;&#xA;&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;strResponse: {0} \n&quot;, strResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Shape E executed at &quot; + System.DateTime.Now.ToString() + &quot;\n&quot;);" />
+                                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                        <om:Property Name="Name" Value="Shape E" />
+                                                                        <om:Property Name="Signal" Value="False" />
+                                                                    </om:Element>
+                                                                </om:Element>
+                                                            </om:Element>
+                                                        </om:Element>
+                                                        <om:Element Type="DecisionBranch" OID="2baa73c1-629d-4b4f-abfa-25c5c26ff2ae" ParentLink="ReallyComplexStatement_Branch">
+                                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="Else" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                            <om:Element Type="VariableAssignment" OID="4bf0ebe6-66fd-420e-939d-602c5d5d69b9" ParentLink="ComplexStatement_Statement" LowerBound="514.1" HigherBound="517.1">
+                                                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Cardholder does not exist. Cardholder ID: {0} \n&quot;, strCardholderId));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="Logging" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                            </om:Element>
+                                                            <om:Element Type="Send" OID="9be67335-1d02-4bf4-9f45-ac88d2407841" ParentLink="ComplexStatement_Statement" LowerBound="517.1" HigherBound="519.1">
+                                                                <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                                <om:Property Name="MessageName" Value="SingleResponse" />
+                                                                <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                                <om:Property Name="OperationMessageName" Value="Request" />
+                                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                                <om:Property Name="Name" Value="SendSingle" />
+                                                                <om:Property Name="Signal" Value="True" />
+                                                            </om:Element>
+                                                        </om:Element>
+                                                    </om:Element>
+                                                </om:Element>
+                                                <om:Element Type="DecisionBranch" OID="17eb980f-4b20-49e0-bbf6-06709b792763" ParentLink="ReallyComplexStatement_Branch">
+                                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Else" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                    <om:Element Type="VariableAssignment" OID="2a912a37-da44-44b2-9c48-9d255fa4d915" ParentLink="ComplexStatement_Statement" LowerBound="523.1" HigherBound="526.1">
+                                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;Record neither added or removed. Entry Status: {0} \n&quot;, entryStatus));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Logging" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                    </om:Element>
+                                                    <om:Element Type="Send" OID="abc03377-a85f-4aa5-a130-c6e19248ab5d" ParentLink="ComplexStatement_Statement" LowerBound="526.1" HigherBound="528.1">
+                                                        <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                        <om:Property Name="MessageName" Value="SingleResponse" />
+                                                        <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                        <om:Property Name="OperationMessageName" Value="Request" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="SendSingle" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                    </om:Element>
+                                                </om:Element>
+                                            </om:Element>
+                                        </om:Element>
+                                        <om:Element Type="DecisionBranch" OID="0f50c151-cbe3-4011-b0f2-d3ccddb9d05e" ParentLink="ReallyComplexStatement_Branch">
+                                            <om:Property Name="IsGhostBranch" Value="True" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Else" />
+                                            <om:Property Name="Signal" Value="False" />
+                                            <om:Element Type="VariableAssignment" OID="a39eab89-518a-4432-b258-2ca06570b28c" ParentLink="ComplexStatement_Statement" LowerBound="532.1" HigherBound="535.1">
+                                                <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;No Gallagher entity with the requested name was found in the response. AccessGroupName: {0} \n&quot;, strAccessGroupName));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Logging" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                            <om:Element Type="Send" OID="2f67c5cf-6b12-4904-be7f-c437218af407" ParentLink="ComplexStatement_Statement" LowerBound="535.1" HigherBound="537.1">
+                                                <om:Property Name="PortName" Value="SendStarrezReport" />
+                                                <om:Property Name="MessageName" Value="SingleResponse" />
+                                                <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                                <om:Property Name="OperationMessageName" Value="Request" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="SendSingle" />
+                                                <om:Property Name="Signal" Value="True" />
+                                            </om:Element>
+                                        </om:Element>
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="DecisionBranch" OID="0327c577-60ea-4cda-8997-f0cf78fea19b" ParentLink="ReallyComplexStatement_Branch">
+                                    <om:Property Name="IsGhostBranch" Value="True" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Else" />
+                                    <om:Property Name="Signal" Value="False" />
+                                    <om:Element Type="VariableAssignment" OID="595805d5-8739-4f90-9960-0be9f264839d" ParentLink="ComplexStatement_Statement" LowerBound="541.1" HigherBound="544.1">
+                                        <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format(&quot;No entity id was found in the Gallagher response. StrResponse: {0} \n&quot;, strResponse));&#xD;&#xA;Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Sending to archive. \n&quot;);" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Logging" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="Send" OID="a0024030-304d-4530-be00-2cb1352a65a4" ParentLink="ComplexStatement_Statement" LowerBound="544.1" HigherBound="546.1">
+                                        <om:Property Name="PortName" Value="SendStarrezReport" />
+                                        <om:Property Name="MessageName" Value="SingleResponse" />
+                                        <om:Property Name="OperationName" Value="Send_To_FIle" />
+                                        <om:Property Name="OperationMessageName" Value="Request" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="SendSingle" />
+                                        <om:Property Name="Signal" Value="True" />
+                                    </om:Element>
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="Catch" OID="a9ae67d8-0a33-4fbb-8415-b1794c8b9d5f" ParentLink="Scope_Catch" LowerBound="550.1" HigherBound="563.1">
+                                <om:Property Name="ExceptionName" Value="LoopEx" />
+                                <om:Property Name="ExceptionType" Value="System.SystemException" />
+                                <om:Property Name="IsFaultMessage" Value="False" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="CatchException_1" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="Construct" OID="7c3f47b2-3b6b-4e33-8e81-f9e4f191051b" ParentLink="Catch_Statement" LowerBound="553.1" HigherBound="560.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="ConstructMessage_1" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="MessageAssignment" OID="2fad0c3e-5cc6-40c8-a663-1d6c7f6aee94" ParentLink="ComplexStatement_Statement" LowerBound="556.1" HigherBound="559.1">
+                                        <om:Property Name="Expression" Value="ErrorMessage = new System.Xml.XmlDocument();&#xD;&#xA;ErrorMessage.LoadXml(&quot;&lt;Root&gt;&lt;Error&gt;&quot; + LoopEx.Message + &quot;&lt;/Error&gt;&lt;/Root&gt;&quot;);" />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="MessageAssignment_2" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageRef" OID="225b514c-371b-44b9-817d-be6751cde626" ParentLink="Construct_MessageRef" LowerBound="554.47" HigherBound="554.59">
+                                        <om:Property Name="Ref" Value="ErrorMessage" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="Send" OID="4410c190-73e1-47cf-b175-714be0481ce0" ParentLink="Catch_Statement" LowerBound="560.1" HigherBound="562.1">
+                                    <om:Property Name="PortName" Value="SendError" />
+                                    <om:Property Name="MessageName" Value="ErrorMessage" />
+                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Send_1" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="VariableAssignment" OID="69eb0272-4ee5-4fc3-b287-9c6ec7469bdf" ParentLink="ComplexStatement_Statement" LowerBound="565.1" HigherBound="569.1">
+                            <om:Property Name="Expression" Value="Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(&quot;Incrementing loop. \n&quot;);&#xD;&#xA;counter = counter + 1;&#xD;&#xA;counterString = counter.ToString();" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Increment" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="e113360d-6954-4b9a-a067-1ad717723e5a" ParentLink="Scope_Catch" LowerBound="573.1" HigherBound="579.1">
+                        <om:Property Name="ExceptionName" Value="ex" />
+                        <om:Property Name="ExceptionType" Value="Bham.BizTalk.Rest.BizTalkRestClientException" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="BhamException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="c65084bf-61de-47de-ac7e-9df5c7a965cd" ParentLink="Catch_Statement" LowerBound="576.1" HigherBound="578.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(ex.Message);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_2" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="06c8277e-3649-40d5-a276-6e594c3cdbf1" ParentLink="Scope_Catch" LowerBound="579.1" HigherBound="623.1">
+                        <om:Property Name="ExceptionName" Value="SystemException" />
+                        <om:Property Name="ExceptionType" Value="System.Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="SystemExceptionType" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="64f4088b-bd3a-4816-96d3-800259fd96f4" ParentLink="Catch_Statement" LowerBound="582.1" HigherBound="611.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;Catch SystemException block&quot;)); &#xD;&#xA;System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.Message: {0}&quot;, SystemException.Message));&#xD;&#xA;System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.Source: {0}&quot;, SystemException.Source));&#xD;&#xA;System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.GetType(): {0}&quot;, SystemException.GetType()));&#xD;&#xA;if (SystemException.InnerException != null)&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.InnerException.Message: {0}&quot;, SystemException.InnerException.Message));&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.InnerException == null&quot;));&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;varSysExc = SystemException.GetBaseException();&#xD;&#xA;if (varSysExc != null)&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.GetBaseException().Message: {0}&quot;, varSysExc.Message));&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.Debug.WriteLine(System.String.Format(&quot;exc.GetBaseException() == null&quot;));&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Write the exception to the Event log&#xD;&#xA;//varInstanceId = Microsoft.XLANGs.Core.Service.RootService.InstanceId.ToString();&#xD;&#xA;//varErrorMessage = System.String.Format(&quot;There was a System.SystemException error whilst processing {0}: {1}&quot;, varInstanceId, Ex.Message);&#xD;&#xA; &#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;BizTalk Server&quot;,varErrorMessage,System.Diagnostics.EventLogEntryType.Error);&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="3707cbad-c5a5-4ee1-b515-ecf75ad05b4d" ParentLink="Catch_Statement" LowerBound="611.1" HigherBound="622.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="IdentifyUnwantedMessages" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="DecisionBranch" OID="69283a30-0f4d-471b-a525-caf12e64831d" ParentLink="ReallyComplexStatement_Branch" LowerBound="612.25" HigherBound="617.1">
+                                <om:Property Name="Expression" Value="SystemException.Message.Contains(&quot;System.Net.WebException&quot;) &amp;&amp; SystemException.Message.Contains(&quot;(400) Bad Request&quot;) &amp;&amp; SystemException.Message.Contains(&quot;There aren't any records to display&quot;)" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="UnwantedMessage" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="Terminate" OID="1ec26a90-f9a0-4ede-87e1-9e5346678dc4" ParentLink="ComplexStatement_Statement" LowerBound="614.1" HigherBound="616.1">
+                                    <om:Property Name="ErrorMessage" Value="&quot;Terminated unwanted message&quot;;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="TerminatedUnwantedMessage" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="1be72304-c60e-4d32-8b21-971df7449161" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="Suspend" OID="e343d1d2-b6f3-4382-81fa-5bd84f077f88" ParentLink="ComplexStatement_Statement" LowerBound="619.1" HigherBound="621.1">
+                                    <om:Property Name="ErrorMessage" Value="SystemException.Message;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="SuspendWantedMessage" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="dde4c6ef-a7a5-4922-a397-6d2a90eb39b6" ParentLink="Scope_Catch" LowerBound="623.1" HigherBound="629.1">
+                        <om:Property Name="ExceptionType" Value="General Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="OtherExceptionTypes" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="Throw" OID="c0ce3caf-be97-411e-8cab-8b283b70abd3" ParentLink="Catch_Statement" LowerBound="626.1" HigherBound="628.1">
+                            <om:Property Name="ThrownReference" Value="General Exception" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="RethrowOtherErrors" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="b2734a50-d327-4d4d-8fc9-944d2b55e694" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="35.1" HigherBound="37.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Orchestrations.PortType_MessageBoxError" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="MessageBox_Receive_Port" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="DirectBindingAttribute" OID="e0c99ed8-ee72-485a-bd40-8e59c88032c6" ParentLink="PortDeclaration_CLRAttribute" LowerBound="35.1" HigherBound="36.1">
+                    <om:Property Name="DirectBindingType" Value="MessageBox" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="d284aeb7-d850-44b7-a8d8-a01407c43310" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="37.1" HigherBound="39.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="13" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Orchestrations.StarrezGallagher_Port_Type" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Get_Starrez_Report_Port" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="9ecf439c-ae79-478b-825a-43b83aa29c72" ParentLink="PortDeclaration_CLRAttribute" LowerBound="37.1" HigherBound="38.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="73673be0-5b0a-4137-bfb1-d27dbcb6ae91" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="39.1" HigherBound="41.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="133" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Orchestrations.SendError_Port_Type" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SendError" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="a63ae4b0-8447-424f-955c-2218747d1ccc" ParentLink="PortDeclaration_CLRAttribute" LowerBound="39.1" HigherBound="40.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="5cb29508-6132-48bb-a9d3-eadbe56a08ba" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="41.1" HigherBound="43.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="126" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="Int.Starrez.Gallagher.Orchestrations.SendStarrexReport_Port_Type" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SendStarrezReport" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="fe23f992-1507-40fa-a9f7-d4a74783d2da" ParentLink="PortDeclaration_CLRAttribute" LowerBound="41.1" HigherBound="42.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module Int.Starrez.Gallagher.Orchestrations
+{
+    internal porttype PortType_MessageBoxError
+    {
+        oneway MessageBox_Operation
+        {
+            System.Xml.XmlDocument
+        };
+    };
+    internal porttype StarrezGallagher_Port_Type
+    {
+        requestresponse GetReport
+        {
+            System.Xml.XmlDocument, Int.Starrez.Gallagher.Schemas.BookingExportReport
+        };
+    };
+    internal porttype SendStarrexReport_Port_Type
+    {
+        oneway Send_To_FIle
+        {
+            Int.Starrez.Gallagher.Schemas.SingleResponse
+        };
+    };
+    internal porttype SendError_Port_Type
+    {
+        oneway Operation_1
+        {
+            System.Xml.XmlDocument
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service StarrezToGallagher
+    {
+        [Microsoft.XLANGs.BaseTypes.DirectBinding()]
+        port implements PortType_MessageBoxError MessageBox_Receive_Port;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses StarrezGallagher_Port_Type Get_Starrez_Report_Port;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses SendError_Port_Type SendError;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses SendStarrexReport_Port_Type SendStarrezReport;
+        message System.Xml.XmlDocument TriggerMessage;
+        message System.Xml.XmlDocument StarrezReport;
+        message Int.Starrez.Gallagher.Schemas.BookingExportReport StarrezResponse;
+        message Int.Starrez.Gallagher.Schemas.SingleResponse SingleResponse;
+        message System.Xml.XmlDocument StarrezEntryRequest;
+        message System.Xml.XmlDocument ErrorMessage;
+        System.String strAccessGroupResponse;
+        System.Boolean bHasMembershipHref;
+        System.Boolean bHasGroup;
+        System.Boolean bHasAccessGroupId;
+        System.String strUntilUtc;
+        System.String strUntilDate;
+        System.String strResponse;
+        System.String strPdfFieldKey;
+        System.String strPdfFieldId;
+        System.String strMembershipHref;
+        System.String strGallagherCardholderId;
+        System.String strGallagherBaseUrl;
+        System.String strFromUtc;
+        System.String strFromDate;
+        System.String strCertThumbprint;
+        System.String strCardholderId;
+        System.String strApiKey;
+        System.String strAccessGroupName;
+        System.String accessGroupsJson;
+        System.Int32 responseCount;
+        System.Int32 counter;
+        System.String counterString;
+        System.String studentID;
+        System.String checkInDate;
+        System.String checkOutDate;
+        System.String cardaxAccessGroup;
+        System.String entryStatus;
+        System.String eta;
+        System.String etd;
+        System.String dateModified;
+        System.String orchestrationName;
+        System.Exception varSysExc;
+        System.String fromDateTime;
+        System.String untilDateTime;
+        System.Int32 intStatusCode;
+        System.String strAccessGroupHref;
+        System.String strAccessGroupId;
+        System.DateTime dateTimeCheckIn;
+        System.DateTime dateTimeCheckOut;
+        System.Boolean bAdd;
+        System.Boolean bRemove;
+        System.String dateUS;
+        System.Boolean bCardholderExists;
+        System.String executionTranscript;
+        System.DateTime localDate;
+        System.Boolean bHasAccessGroupHref;
+        System.Boolean bHasExactDates;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b94bb367-55b1-4205-8c96-bec98ca4b5e2")]
+            scope
+            {
+                body
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("22c792f1-d52a-475e-aa5c-d218f1365649")]
+                    activate ((BTS.ReceivePortName == "Uob.Esb.Starrez.Gallagher"))receive (MessageBox_Receive_Port.MessageBox_Operation, TriggerMessage);
+                    strAccessGroupResponse = "";
+                    bHasMembershipHref = false;
+                    bHasGroup = false;
+                    bHasAccessGroupId = false;
+                    strUntilUtc = "";
+                    strUntilDate = "";
+                    strResponse = "";
+                    strPdfFieldKey = "";
+                    strPdfFieldId = "";
+                    strMembershipHref = "";
+                    strGallagherCardholderId = "";
+                    strGallagherBaseUrl = "";
+                    strFromUtc = "";
+                    strFromDate = "";
+                    strCertThumbprint = "";
+                    strCardholderId = "";
+                    strApiKey = "";
+                    strAccessGroupName = "";
+                    accessGroupsJson = "";
+                    counterString = "";
+                    studentID = "";
+                    checkInDate = "";
+                    checkOutDate = "";
+                    cardaxAccessGroup = "";
+                    entryStatus = "";
+                    eta = "";
+                    etd = "";
+                    dateModified = "";
+                    orchestrationName = "";
+                    varSysExc = new System.Exception();
+                    fromDateTime = "";
+                    untilDateTime = "";
+                    strAccessGroupHref = "";
+                    strAccessGroupId = "";
+                    bAdd = false;
+                    bRemove = false;
+                    dateUS = "";
+                    bCardholderExists = false;
+                    executionTranscript = "";
+                    bHasAccessGroupHref = true;
+                    bHasExactDates = true;
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("ce190ebf-8121-4303-9ffc-33d00eadfc93")]
+                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("============================================================================================================== \n");
+                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Int.Starrez.Gallagher orchestration, retrieving SSO values \n");
+                    
+                    strGallagherBaseUrl = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue("GallagherBaseUrl"));
+                    strApiKey = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue("ApiKey"));
+                    strCertThumbprint = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue("CertThumbprint"));
+                    strPdfFieldId = System.Convert.ToString(Int.Starrez.Gallagher.Helper.Helper.GetSSOValue("PdfFieldId"));
+                    
+                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Retreived SSO values \n");
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("ab0f2dda-8639-4b54-b56f-2b560eba3c7d")]
+                    send (Get_Starrez_Report_Port.GetReport, TriggerMessage);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("193b3abe-7bd2-4edb-8b33-83fded99a51b")]
+                    receive (Get_Starrez_Report_Port.GetReport, StarrezResponse);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("daff6faa-5682-4da8-a343-f900ac0a6a80")]
+                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Initializing main loop. \n");
+                    
+                    responseCount = xpath(StarrezResponse, "count(/*[local-name()='feed' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='entry' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='content' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom'])");
+                    counter = 1;
+                    counterString = "1";
+                    
+                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Retrieved {0} records. \n", responseCount));
+                    
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("fa5f8ae5-4330-4dc5-aec8-9534cf31a76b")]
+                    while (counter <= responseCount)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("51c7c591-feca-4f80-a130-40a52d77ef70")]
+                        scope
+                        {
+                            body
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("6d8c70aa-b963-4410-a422-bad2fc963444")]
+                                construct SingleResponse
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("62d4dd2c-c5b0-41ca-8e2b-9013bf3952a6")]
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("------------------------------------------------------------------------------------------------------------------------------------- \n");
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Extracting next record. \n");
+                                    
+                                    SingleResponse = xpath(StarrezResponse, "/*[local-name()='feed' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='entry' and namespace-uri()='http://www.w3.org/2005/Atom'][" + counterString + "]/*[local-name()='content' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']");
+                                    
+                                    studentID = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='StudentID' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    checkInDate = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Check_In_Date_Actual' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    checkOutDate = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Check_Out_Date_Actual' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    cardaxAccessGroup = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Cardax_Access_Group' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    entryStatus = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Entry_Status' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    eta = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='ETA' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    etd = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='ETD' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    dateModified = xpath(SingleResponse, "string(/*[local-name()='Record' and namespace-uri()='http://www.w3.org/2005/Atom']/*[local-name()='Date_Modified' and namespace-uri()='http://www.w3.org/2005/Atom']/text())");
+                                    
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Extracted record. \n");
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Student ID: {0}, Check-In-Date: {1}, Check-Out-Date: {2}, Access-Group: {3}, Status: {4} \n", studentID, checkInDate, checkOutDate, cardaxAccessGroup, entryStatus));
+                                }
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("209d39cc-e919-4a1f-8f9c-b535a69beaa0")]
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Initializing variables. \n");
+                                
+                                strPdfFieldKey = "pdf_" + strPdfFieldId;
+                                strCardholderId = "IDCARD." + studentID;
+                                strAccessGroupName = cardaxAccessGroup;
+                                strFromDate = "2025-09-12T05:00:00Z";
+                                strUntilDate = "2026-05-20T10:00:00Z";
+                                
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Variables Initialized. \n");
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("cccaef3f-3e59-43f7-b75a-4d368a02cb89")]
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Resolving Add/Remove status. \n");
+                                
+                                bAdd = false;
+                                bRemove = false;
+                                
+                                if ((entryStatus == "2") || (entryStatus == "5")){
+                                    bAdd = true;
+                                };
+                                if (entryStatus == "70"){
+                                    bRemove = true;
+                                };
+                                
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Add: {0}, Remove: {1} \n", bAdd.ToString(), bRemove.ToString()));
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("8d0b3fef-b8dd-453a-a69d-11295de6f102")]
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("1. GET PDF ID using 'ThirdPartyID' \n");
+                                
+                                // 1. GET PDF ID using "ThirdPartyID"
+                                strPdfFieldId =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.ResolvePersonalDataFieldIdWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        "ThirdPartyID",
+                                        strCertThumbprint,
+                                        100);
+                                 
+                                 
+                                // Bham.BizTalk.Rest.GallagherLoggingHelper.CreateNLogLogger("GetCardholdersByPdfValue")
+                                 
+                                strPdfFieldKey = "pdf_" + strPdfFieldId;
+                                 
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("PDF_ID is " + strPdfFieldId);
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("PDF_ID Key is " + strPdfFieldKey);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("a4760c09-f563-42b3-9980-27d3366763d0")]
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape A \n");
+                                
+                                // add variables for the events
+                                bCardholderExists = true;
+                                
+                                //checkInDate Convert to date below
+                                strFromDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(checkInDate, eta);
+                                strUntilDate = Bham.BizTalk.Rest.GallagherApiFacade.ConvertUkDateAndTimeToGallagherUtc(checkOutDate, etd);
+                                
+                                strPdfFieldKey = "pdf_" + strPdfFieldId;
+                                strCardholderId = "IDCARD." + studentID;
+                                strAccessGroupName = cardaxAccessGroup;
+                                
+                                
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("From-Date: {0}, Until-Date {1}, CardholderID: {2}, Access-Group-Name: {3} \n", strFromDate, strUntilDate, strCardholderId, strAccessGroupName));
+                                executionTranscript = "Shape A executed at " + System.DateTime.Now.ToString() + "\n";
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(executionTranscript);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("be5f0dcf-ad3d-450b-876e-9e02e6e7eef6")]
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape B \n");
+                                
+                                // Find Cardholder by PDF Value
+                                strResponse =
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholdersByPdfValueWithNLog(
+                                        strGallagherBaseUrl,
+                                        "Authorization",
+                                        strApiKey,
+                                        strCardholderId,
+                                        strPdfFieldKey,
+                                        strCertThumbprint,
+                                        100);
+                                
+                                // Check for cardholder existing using parser logic instead of brittle length matching.
+                                bCardholderExists =
+                                    Bham.BizTalk.Rest.GallagherApiResponseParser.TryGetFirstEntityId(strResponse, out strGallagherCardholderId);
+                                
+                                
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("strResponse: {0} \n", strResponse));
+                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape B executed at " + System.DateTime.Now.ToString() + "\n");
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("3937e395-b4b2-42e8-b049-69ab1b79db13")]
+                                if (bCardholderExists == true)
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("0eb58625-545a-4dc1-b01a-afac38d2b40e")]
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape C \n");
+                                    
+                                    // Extract Gallagher Cardholder ID
+                                    strGallagherCardholderId =
+                                        Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+                                    
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Cardholder ID: {0} \n", strGallagherCardholderId));
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape C executed at " + System.DateTime.Now.ToString() + "\n");
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("79852a2e-baa6-4fe8-aa82-04a60a1234e6")]
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape C.5 \n");
+                                    
+                                    // C.5 (Resolve Access Group href by Name)
+                                    
+                                    strAccessGroupHref =
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupHrefByNameWithNLog(
+                                            strGallagherBaseUrl,
+                                            "Authorization",
+                                            strApiKey,
+                                            strAccessGroupName,
+                                            strCertThumbprint,
+                                            100);
+                                    
+                                    //Check for Access Group Href NOT existing
+                                    if (strAccessGroupHref.Length == 0){
+                                        bHasAccessGroupHref = false;
+                                    }   
+                                    else {
+                                        bHasAccessGroupHref = true;
+                                    };
+                                    
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Access Group Href: {0} \n", strAccessGroupHref));
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape C.5 executed at " + System.DateTime.Now.ToString() + "\n");
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("d7647bb7-1bd8-4013-81be-a389c69dec8c")]
+                                    if (bHasAccessGroupHref == true)
+                                    {
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("80ecd5e8-0baa-441f-91b2-9afe3121af1b")]
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape D \n");
+                                        
+                                        // Check if Membership already exists
+                                        
+                                        strMembershipHref =
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupMembershipHrefWithNLog(
+                                                strGallagherBaseUrl,
+                                                "Authorization",
+                                                strApiKey,
+                                                strAccessGroupHref,
+                                                strGallagherCardholderId,
+                                                strCertThumbprint,
+                                                100);
+
+                                        accessGroupsJson =
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholderAccessGroupsSafeWithNLog(
+                                                strGallagherBaseUrl,
+                                                "Authorization",
+                                                strApiKey,
+                                                strGallagherCardholderId,
+                                                strCertThumbprint,
+                                                100);
+
+                                        if (accessGroupsJson == "{}")
+                                        {
+                                            bCardholderExists = false;
+                                            strMembershipHref = "";
+                                        }
+                                        
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Membership Href: {0} \n", strMembershipHref));
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape D executed at " + System.DateTime.Now.ToString() + "\n");
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("7281ebee-7078-4324-8896-f0d173da6319")]
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape D.5 \n");
+                                        
+                                        // Resolve the access group ID from the name with logging
+                                        strAccessGroupId =
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.ResolveAccessGroupIdByNameWithNLog(
+                                                strGallagherBaseUrl,
+                                                "Authorization",
+                                                strApiKey,
+                                                strAccessGroupName,
+                                                strCertThumbprint,
+                                                100);
+                                        
+                                        bHasAccessGroupId = true;
+                                        if (strAccessGroupId.Length == 0)
+                                        {
+                                            // raise error   (log or handle error)
+                                            bHasAccessGroupId = false;
+                                        }
+                                        
+                                        
+                                        strAccessGroupResponse =
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.GetAccessGroupByIdWithNLog(
+                                                strGallagherBaseUrl,
+                                                "Authorization",
+                                                strApiKey,
+                                                strAccessGroupId,
+                                                strCertThumbprint,
+                                                100);
+                                        
+                                        // maybe use this, strAccessGroupResponse.Contains("\"id\"")
+                                        if (strAccessGroupResponse.Contains("\"id\"")){
+                                            bHasAccessGroupId = true;
+                                        }
+                                        // Check what response we get from the access group check.
+                                        if (strAccessGroupResponse.Contains("Invalid access group ID"))
+                                        {
+                                            bHasAccessGroupId = false;
+                                        }
+                                        
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Access Group ID: {0}, Access Group Response: {1} \n", strAccessGroupId, strAccessGroupResponse));
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape D.5 executed at " + System.DateTime.Now.ToString() + "\n");
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c6db25f-6cc6-4ce1-9e8b-9b05b5844e7a")]
+                                        if ((bAdd == true) && (bHasAccessGroupId == true) && (bCardholderExists == true))
+                                        {
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("10e2bcfe-7865-403c-a21e-d37972420aee")]
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Adding record. Entry Status: {0} \n", entryStatus));
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("22ed5c2d-4820-486e-b042-e3a66b3f612f")]
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape D.7 \n");
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Check if same group already exists with the exact requested from/until \n");
+                                            // Check if same group already exists with the exact requested from/until
+                                            bHasExactDates =
+                                                Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(
+                                                    accessGroupsJson,
+                                                    strAccessGroupName,
+                                                    strFromDate,
+                                                    strUntilDate);
+                                            
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("From Date: {0}, Until Date: {1}, Dates Differ {2} \n", strFromDate, strUntilDate, bHasExactDates.ToString()));
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("0cdd233b-455f-488c-b7aa-8f6417986ca1")]
+                                            if (bCardholderExists)
+                                            {
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("02a946d8-ec2a-42b9-af29-daf91cf4e244")]
+                                                if (strMembershipHref == "")
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("0eef8286-e691-4944-8b9d-0f51f04cfba8")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape E (Add) \n");
+                                                    
+                                                    // Add Cardholder to Access Group - Only if Not Already Exists
+                                                    
+                                                    strResponse =
+                                                        Bham.BizTalk.Rest.GallagherLoggingHelper.AddAccessGroupToCardholderWithNLog(
+                                                            strGallagherBaseUrl,
+                                                            "Authorization",
+                                                            strApiKey,
+                                                            strGallagherCardholderId,
+                                                            strAccessGroupHref,
+                                                            strFromDate,
+                                                            strUntilDate,
+                                                            strCertThumbprint,
+                                                            100);
+                                                    
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("strResponse: {0} \n", strResponse));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape E executed at " + System.DateTime.Now.ToString() + "\n");
+                                                }
+                                                else if ((bHasExactDates == true))
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("db15ac5b-c66d-4bdf-a486-be6e3d614339")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Record already exists, same dates. Membership Href: {0} \n", strMembershipHref));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("ff0342b1-f985-4e51-a4cf-2f0d777601e8")]
+                                                    send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                                }
+                                                else if ((strMembershipHref != "") && (bHasExactDates == false))
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("7f6cc859-937a-43b4-ba12-00312bf62cfe")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape E (Add) \n");
+                                                    
+                                                    // Update Cardholder to Access Group - Dates have changed
+                                                    
+                                                    // Membership exists but dates differ -> Update
+                                                        strResponse =
+                                                            Bham.BizTalk.Rest.GallagherApiFacade.UpdateCardholderAccessGroup(
+                                                                strGallagherBaseUrl,
+                                                                "Authorization",
+                                                                strApiKey,
+                                                                strGallagherCardholderId,
+                                                                strMembershipHref,
+                                                                strFromDate,
+                                                                strUntilDate,
+                                                                strCertThumbprint,
+                                                                System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+                                                                System.Security.Cryptography.X509Certificates.StoreName.My,
+                                                                100);
+                                                    
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("strResponse: {0} \n", strResponse));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape E executed at " + System.DateTime.Now.ToString() + "\n");
+                                                }
+                                                else 
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("2b6059df-2a03-475c-a7cf-0060b0c9e321")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Else clause in Add. Membership Href: {0} \n", strMembershipHref));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("5ce6c59d-a2c2-4855-bd9b-eadd54409cdd")]
+                                                    send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                                }
+                                            }
+                                            else 
+                                            {
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("3fd831cf-6910-436b-bea6-e637111c4141")]
+                                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Cardholder does not exist. Cardholder ID: {0} \n", strCardholderId));
+                                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d3fe69f0-e575-4e1b-a6f9-77a5f077f8e7")]
+                                                send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                            }
+                                        }
+                                        else if (bRemove == true)
+                                        {
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c6048e2a-7d7b-465f-b6ac-5b93cf9744dc")]
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Removing record. Entry Status: {0} \n", entryStatus));
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f035c5d3-7507-41bb-8859-ffdc231653ce")]
+                                            if (bCardholderExists)
+                                            {
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4f37ef77-a076-452b-86e8-7b6a77050639")]
+                                                if (strMembershipHref == "")
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("95a50847-16fb-446d-aee5-40a53daafd63")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Record doesn't exist. Membership Href: {0} \n", strMembershipHref));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("81444a25-2d10-485d-9939-5b404121e20e")]
+                                                    send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                                }
+                                                else 
+                                                {
+                                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("26c836b7-3bbb-4f11-ba74-f98fc7867e85")]
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Starting Shape E (Remove) \n");
+                                                    
+                                                    // Remove Cardholder from Access group
+                                                    
+                                                    strResponse =
+                                                        Bham.BizTalk.Rest.GallagherLoggingHelper.RemoveCardholderFromAccessGroupWithNLog(
+                                                            strGallagherBaseUrl,
+                                                            "Authorization",
+                                                            strApiKey,
+                                                            strGallagherCardholderId,
+                                                            strMembershipHref,
+                                                            strCertThumbprint,
+                                                            100);
+                                                    
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("strResponse: {0} \n", strResponse));
+                                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Shape E executed at " + System.DateTime.Now.ToString() + "\n");
+                                                }
+                                            }
+                                            else 
+                                            {
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4bf0ebe6-66fd-420e-939d-602c5d5d69b9")]
+                                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Cardholder does not exist. Cardholder ID: {0} \n", strCardholderId));
+                                                Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("9be67335-1d02-4bf4-9f45-ac88d2407841")]
+                                                send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                            }
+                                        }
+                                        else 
+                                        {
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("2a912a37-da44-44b2-9c48-9d255fa4d915")]
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("Record neither added or removed. Entry Status: {0} \n", entryStatus));
+                                            Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("abc03377-a85f-4aa5-a130-c6e19248ab5d")]
+                                            send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                        }
+                                    }
+                                    else 
+                                    {
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("a39eab89-518a-4432-b258-2ca06570b28c")]
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("No Gallagher entity with the requested name was found in the response. AccessGroupName: {0} \n", strAccessGroupName));
+                                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("2f67c5cf-6b12-4904-be7f-c437218af407")]
+                                        send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                    }
+                                }
+                                else 
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("595805d5-8739-4f90-9960-0be9f264839d")]
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript(System.String.Format("No entity id was found in the Gallagher response. StrResponse: {0} \n", strResponse));
+                                    Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Sending to archive. \n");
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("a0024030-304d-4530-be00-2cb1352a65a4")]
+                                    send (SendStarrezReport.Send_To_FIle, SingleResponse);
+                                }
+                            }
+                            exceptions
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("a9ae67d8-0a33-4fbb-8415-b1794c8b9d5f")]
+                                catch (System.SystemException LoopEx)
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("7c3f47b2-3b6b-4e33-8e81-f9e4f191051b")]
+                                    construct ErrorMessage
+                                    {
+                                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("2fad0c3e-5cc6-40c8-a663-1d6c7f6aee94")]
+                                        ErrorMessage = new System.Xml.XmlDocument();
+                                        ErrorMessage.LoadXml("<Root><Error>" + LoopEx.Message + "</Error></Root>");
+                                    }
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("4410c190-73e1-47cf-b175-714be0481ce0")]
+                                    send (SendError.Operation_1, ErrorMessage);
+                                }
+                            }
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("69eb0272-4ee5-4fc3-b287-9c6ec7469bdf")]
+                        Bham.BizTalk.Rest.GallagherLoggingHelper.LogTranscript("Incrementing loop. \n");
+                        counter = counter + 1;
+                        counterString = counter.ToString();
+                    }
+                }
+                exceptions
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("e113360d-6954-4b9a-a067-1ad717723e5a")]
+                    catch (Bham.BizTalk.Rest.BizTalkRestClientException ex)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c65084bf-61de-47de-ac7e-9df5c7a965cd")]
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("06c8277e-3649-40d5-a276-6e594c3cdbf1")]
+                    catch (System.Exception SystemException)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("64f4088b-bd3a-4816-96d3-800259fd96f4")]
+                        System.Diagnostics.Debug.WriteLine(System.String.Format("Catch SystemException block")); 
+                        System.Diagnostics.Debug.WriteLine(System.String.Format("exc.Message: {0}", SystemException.Message));
+                        System.Diagnostics.Debug.WriteLine(System.String.Format("exc.Source: {0}", SystemException.Source));
+                        System.Diagnostics.Debug.WriteLine(System.String.Format("exc.GetType(): {0}", SystemException.GetType()));
+                        if (SystemException.InnerException != null)
+                        {
+                            System.Diagnostics.Debug.WriteLine(System.String.Format("exc.InnerException.Message: {0}", SystemException.InnerException.Message));
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(System.String.Format("exc.InnerException == null"));
+                        }
+                        
+                        varSysExc = SystemException.GetBaseException();
+                        if (varSysExc != null)
+                        {
+                            System.Diagnostics.Debug.WriteLine(System.String.Format("exc.GetBaseException().Message: {0}", varSysExc.Message));
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(System.String.Format("exc.GetBaseException() == null"));
+                        }
+                        
+                        //Write the exception to the Event log
+                        //varInstanceId = Microsoft.XLANGs.Core.Service.RootService.InstanceId.ToString();
+                        //varErrorMessage = System.String.Format("There was a System.SystemException error whilst processing {0}: {1}", varInstanceId, Ex.Message);
+                         
+                        //System.Diagnostics.EventLog.WriteEntry("BizTalk Server",varErrorMessage,System.Diagnostics.EventLogEntryType.Error);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("3707cbad-c5a5-4ee1-b515-ecf75ad05b4d")]
+                        if (SystemException.Message.Contains("System.Net.WebException") && SystemException.Message.Contains("(400) Bad Request") && SystemException.Message.Contains("There aren't any records to display"))
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1ec26a90-f9a0-4ede-87e1-9e5346678dc4")]
+                            terminate "Terminated unwanted message";;
+                        }
+                        else 
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("e343d1d2-b6f3-4382-81fa-5bd84f077f88")]
+                            suspend SystemException.Message;
+                        }
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("dde4c6ef-a7a5-4922-a397-6d2a90eb39b6")]
+                    catch
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c0ce3caf-be97-411e-8cab-8b283b70abd3")]
+                        throw;
+                    }
+                }
+            }
+        }
+    }
+}
+
