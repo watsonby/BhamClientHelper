@@ -1114,6 +1114,55 @@ namespace Bham.BizTalk.Rest
                 .UpdateCardholderAccessGroup(cardholderId, membershipHref, fromUtc, untilUtc);
         }
 
+        /// <summary>
+        /// Updates the StarRez personal data fields on a cardholder using an explicit certificate and timeout configuration.
+        /// </summary>
+        public static string UpdateCardholderPersonalData(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string cardholderId,
+            string accessGroupValue,
+            string checkInStatusFlag,
+            string certThumbprint,
+            StoreLocation storeLocation,
+            StoreName storeName,
+            int timeoutSeconds)
+        {
+            return UpdateCardholderPersonalData(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                cardholderId,
+                accessGroupValue,
+                checkInStatusFlag,
+                certThumbprint,
+                storeLocation,
+                storeName,
+                timeoutSeconds,
+                null);
+        }
+
+        /// <summary>
+        /// Updates the StarRez personal data fields on a cardholder, with optional certificate and logger support.
+        /// </summary>
+        public static string UpdateCardholderPersonalData(
+            string baseUrl,
+            string apiKeyHeaderName,
+            string apiKeyHeaderValue,
+            string cardholderId,
+            string accessGroupValue,
+            string checkInStatusFlag,
+            string certThumbprint = null,
+            StoreLocation storeLocation = StoreLocation.LocalMachine,
+            StoreName storeName = StoreName.My,
+            int timeoutSeconds = 100,
+            Action<BizTalkRestLogEntry> logger = null)
+        {
+            return CreateClient(baseUrl, apiKeyHeaderName, apiKeyHeaderValue, certThumbprint, storeLocation, storeName, timeoutSeconds, logger)
+                .UpdateCardholderPersonalData(cardholderId, accessGroupValue, checkInStatusFlag);
+        }
+
         private static GallagherApiClient CreateClient(
             string baseUrl,
             string apiKeyHeaderName,

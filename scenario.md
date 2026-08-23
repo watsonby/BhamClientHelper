@@ -4,7 +4,7 @@ This document provides code samples for common Gallagher API operations using th
 
 ## Scenario 1: Add Cardholder to Access Group with Date Range
 
-**Objective**: Given a cardholder (student ID: `IDCARD.2953599`) and an access group (`6090-MASON-114-02`), add the cardholder to the access group with from date/time `2025-09-12T05:00:00Z` and until date/time `2026-05-20T10:00:00Z`, but only if not already existing.
+**Objective**: Given a cardholder (student ID: `IDCARD.2953599`) and an access group (`6090-MASON-114-02`), add the cardholder to the access group with from date/time `2025-09-12T05:00:00Z` and until date/time `2026-05-20T10:00:00Z`, but if the membership already exists with different dates, update it instead of skipping.
 
 ### Prerequisites
 
@@ -73,6 +73,9 @@ strAccessGroupHref =
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
+
+    // If the access group is not found, this now returns "" (empty string)
+    // instead of throwing, so you can branch in a Decision shape.
 ```
 
 **Note**: Uses `ResolveAccessGroupHrefByName` instead of `ResolveAccessGroupIdByName` to obtain the full href. This handles access groups with non-numeric IDs (e.g., `6040-CHAMBERLAIN-B-11703`) and is directly compatible with PATCH operations.
@@ -92,6 +95,24 @@ strMembershipHref =
         System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
         System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
+
+accessGroupsJson =
+    Bham.BizTalk.Rest.GallagherApiFacade.GetCardholderAccessGroups(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strGallagherCardholderId,
+        strCertThumbprint,
+        System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser,
+        System.Security.Cryptography.X509Certificates.StoreName.My,
+        100);
+
+bHasGroup =
+    Bham.BizTalk.Rest.GallagherLoggingHelper.CardholderHasAccessGroupByNameAndDates(
+        accessGroupsJson,
+        strAccessGroupName,
+        strFromDate,
+        strUntilDate);
 ```
 
 ### Expression Shape D.5 (Check Access Group Exists)
@@ -122,29 +143,94 @@ strAccessGroupResponse =
         100);
 ```
 
-### Decision Shape (Check if Membership Exists)
+### Decision Shape (Check if Add or Update Is Required)
 
-- **Rule**: `strMembershipHref != ""` (membership exists)
-  - **True**: Skip adding (already exists)
-  - **False**: Proceed to add membership
+- **Rule**: `strMembershipHref == "" || bHasGroup != true`
+- **True**: Proceed to Shape E
+- **False**: Skip because the existing membership already has the requested dates
 
-### Expression Shape E (Add Cardholder to Access Group - Only if Not Exists)
+### Decision Shape (Check Access Group Found)
+
+- **Rule**: `strAccessGroupHref != ""` (access group found)
+    - **True**: Proceed
+    - **False**: Route to not-found handling path
+
+### Expression Shape E (Add or Update Cardholder Access Group)
+
+```csharp
+if (strMembershipHref == "")
+{
+    strResponse =
+        Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strAccessGroupHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+            System.Security.Cryptography.X509Certificates.StoreName.My,
+            100);
+}
+else
+{
+    strResponse =
+        Bham.BizTalk.Rest.GallagherApiFacade.UpdateCardholderAccessGroup(
+            strGallagherBaseUrl,
+            "Authorization",
+            strApiKey,
+            strGallagherCardholderId,
+            strMembershipHref,
+            strFromDate,
+            strUntilDate,
+            strCertThumbprint,
+            System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+            System.Security.Cryptography.X509Certificates.StoreName.My,
+            100);
+}
+```
+
+## Scenario 1.5: Update StarRez Personal Data Fields After Add
+
+**Objective**: After Shape E adds the cardholder to the access group, re-resolve the Gallagher cardholder id (same lookup as Shape B) and PATCH the StarRez personal data fields: the access group name string and a `Y`/`N` check-in status flag derived from the StarRez `Entry_Status` code (`5` -> `Y`, `2` -> `N`).
+
+### Expression Shape F.a (Re-resolve Cardholder ID by PDF Value)
 
 ```csharp
 strResponse =
-    Bham.BizTalk.Rest.GallagherApiFacade.AddAccessGroupToCardholder(
+    Bham.BizTalk.Rest.GallagherLoggingHelper.GetCardholdersByPdfValueWithNLog(
+        strGallagherBaseUrl,
+        "Authorization",
+        strApiKey,
+        strCardholderId,
+        strPdfFieldKey,
+        strCertThumbprint,
+        100);
+
+strGallagherCardholderId =
+    Bham.BizTalk.Rest.GallagherApiResponseParser.GetFirstEntityId(strResponse);
+```
+
+### Expression Shape F.b (Resolve Check-In Status Flag and PATCH Personal Data)
+
+```csharp
+strCheckInStatusFlag = Bham.BizTalk.Rest.StarrezHelper.ResolveCheckInStatusFlag(entryStatus);
+
+strResponse =
+    Bham.BizTalk.Rest.GallagherLoggingHelper.UpdateCardholderPersonalDataWithNLog(
         strGallagherBaseUrl,
         "Authorization",
         strApiKey,
         strGallagherCardholderId,
-        strAccessGroupHref,
-        strFromDate,
-        strUntilDate,
+        strAccessGroupName,
+        strCheckInStatusFlag,
         strCertThumbprint,
-        System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
-        System.Security.Cryptography.X509Certificates.StoreName.My,
         100);
 ```
+
+**Note**: `ResolveCheckInStatusFlag` only accepts StarRez status `"5"` (-> `"Y"`) or `"2"` (-> `"N"`); any other value throws, so it should run inside the same `bAdd` branch where `entryStatus` is already known to be `"2"` or `"5"`.
 
 ## Scenario 2: Remove Cardholder from Access Group
 

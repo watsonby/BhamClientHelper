@@ -12,7 +12,7 @@ BizTalk 2016 helper library for outbound REST GET and PATCH calls, with Gallaghe
 - JSON parsing helpers for common Gallagher response extraction.
 
 Target framework:
-- .NET Framework 4.6.1 (net461)
+- .NET Framework 4.6 (net46)
 
 Main output:
 - Bham.BizTalk.Rest.dll
@@ -520,6 +520,9 @@ Example helper methods available:
 - `ResolveAccessGroupMembershipHrefWithNLog(...)`
 - `RemoveCardholderFromAccessGroupWithNLog(...)`
 - `AddAccessGroupToCardholderWithNLog(...)`
+- `UpdateCardholderAccessGroupWithNLog(...)`
+
+For add/status=`2` flows, do not treat `strMembershipHref != ""` as an automatic skip. If the membership exists but `GetCardholderAccessGroups(...)` shows different `from` or `until` dates for that access group, call `UpdateCardholderAccessGroup(...)` or `UpdateCardholderAccessGroupWithNLog(...)` with the existing membership href.
 
 ## 9. Build and test
 

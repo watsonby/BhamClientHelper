@@ -191,7 +191,10 @@ namespace Bham.BizTalk.Rest
         /// </summary>
         public string ResolveAccessGroupHrefByName(string accessGroupName)
         {
-            return GallagherApiResponseParser.GetEntityHrefByName(FindAccessGroupsByName(accessGroupName), accessGroupName);
+            string href;
+            return GallagherApiResponseParser.TryGetEntityHrefByName(FindAccessGroupsByName(accessGroupName), accessGroupName, out href)
+                ? href
+                : string.Empty;
         }
 
         /// <summary>
@@ -274,6 +277,16 @@ namespace Bham.BizTalk.Rest
         }
 
         /// <summary>
+        /// Updates the StarRez personal data fields (bedroom/access group name and check-in status flag) on a cardholder.
+        /// </summary>
+        public string UpdateCardholderPersonalData(string cardholderId, string accessGroupValue, string checkInStatusFlag)
+        {
+            var url = CombineUrl("cardholders/" + EncodePathSegment(cardholderId));
+            var body = BuildUpdatePersonalDataPatchBody(accessGroupValue, checkInStatusFlag);
+            return _client.PatchJson(url, body);
+        }
+
+        /// <summary>
         /// Wraps a query value in quotes to match Gallagher's expected filter format.
         /// </summary>
         public static string BuildQuotedQueryValue(string value)
@@ -313,6 +326,23 @@ namespace Bham.BizTalk.Rest
                 + "\"remove\":[{"
                 + "\"href\":\"" + EscapeJson(membershipHref) + "\""
                 + "}]}"
+                + "}";
+        }
+
+        /// <summary>
+        /// Builds the JSON PATCH body used to update the StarRez personal data fields on a cardholder.
+        /// </summary>
+        public static string BuildUpdatePersonalDataPatchBody(string accessGroupValue, string checkInStatusFlag)
+        {
+            if (string.IsNullOrWhiteSpace(accessGroupValue)) throw new ArgumentNullException(nameof(accessGroupValue));
+            if (checkInStatusFlag != "Y" && checkInStatusFlag != "N")
+            {
+                throw new ArgumentException("Check-in status flag must be \"Y\" or \"N\".", nameof(checkInStatusFlag));
+            }
+
+            return "{"
+                + "\"@StarRezBedroom\":\"" + EscapeJson(accessGroupValue.Trim()) + "\","
+                + "\"@StarRezCheckInStatus\":\"" + EscapeJson(checkInStatusFlag) + "\""
                 + "}";
         }
 

@@ -75,7 +75,18 @@ namespace Bham.BizTalk.Rest
         public static bool CardholderHasAccessGroupByNameAndDates(string cardholderAccessGroupsJson, string accessGroupName, string fromDate, string untilDate)
         {
             string href;
-            return GallagherApiResponseParser.TryGetAccessGroupMembershipHrefByNameAndDates(cardholderAccessGroupsJson, accessGroupName, fromDate, untilDate, out href);
+            return GallagherApiResponseParser.TryGetCardholderAccessGroupMembershipHrefByNameAndDates(cardholderAccessGroupsJson, accessGroupName, fromDate, untilDate, out href);
+        }
+
+        /// <summary>
+        /// Resolves the membership href from a cardholder access-groups response by access-group name and optional date range.
+        /// </summary>
+        public static string ResolveCardholderAccessGroupMembershipHrefByNameAndDates(string cardholderAccessGroupsJson, string accessGroupName, string fromDate, string untilDate)
+        {
+            string href;
+            return GallagherApiResponseParser.TryGetCardholderAccessGroupMembershipHrefByNameAndDates(cardholderAccessGroupsJson, accessGroupName, fromDate, untilDate, out href)
+                ? href
+                : string.Empty;
         }
 
         /// <summary>
@@ -377,6 +388,39 @@ namespace Bham.BizTalk.Rest
             CreateNLogLogger("ResolveAccessGroupMembershipHref"));
     }
 
+    public static string GetCardholderAccessGroupsSafeWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string cardholderId,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        try
+        {
+            return GallagherApiFacade.GetCardholderAccessGroups(
+                baseUrl,
+                apiKeyHeaderName,
+                apiKeyHeaderValue,
+                cardholderId,
+                certThumbprint,
+                StoreLocation.CurrentUser,
+                StoreName.My,
+                timeoutSeconds,
+                CreateNLogLogger("GetCardholderAccessGroups"));
+        }
+        catch (BizTalkRestClientException ex)
+        {
+            if (ex.Message != null && ex.Message.IndexOf("404", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                LogTranscript(string.Format("GetCardholderAccessGroups returned 404 for cardholder ID: {0}", cardholderId));
+                return "{}";
+            }
+
+            throw;
+        }
+    }
+
     public static string AddAccessGroupToCardholderWithNLog(
         string baseUrl,
         string apiKeyHeaderName,
@@ -423,6 +467,56 @@ namespace Bham.BizTalk.Rest
             StoreName.My,
             timeoutSeconds,
             CreateNLogLogger("RemoveCardholderFromAccessGroup"));
+    }
+
+    public static string UpdateCardholderAccessGroupWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string cardholderId,
+        string membershipHref,
+        string fromUtc,
+        string untilUtc,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.UpdateCardholderAccessGroup(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            cardholderId,
+            membershipHref,
+            fromUtc,
+            untilUtc,
+            certThumbprint,
+            StoreLocation.CurrentUser,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("UpdateCardholderAccessGroup"));
+    }
+
+    public static string UpdateCardholderPersonalDataWithNLog(
+        string baseUrl,
+        string apiKeyHeaderName,
+        string apiKeyHeaderValue,
+        string cardholderId,
+        string accessGroupValue,
+        string checkInStatusFlag,
+        string certThumbprint = null,
+        int timeoutSeconds = 100)
+    {
+        return GallagherApiFacade.UpdateCardholderPersonalData(
+            baseUrl,
+            apiKeyHeaderName,
+            apiKeyHeaderValue,
+            cardholderId,
+            accessGroupValue,
+            checkInStatusFlag,
+            certThumbprint,
+            StoreLocation.CurrentUser,
+            StoreName.My,
+            timeoutSeconds,
+            CreateNLogLogger("UpdateCardholderPersonalData"));
     }
 
     public static string GetPersonalDataFieldsByNameWithNLog(

@@ -29,13 +29,21 @@ namespace Bham.BizTalk.Rest.Tests
             Run(nameof(GallagherApiClientTests.BuildUpdateAccessGroupPatchBody_MatchesGallagherShape), GallagherApiClientTests.BuildUpdateAccessGroupPatchBody_MatchesGallagherShape);
             Run(nameof(GallagherApiResponseParserTests.GetFirstEntityId_FindsFirstNestedId), GallagherApiResponseParserTests.GetFirstEntityId_FindsFirstNestedId);
             Run(nameof(GallagherApiResponseParserTests.GetEntityIdByName_FindsMatchingName), GallagherApiResponseParserTests.GetEntityIdByName_FindsMatchingName);
+            Run(nameof(GallagherApiResponseParserTests.GetEntityHrefByName_MatchesTrimmedQuotedName), GallagherApiResponseParserTests.GetEntityHrefByName_MatchesTrimmedQuotedName);
+            Run(nameof(GallagherApiResponseParserTests.GetEntityHrefByName_ReadsNestedNameAndHref), GallagherApiResponseParserTests.GetEntityHrefByName_ReadsNestedNameAndHref);
+            Run(nameof(GallagherApiResponseParserTests.TryGetEntityHrefByName_ReturnsFalseWhenNameMissing), GallagherApiResponseParserTests.TryGetEntityHrefByName_ReturnsFalseWhenNameMissing);
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefForCardholder_FindsMembershipHref);
             Run(nameof(GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord), GallagherApiResponseParserTests.GetAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord);
             Run(nameof(GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter), GallagherApiResponseParserTests.TryGetAccessGroupMembershipHrefByNameAndDates_AllowsNameOnlyFilter);
+            Run(nameof(GallagherApiResponseParserTests.GetCardholderAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord), GallagherApiResponseParserTests.GetCardholderAccessGroupMembershipHrefByNameAndDates_FindsMatchingRecord);
+            Run(nameof(GallagherApiResponseParserTests.TryGetCardholderAccessGroupMembershipHrefByNameAndDates_ReturnsFalseWhenDatesDiffer), GallagherApiResponseParserTests.TryGetCardholderAccessGroupMembershipHrefByNameAndDates_ReturnsFalseWhenDatesDiffer);
             Run(nameof(SmokeTestWorkflowOptionTests.Validate_BuildsPdfFieldKeyFromPdfFieldId), SmokeTestWorkflowOptionTests.Validate_BuildsPdfFieldKeyFromPdfFieldId);
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias), SmokeTestWorkflowOptionTests.ApplyNamedArguments_AcceptsLegacyPdfValueAlias);
             Run(nameof(SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided), SmokeTestWorkflowOptionTests.ApplyNamedArguments_PreservesGallagherCardholderId_WhenProvided);
             Run(nameof(SmokeTestWorkflowOptionTests.LoadFromJsonFile_ReadsGallagherCardholderIdSample), SmokeTestWorkflowOptionTests.LoadFromJsonFile_ReadsGallagherCardholderIdSample);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEntryId_WhenElementExists), StarrezHelperTests.ExtractEntryId_ReturnsEntryId_WhenElementExists);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenElementMissing), StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenElementMissing);
+            Run(nameof(StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenXmlInvalid), StarrezHelperTests.ExtractEntryId_ReturnsEmpty_WhenXmlInvalid);
         }
 
         private static void Run(string name, Action test)
